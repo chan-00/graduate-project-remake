@@ -1,0 +1,90 @@
+/* gif 포함 메인 영역 Container css */
+#mainContentContainer {
+    width: 100vw;
+    height: 810px;
+    
+    background-image: url('https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g');
+    background-size: 100vw 810px;
+    background-repeat: no-repeat;
+}
+
+#mainContentContainer div {
+    color: white;
+    font-size: 64px;
+    line-height: 70px;
+    font-weight: 800;
+    text-shadow: rgb(0 0 0 / 20%) 0px 0px 8px;
+}
+/* gif 포함 메인 영역 Container css */
+
+
+/* 컨텐츠 소개 전체 영역 Container css */
+.contentsContainer {
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 150px;
+}
+/* 맵 소개 영역 Container css */
+
+
+/* 컨텐츠 소개 영역 제목 css */
+.contentsTitle {
+    font-size: 48px;
+    line-height: 70px;
+    font-weight: 800;
+    margin-top: 100px;
+}
+/* 컨텐츠 소개 영역 제목 css */
+
+
+/* 컨텐츠 영역 css */
+.mainContentsContainer {
+    margin-top: 80px;
+}
+
+.mainContentsContainer h2 {
+    font-size: 30px;
+    line-height: 70px;
+    font-weight: 800;
+    margin-top: 50px;
+}
+
+.mainContentsContainer p {
+    font-size: 20px;
+}
+
+.mainContentsContainer img {
+    width: 1000px;
+    height: 500px;
+}
+
+.mainContentsContainer div {
+    display: inline-block;
+}
+/* 컨텐츠 영역 css */
+
+
+/* 캐릭터 소개 영역 Container css */
+#characterContainer {
+    background-color: #f8f8fa;
+    padding-top: 5px;
+}
+
+#characterContainer img {
+    width: 1000px;
+    height: 500px;
+}
+
+#characterContainer .mainContentsContainer div {
+    margin: 0 100px;
+}
+/* 백그라운드 색을 gray 색으로 바꾸는 css */
+
+
+/* 내부 content를 가운데 정렬시키는 css */
+.contentCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 내부 content를 가운데 정렬시키는 css */

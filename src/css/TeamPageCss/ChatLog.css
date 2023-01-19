@@ -1,0 +1,35 @@
+/* 채팅 로그 화면의 전체를 감싸는 Container */
+#chatAllContainer {
+    width: 100vw;
+}
+/* 채팅 로그 화면의 전체를 감싸는 Container */
+
+
+/* 채팅 로그 화면 영역 Container */
+#chatLogContainer {
+    margin: 100px auto;
+    padding: 10px;
+
+    width: 600px;
+    height: 800px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#chatLogContainer svg {
+    font-size: 2rem;
+}
+
+#chatLogContainer pre {
+
+}
+
+#chatLogContainer .chatContents {
+    background-color: #E4EAEF;
+    display: inline-block;
+    border-radius: 10px;
+
+    margin-left: 10px;
+}
+/* 채팅 로그 화면 영역 Container */

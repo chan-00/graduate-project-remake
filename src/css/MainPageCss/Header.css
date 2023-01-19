@@ -1,0 +1,63 @@
+/* button 기본 디자인 제거 */
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/* button 기본 디자인 제거 */
+
+
+/* navbar 전체 영역 css */
+#navContainer {
+    height: 80px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 10;
+}
+
+#navContainer * {
+    margin-left: 8px;
+}
+/* navbar 전체 영역 css */
+
+
+/* navbar title css */
+#navTitle {
+    margin-left: 30px;
+    font-size: 22px;
+}
+/* navbar title css */
+
+
+/* navbar sign button css */
+.signBtn {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+}
+/* navbar sign button css */
+
+
+/* navbar user 버튼 css */
+#userContainer {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+#userContainer * {
+    margin-right: 20px;
+}
+/* navbar user 버튼 css */
+
+
+/* navbar dropdown item css */
+#navContainer .dropdown-item {
+    margin: 10px 0;
+}
+/* navbar dropdown item css */

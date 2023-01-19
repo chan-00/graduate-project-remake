@@ -1,0 +1,54 @@
+/* Sign 영역을 감싸는 Container css */
+.signAllContainer {
+    min-height: 100vh;
+}
+
+.signAllContainer .signContainer {
+    max-width: 400px;
+    margin: 200px auto 0;
+}
+
+.signAllContainer > form h2 {
+    text-align: center;
+}
+
+.signAllContainer > form hr {
+    margin-bottom: 40px;
+}
+
+.signAllContainer > form div {
+    margin-bottom: 10px;
+}
+
+.signContainer div:last-child {
+    margin-top: 30px;
+}
+
+.signContainer button {
+    height: 45px;
+    border-radius: 30px;
+}
+/* Sign 영역을 감싸는 Container css */
+
+
+/* input, button에 공통 적용되는 css */
+.formElements {
+    width: 400px;
+    border-radius: 30px;
+}
+/* input, button에 공통 적용되는 css */
+
+
+/* input에 공통 적용되는 css */
+.inputElements {
+    border: 1px solid gray;
+    padding: 8px;
+}
+/* input에 공통 적용되는 css */
+
+
+/* sign button css */
+.signButtonContainer {
+    margin-top: 30px;
+}
+/* sign button css */

@@ -1,0 +1,58 @@
+/* 팀 페이지 전체 영역 Container css */
+#teamPageAllContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+#teamPageAllContainer > .spinner-border {
+    margin-right: 240px;
+    margin-top: 500px;
+}
+/* 팀 페이지 전체 영역 Container css */
+
+
+/* 팀 페이지 SideBar Container css */
+#teamPageSideBar {
+    width: 240px;
+    height: 100%;
+    background-color: rgb(33, 37, 41);
+    color: white;
+
+    position: fixed;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+
+    z-index: 10;
+}
+
+#teamPageSideBar > div {
+    width: 100%;
+    padding: 20px 30px;
+
+    border-radius: 10px;
+}
+
+#teamPageSideBar > div:hover {
+    cursor: pointer;
+}
+
+#teamPageSideBar > div > svg {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+#teamPageSideBar > div > span {
+    vertical-align: middle;
+    font-size: 20px;
+}
+/* 팀 페이지 SideBar Container css */
+
+
+/* 팀 페이지 SideBar Menu 중 클릭된 상황에 대한 css */
+.selectedTeamSideBarMenu {
+    background-color: #0d6efd;
+    color: white;
+    transition-duration: 0.3s;
+}
+/* 팀 페이지 SideBar Menu 중 클릭된 상황에 대한 css */

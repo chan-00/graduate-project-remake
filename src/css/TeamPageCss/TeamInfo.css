@@ -1,0 +1,134 @@
+/* 팀 정보 컴포넌트 전체를 감싸는 Container css */
+#teaminfoAllContainer {
+    
+}
+/* 팀 정보 컴포넌트 전체를 감싸는 Container css */
+
+
+/* 팀 정보 영역을 감싸는 Container css */
+#teaminfoContainer {
+    width: 50%;
+    height: 300px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 100px 0 50px 400px;
+    padding: 20px;
+
+    background-color: #f8f8fa;
+    overflow: auto;
+}
+
+#teaminfoContainer > span {
+    color: gray;
+    font-size: 15px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#teaminfoContainer > h4 > .outlinePrimary {
+    float: right;
+    padding: 10px 20px;
+    margin-right: 20px;
+
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 15px;
+    color: blue;
+    font-size: 15px;
+}
+
+#teaminfoContainer > h4 > .outlinePrimary:hover {
+    background-color: blue;
+    color: white;
+    transition-duration: 0.3s;
+}
+/* 팀 정보 영역을 감싸는 Container css */
+
+
+/* 팀 멤버 영역을 감싸는 Container css */
+.teamManagementContainer {
+    width: 50%;
+    height: 400px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 0 50px 400px;
+    padding: 20px;
+
+    overflow: auto;
+    white-space: nowrap;
+
+    background-color: #f8f8fa;
+}
+/* 팀 멤버 영역을 감싸는 Container css */
+
+
+/* 팀 코멘트 영역을 감싸는 Container css */
+#teamCommentContainer > svg {
+    font-size: 25px;
+    float: right;
+    margin-top: 150px;
+}
+
+#teamCommentContainer > svg:hover {
+    cursor: pointer;
+}
+/* 팀 코멘트 영역을 감싸는 Container css */
+
+
+/* 팀 신청을 넣은 유저에 대한 정보를 담을 Card Container css */
+.cardContainer {
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+
+    white-space: normal;
+}
+
+.cardContainer img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.cardContainer > .card {
+    height: 80%;
+    width: 200px;
+    margin: 40px 40px 0;
+}
+
+.cardContainer button {
+    font-size: 13px;
+    background-color: inherit;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+#userComments {
+    display: inline-block;
+    font-size: 15px;
+}
+/* 팀 신청을 넣은 유저에 대한 정보를 담을 Card Container css */
+
+
+/* 멤버 Card Container css */
+.cardContainer .userInfoText {
+    display: inline-block;
+    font-size: 13px;
+    color: gray;
+    word-break: keep-all;
+    
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 멤버 Card Container css */
+
+
+/* 리더인 멤버의 카드 닉네임 텍스트 컬러를 바꾸는 css */
+.leaderMemberColor {
+    color: blue;
+}
+/* 리더인 멤버의 카드 닉네임 텍스트 컬러를 바꾸는 css */

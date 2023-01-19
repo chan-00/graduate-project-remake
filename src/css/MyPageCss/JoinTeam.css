@@ -1,0 +1,101 @@
+/* Team 관련 내용 전체 영역 Container css */
+.mypageTeamContainer {
+    height: 90%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+/* Team 관련 내용 전체 영역 Container css */
+
+
+/* 마이페이지 팀 리스트 ul css */
+.mypageTeamList {
+    list-style: none;
+    padding-left: 0;
+    height: 100%;
+    border-right: 1px solid #b4b4b4;
+
+    overflow: auto;
+}
+
+.mypageTeamList > li {
+    padding: 25px 20px;
+    border-bottom: 1px solid #b4b4b4;
+    font-size: 15px;
+}
+
+.mypageTeamList > li:hover {
+    background-color: #b4b4b4;
+    transition-duration: 0.2s;
+}
+
+.mypageTeamList > li > span {
+    float: right;
+    font-size: 13px;
+}
+/* 마이페이지 팀 리스트 ul css */
+
+
+/* 마이페이지 팀 멤버 Container css */
+.mypageTeamMemberContainer {
+    position: relative;
+}
+
+.mypageTeamMemberContainer > h2 {
+    text-align: center;
+    margin: 20px 0 80px;
+}
+/* 마이페이지 팀 멤버 Container css */
+
+
+/* 마이페이지 팀 멤버 Info 영역 css */
+.mypageTeamMemberInfo > div {
+    display: inline-block;
+    width: 25%;
+    margin-bottom: 100px;
+}
+
+.mypageTeamMemberInfo > div > svg {
+    margin-left: 10px;
+    font-size: 50px;
+    color: gray;
+}
+
+.mypageTeamMemberInfo > div > span {
+    margin-left: 10px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+/* 마이페이지 팀 멤버 Info 영역 css */
+
+
+/* 마이페이지 팀 멤버 Container Footer css */
+.mypageTeamMemberFooter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    border: none;
+    background-color: inherit;
+}
+/* 마이페이지 팀 멤버 Container Footer css */
+
+
+/* 마이페이지에서 팀이 없을 시 표현되는 메시지 Container css */
+#mypageNoneTeamMessageContainer {
+    width: 1200px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+#mypageNoneTeamMessageContainer > svg {
+    font-size: 100px;
+    color: gray;
+    float: none;
+}
+
+#mypageNoneTeamMessageContainer > p {
+    font-size: 30px;
+    color: gray;
+    margin-top: 20px;
+}
+/* 마이페이지에서 팀이 없을 시 표현되는 메시지 Container css */

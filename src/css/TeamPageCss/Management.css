@@ -1,0 +1,36 @@
+/* 팀 Container Header text css */
+#teamMemberHeader {
+    margin-left: 400px;
+    margin-top: 50px;
+}
+
+#teamAppliedHeader {
+    margin-left: 400px;
+}
+/* 팀 멤버 Container Header text css */
+
+
+/* 팀 신청 유저에 대한 승인/거절 버튼 css */
+.outlinePrimary {
+    border: 1px solid blue;
+    color: blue;
+    margin-right: 10px;
+}
+
+.outlinePrimary:hover {
+    background-color: blue;
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.outlineDanger {
+    border: 1px solid red;
+    color: red;
+}
+
+.outlineDanger:hover {
+    background-color: red;
+    color: white;
+    transition-duration: 0.2s;
+}
+/* 팀 신청 유저에 대한 승인/거절 버튼 css */

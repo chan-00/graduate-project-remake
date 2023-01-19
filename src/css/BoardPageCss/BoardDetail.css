@@ -1,0 +1,207 @@
+/* 게시글 상세 페이지 전체 영역 Container css */
+#boardDetailAllContainer {
+    width: 100vw;
+}
+/* 게시글 상세 페이지 전체 영역 Container css */
+
+
+/* 게시글 상세 페이지 영역 Container css */
+#boardDetailContainer {
+    width: 1100px;
+    margin: 0 auto;
+}
+/* 게시글 상세 페이지 영역 Container css */
+
+
+/* 게시글 상세 페이지 제목 관련 컨텐츠 Container css */
+#boardTitleContainer > h4 {
+    margin-top: 50px;
+    font-weight: bold;
+    color: #616161;
+
+    cursor: pointer;
+}
+
+#boardTitleContainer > hr {
+    color: blue;
+}
+
+#boardTitleContainer > hr:last-child {
+    color: gray;
+}
+
+#boardTitleContainer > #boardContentsTitleContainer > span {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#boardButtonContainer {
+    float: right;
+    margin-right: 25px;
+}
+
+#boardButtonContainer > button {
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+#boardButtonContainer > .outlinePrimary:hover {
+    color: white;
+    background-color: blue;
+}
+
+#boardButtonContainer > .outlineDanger:hover {
+    color: white;
+    background-color: red;
+}
+
+#boardAdditionInfoContainer {
+    margin-top: 5px;
+}
+
+#boardAdditionInfoContainer span {
+    font-size: 13px;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+#boardAdditionInfoContainer > span:first-child {
+    border-right: 1px solid gray;
+    padding-left: 0;
+}
+
+#boardAdditionInfoContainer > div {
+    display: inline-block;
+    float: right;
+}
+
+#boardAdditionInfoContainer > div > span {
+    border-right: 1px solid gray;
+}
+
+#boardAdditionInfoContainer > div > span:last-child {
+    border: none;
+}
+/* 게시글 상세 페이지 제목 관련 컨텐츠 Container css */
+
+
+/* 게시글 상세 페이지 내용 관련 컨텐츠 Container css */
+#boardTeamButton {
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: white;
+    padding: 30px 30px;
+    margin: 10px 0 30px 20px;
+}
+
+#boardTeamButton:hover {
+    color: white;
+    background-color: #0075ff;
+    transition-duration: 0.3s;
+}
+/* 게시글 상세 페이지 내용 관련 컨텐츠 Container css */
+
+
+/* 게시글 상세 페이지 댓글 관련 header 컨텐츠 css */
+#boardCommentsIntroContainer {
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+#boardCommentsIntroContainer > div {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#boardCommentsIntroContainer > div > svg {
+    font-size: 15px;
+    color: blue;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+/* 게시글 상세 페이지 댓글 관련 header 컨텐츠 css */
+
+
+/* 게시글 상세 페이지 댓글 Container 컨텐츠 css */
+.commentsContainer {
+    border-bottom: 1px solid #b4b4b4;
+    display: grid;
+    grid-template-columns: 100px 1fr 250px;
+}
+
+.commentsContainer > pre {
+    margin: 10px 0;
+}
+
+.commentsContainer > span {
+    font-size: 15px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.commentsContainer > span:last-child {
+    padding-left: 20px;
+}
+
+.commentsContainer div {
+    display: inline-block;
+}
+
+.commentsContainer div > svg {
+    font-size: 17px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.commentsContainer div > svg:first-child {
+    color: blue;
+}
+
+.commentsContainer div > svg:last-child {
+    color: red;
+}
+/* 게시글 상세 페이지 댓글 Container 컨텐츠 css */
+
+
+/* 게시글 상세 페이지 댓글 작성 영역 Container 컨텐츠 css */
+#boardCommentsWriteContainer {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+#boardCommentsWriteContainer > span {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+#boardCommentsWriteContainer > svg {
+    margin-top: 5px;
+}
+
+#boardCommentsWriteContainer > span, svg {
+    float: left;
+}
+
+#boardCommentsWriteContainer > textarea {
+    resize: none;
+    width: 80%;
+    height: 100px;
+    margin-left: 20px;
+}
+
+#boardCommentsWriteContainer button {
+    float: right;
+    margin-right: 13%;
+    margin-top: 10px;
+    padding: 5px 30px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+}
+/* 게시글 상세 페이지 댓글 작성 영역 Container 컨텐츠 css */

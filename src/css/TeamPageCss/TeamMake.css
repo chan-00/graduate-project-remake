@@ -1,0 +1,79 @@
+/* 팀 생성 화면 body css */
+#teammakeBody {
+    width: 100vw;
+    height: 100vh;
+}
+/* 팀 생성 화면 body css */
+
+
+/* 팀 생성 화면의 전체를 감싸는 Container css */
+#teammakeAllContainer {
+    width: 1200px;
+    height: 600px;
+    margin: 150px auto 0;
+    background-color: #f8f8fa;
+
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+/* 팀 생성 화면의 전체를 감싸는 Container css */
+
+
+/* 팀 생성 화면의 이미지 영역 Container css */
+#teammakeImageContainer {
+    background-image: url("https://media.istockphoto.com/id/1390650720/photo/digital-network-connection-abstract-connection-of-dots-and-lines-technology-background-plexus.jpg?b=1&s=170667a&w=0&k=20&c=SUkUz3EzbbcC25vGSHdV_9MxR0Mun8giVcuHoyOKwDo=");
+    background-size: 100% 600px;
+    
+    text-align: center;
+}
+
+#teammakeImageContainer > h3 {
+    color: white;
+    margin-top: 250px;
+    font-size: 40px;
+}
+
+#teammakeImageContainer > span {
+    color: white;
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 50px;
+}
+/* 팀 생성 화면의 이미지 영역 Container css */
+
+
+/* 팀 생성 화면의 입력(input) 영역 Container css */
+#teammakeContentsContainer {
+    text-align: center;
+}
+
+#teammakeContentsContainer > h3 {
+    margin: 25px 0;
+    font-size: 30px;
+}
+/* 팀 생성 화면의 입력(input) 전체 영역 Container css */
+
+
+/* 팀 생성 화면의 입력(input) 영역 Container css */
+.teamMakeContainer {
+    height: 80%;
+    display: inline-block;
+}
+
+.teamMakeContainer > h4 {
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.teamMakeContainer select {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.teamMakeContainer div {
+    margin-bottom: 10px;
+}
+/* 팀 생성 화면의 입력(input) 영역 Container css */
