@@ -21,11 +21,12 @@
     font-size: 2rem;
 }
 
-#chatLogContainer pre {
-
+#chatLogContainer p {
+    margin: 0;
+    padding: 5px 10px;
 }
 
-#chatLogContainer .chatContents {
+.chatContents {
     background-color: #E4EAEF;
     display: inline-block;
     border-radius: 10px;
@@ -33,3 +34,56 @@
     margin-left: 10px;
 }
 /* 채팅 로그 화면 영역 Container */
+
+
+/* 채팅 메시지 전체 영역 Container */
+#chatContentsContainer {
+    height: 90%;
+    overflow: auto;
+}
+/* 채팅 메시지 영역 Container */
+
+
+/* 채팅 소유자에 따라 디자인을 다르게 보여주게 하기 위한 클래스명 */
+.otherChat {
+    margin: 10px 0;
+}
+
+.otherChat .chatTime span {
+    margin-left: 2.6rem;
+}
+
+.myChat {
+    margin: 10px 0;
+    text-align: right;
+}
+
+.myChat * {
+    display: inline-block;
+}
+
+.myChat svg {
+    float: none;
+}
+
+.myChat .chatContents {
+    margin-right: 10px;
+    background-color: #0077fe;
+    color: white;
+}
+
+.myChat .chatTime span {
+    margin-right: 2.6rem;
+}
+/* 본인 채팅일 경우 디자인을 다르게 보여주게 하기 위한 클래스명 */
+
+
+/* 채팅 시간을 감싸는 Container */
+.chatTime {
+    display: block;
+}
+
+.chatTime span {
+    display: inline-block;
+}
+/* 채팅 시간을 감싸는 Container */
