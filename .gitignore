@@ -26,3 +26,5 @@ package.json
 package-lock.json
 
 /src/serverIP.js
+
+/src/searchApiKey.js
