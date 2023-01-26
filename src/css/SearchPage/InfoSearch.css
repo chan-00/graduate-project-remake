@@ -1,0 +1,110 @@
+/* Search Page All Container css */
+#infoSearchAllContainer {
+    width: 100vw;
+}
+
+#infoSearchAllContainer > h3 {
+    text-align: center;
+    margin-top: 50px;
+}
+/* Search Page All Container css */
+
+
+/* Search Container css */
+#searchContainer {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#searchContainer * {
+    display: inline-block;
+}
+
+#searchContainer > input {
+    width: 20%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.outlinePrimary {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.outlinePrimary:hover {
+    background-color: blue;
+}
+/* Search Container css */
+
+
+/* 검색어를 입력하지 않았을 때 Container css */
+.noSearch {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.noSearch > span {
+    font-size: 1.5rem;
+    color: gray;
+}
+/* 검색어를 입력하지 않았을 때 Container css */
+
+
+/* 검색 결과가 나왔을 때 전체 영역의 Container css */
+.searchResultContentsContainer {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 30px auto;
+
+    width: 40%;
+}
+
+.searchResultContentsContainer a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 10px;
+}
+
+.searchResultContentsContainer a:hover {
+    text-decoration: underline;
+}
+
+.searchResultContentsContainer p {
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+.searchResultContentsContainer .shareBtn {
+    float: right;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+
+    border-radius: 15px;
+    margin: 10px;
+}
+/* 검색 결과가 나왔을 때 전체 영역의 Container css */
+
+
+/* 이전/다음 버튼에 대한 Container css */
+#searchMoveBtnContainer {
+    text-align: center;
+}
+
+#searchMoveBtnContainer > button {
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+#searchMoveBtnContainer > button:hover {
+    background-color: blue;
+    color: white;
+    transition-duration: 0.2s;
+}
+/* 이전/다음 버튼에 대한 Container css */
