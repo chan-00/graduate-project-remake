@@ -5,3 +5,15 @@
 /* 팀 검색 전체 Container css */
 
 
+/* 팀 검색 form Container css */
+#teamSearchFormContainer {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+
+    border-radius: 20px;
+    background-color: #f8f8fa;
+
+    text-align: center;
+}
+/* 팀 검색 form Container css */

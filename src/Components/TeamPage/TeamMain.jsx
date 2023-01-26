@@ -75,6 +75,7 @@ function TeamMain() {
                     <thead>
                         <tr>
                             <th>Team Name</th>
+                            <th>Category</th>
                             <th>Start Date</th>
                             <th>Member</th>
                         </tr>

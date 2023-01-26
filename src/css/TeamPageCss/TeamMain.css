@@ -33,12 +33,12 @@
 
 #teamMainContentsContainer > thead > tr {
     display: grid;
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 15% 15% 15% 55%;
 }
 
 #teamMainContentsContainer > tbody > tr {
     display: grid;
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 15% 15% 15% 55%;
 }
 
 #teamMainContentsContainer tr:hover {

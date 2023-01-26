@@ -19,6 +19,7 @@ function TeamListShow({posts}) {
             {posts.map((post, index) => (
                 <tr key={post[0][0]} id={post[0][0]} onClick={() => handleTeamClick(post[0][0])}>
                     <td>{post[0][0]}</td>
+                    <td>{post[0][2]}</td>
                     <td>{post[0][1]}</td>
                     <td>
                         {post[1].map((member) => (
