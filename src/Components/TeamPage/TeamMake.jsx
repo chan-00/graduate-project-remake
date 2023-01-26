@@ -67,11 +67,15 @@ function TeamMake() {
                         <h4>Select Category</h4>
                         <div>
                             <select onChange={handleChangeCategory}>
-                                <option value="국어">국어</option>
-                                <option value="수학">수학</option>
-                                <option value="언어">언어</option>
                                 <option value="IT">IT</option>
+                                <option value="문화">문화</option>
+                                <option value="수학">수학</option>
                                 <option value="과학">과학</option>
+                                <option value="언어">언어</option>
+                                <option value="경제">경제</option>
+                                <option value="문학/창작">문학/창작</option>
+                                <option value="사회">사회</option>
+                                <option value="기타">기타</option>
                             </select>
                         </div>
                         <div className="makeButtonContainer">

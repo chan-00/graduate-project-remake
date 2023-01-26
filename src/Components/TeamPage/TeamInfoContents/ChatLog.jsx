@@ -21,7 +21,6 @@ function ChatLog() {
     useEffect(() => {
         functionGetUnityChatLog(window.sessionStorage.currentClickTeam, setChatLogArray);
     }, []);
-    console.log(chatLogArray);
 
     return (
         <div id="chatAllContainer">   
