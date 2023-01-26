@@ -41,6 +41,8 @@ function BoardDetail() {
     const [ paginationNumArray, setPaginationNumArray ] = useState([]);
     //현재 댓글 작성이 수정 상태인지 아닌지를 표현하는 boolean useState 변수
     const [ modifyState, setModifyState ] = useState("");
+    //자료 공유 게시글일 경우 해당 자료에 대한 정보를 나눠 담을 배열
+    const [ shareInfo, setShareInfo ] = useState([]);
 
     //게시글 첫 렌더링 시 해당 게시글의 내용을 받아오기 위한 useEffect 함수
     useEffect(() => {
@@ -58,6 +60,13 @@ function BoardDetail() {
         }
         setPaginationNumArray(items);
     }, [commentInfo]);
+    //백엔드로부터 게시글 정보를 받아왔을 때 자료 공유 게시물일 경우 데이터를 변수에 나눠 저장하기 위한 useEffect 함수
+    useEffect(() => {
+        if(boardInfo[7] === "share") {
+            const tempShareInfo = boardInfo[4].split("(게시글구분문자열)");
+            setShareInfo(tempShareInfo);
+        }
+    }, [boardInfo]);
 
     //pagination에서 마우스로 클릭 시 해당 버튼에 active 효과 부여하기 위한 onclick 함수
     const handlePaginationBtnOnClick = (e) => {
@@ -132,6 +141,11 @@ function BoardDetail() {
         functionBoardRecommend(window.sessionStorage.currentClickBoardID, setBoardInfo, boardInfo[3]);
     }
 
+    //자료 공유 게시글일 경우 자료 공유 영역 클릭 시 호출되는 이벤트 함수
+    const handleShareInfoClick = () => {
+        window.open(shareInfo[1]);
+    }
+
     if(loadingStatus) {
         return (
             <div id='boardDetailAllContainer'>
@@ -143,12 +157,16 @@ function BoardDetail() {
                         <hr></hr>
                         <div id="boardContentsTitleContainer">
                             <span>{boardInfo[0]}</span>
-                            {boardInfo[1] === window.sessionStorage.nickname ?
+                            {(boardInfo[1] === window.sessionStorage.nickname && boardInfo[7] !== "share") ?
                                 <div id="boardButtonContainer">
                                     <button className="outlinePrimary" onClick={handleBoardModify}>수정</button> 
                                     <button className="outlineDanger" onClick={handleBoardDelete}>삭제</button>
                                 </div>
-                            : null }
+                            : (boardInfo[1] === window.sessionStorage.nickname && boardInfo[7] === "share") ?
+                                <div id="boardButtonContainer">
+                                    <button className="outlineDanger" onClick={handleBoardDelete}>삭제</button>
+                                </div>
+                        : null}
                         </div>
                         <div id="boardAdditionInfoContainer">
                             <span>{boardInfo[1]}</span>
@@ -168,7 +186,15 @@ function BoardDetail() {
                             </button>
                         :   null
                         }
-                        <pre>{boardInfo[4]}</pre>
+                        {boardInfo[7] !== "share" ? 
+                            <pre>{boardInfo[4]}</pre>
+                        :
+                            <div id="shareInfoContainer" onClick={handleShareInfoClick}>
+                                <h4>{shareInfo[0]}</h4>
+                                <p>{shareInfo[2]}</p>
+                            </div>
+                        }
+                        
                     </div>
                     <div id="boardCommentsContainer">
                         <div id="boardCommentsIntroContainer">

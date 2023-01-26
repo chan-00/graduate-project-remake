@@ -205,3 +205,27 @@
     color: white;
 }
 /* 게시글 상세 페이지 댓글 작성 영역 Container 컨텐츠 css */
+
+
+/* 자료 공유 게시글일 경우 자료 공유에 대한 Container css */
+#shareInfoContainer {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px;
+    
+    cursor: pointer;
+}
+
+#shareInfoContainer:hover {
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+    transition-duration: 0.3s;
+}
+
+#shareInfoContainer > p {
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+/* 자료 공유 게시글일 경우 자료 공유에 대한 Container css */

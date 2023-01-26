@@ -1,7 +1,10 @@
+//import css
+import "../../css/SearchPage/TeamSearch.css";
+
 
 function TeamSearch() {
     return (
-        <div>
+        <div id="teamSearchAllContainer">
             팀 검색 페이지~
         </div>
     )

@@ -93,7 +93,7 @@ function InfoSearch() {
     //URL 공유 Modal창에서 공유 버튼 클릭 시 호출되는 이벤트 함수이다.
     const handleSearchShare = (e) => {
         e.preventDefault();
-        const contents = `${shareUrlInfo.title},${shareUrlInfo.link},${shareUrlInfo.snippet}`;
+        const contents = `${shareUrlInfo.title}(게시글구분문자열)${shareUrlInfo.link}(게시글구분문자열)${shareUrlInfo.snippet}`;
 
         if(shareBoardType === "Public") {
             functionSharePublicBoard(window.sessionStorage.id, shareBoardTitleRef.current.value, contents, categoryRef.current.value, handleSearchShareModalClose);
