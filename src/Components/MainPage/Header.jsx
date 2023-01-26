@@ -90,15 +90,27 @@ function Header() {
         window.sessionStorage.setItem("category", "Share");
         navigate("/shareboard");
     }
+    //자료 검색 페이지로 가게 하는 이벤트 함수
+    const handleInfoSearchPage = () => {
+        navigate("/infosearch");
+    }
+    //팀 검색 페이지로 가게 하는 이벤트 함수
+    const handleTeamSearchPage = () => {
+        navigate("/teamsearch");
+    }
 
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark" id="navContainer">
-                <Navbar.Brand href="/" id="navTitle">Graduate Project</Navbar.Brand>
+                <Navbar.Brand href="/" id="navTitle">Withrium</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="mr-auto">
                     <Nav.Link onClick={handleTeamMakePageClick}>팀 생성</Nav.Link>
                     <Nav.Link onClick={handleTeamPageClick}>팀 페이지</Nav.Link>
+                    <NavDropdown title="검색" id="basic-nav-dropdown">
+                        <NavDropdown.Item onClick={handleInfoSearchPage}>자료 검색</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleTeamSearchPage}>팀 검색</NavDropdown.Item>
+                    </NavDropdown>
                     <NavDropdown title="게시판" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={handleOfferBoard}>팀 구인 게시판</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleQuestionBoard}>질문 게시판</NavDropdown.Item>

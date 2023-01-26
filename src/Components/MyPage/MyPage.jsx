@@ -1,8 +1,6 @@
 //import css
 import "../../css/MyPageCss/MyPage.css";
 import "../../css/SignPageCss/Sign.css";
-//import react bootstrap icons
-import { PersonCircle } from "react-bootstrap-icons";
 //import react bootstrap
 import { Button, Modal } from "react-bootstrap";
 //import react hooks
@@ -17,7 +15,7 @@ import functionPwdModify from "../../Functions/FunctionModify/functionPwdModify"
 import functionNicknameModify from "../../Functions/FunctionModify/functionNicknameModify";
 import functionEmailModify from "../../Functions/FunctionModify/functionEmailModify";
 import functionCommentsModify from "../../Functions/FunctionModify/functionCommentsModify";
-import functionImage from "../../Functions/functionImage";
+import functionProfileImageModify from "../../Functions/FunctionModify/functionProfileImageModify";
 //import atom
 import { useRecoilState } from "recoil";
 import atomNickname from "../../Atoms/atomNickname";
@@ -25,12 +23,17 @@ import atomNickname from "../../Atoms/atomNickname";
 
 //마이페이지 영역 컴포넌트
 function MyPage() {
+    //이미지 수정을 위한 변수 선언
+    let uploadFile;
+    let formData;
+
     //페이지 전환을 위한 useNavigate 변수
     const navigate = useNavigate();
 
     //닉네임 atom 값을 가져와 mypage의 profile 부분에 닉네임을 표시해주기 위한 useRecoilState 값
     const [ nickname, setNickname ] = useRecoilState(atomNickname);
 
+    /* Modal Boolean useState */
     //password edit 버튼 클릭 시 비밀번호 수정을 할 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
     const [ passwordModifyModalShow, setPasswordModifyModalShow ] = useState(false);
     //nickname edit 버튼 클릭 시 닉네임 수정을 할 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
@@ -39,6 +42,11 @@ function MyPage() {
     const [ emailModifyModalShow, setEmailModifyModalShow ] = useState(false);
     //Comments edit 버튼 클릭 시 코멘트 수정을 할 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
     const [ commentsModifyModalShow, setCommentsModifyModalShow ] = useState(false);
+    //프로필 클릭 시 프로필 사진 수정을 할 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
+    const [ profileImageModifyModalShow, setProfileImageModifyModalShow ] = useState(false);
+    /* Modal Boolean useState */
+
+    /* modify value useState */
     //user comments 값을 담고 있을 useState 변수
     const [ userComments, setUserComments ] = useState("");
     //user email 값을 담고 있을 useState 변수
@@ -50,7 +58,8 @@ function MyPage() {
     //마이페이지 첫 렌더링 시 팀 리스트를 받아오기 전까지 로딩 창을 띄우기 위한 useState 변수
     const [ loadingStatus, setLoadingStatus ] = useState(false);
     //이미지 base64 값 테스트 useState
-    const [ baseValue, setBaseValue ] = useState("");
+    const [ profileImage, setProfileImage ] = useState("");
+    /* modify value useState */
 
     //기존 비밀번호 입력 input에 대한 useRef 변수
     const pwRef = useRef();
@@ -67,7 +76,7 @@ function MyPage() {
     useEffect(() => {
         if(window.sessionStorage.id) {
             document.body.style.backgroundColor = "#f8f8fa";
-            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus);
+            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus, setProfileImage);
         }
         else {
             alert("로그인 되어 있지 않습니다!");
@@ -78,6 +87,7 @@ function MyPage() {
         }
     }, []);
 
+    /* Modal on/off event function */
     //password edit Modal 창을 켜고 끄는 함수이다.
     const handlePasswordModifyModalShow = () => setPasswordModifyModalShow(true);
     const handlePasswordModifyModalClose = () => setPasswordModifyModalShow(false);
@@ -90,7 +100,12 @@ function MyPage() {
     //comments edit Modal 창을 켜고 끄는 함수이다.
     const handleCommentsModifyModalShow = () => setCommentsModifyModalShow(true);
     const handleCommentsModifyModalClose = () => setCommentsModifyModalShow(false);
+    //profile image edit Modal 창을 켜고 끄는 함수이다.
+    const handleProfileImageModifyModalShow = () => setProfileImageModifyModalShow(true);
+    const handleProfileImageModifyModalClose = () => setProfileImageModifyModalShow(false);
+    /* Modal on/off event function */
 
+    /* Modal Click event function */
     //비밀번호 수정 Modal창에서 수정 버튼 클릭 시 호출되는 이벤트 함수이다.
     const handlePasswordModify = (e) => {
         e.preventDefault();
@@ -111,11 +126,17 @@ function MyPage() {
         e.preventDefault();
         functionCommentsModify(window.sessionStorage.id, newCommentsRef, handleCommentsModifyModalClose, setUserComments);
     }
+    //프로필 사진 수정 Modal창에서 수정 버튼 클릭 시 호출되는 이벤트 함수이다.
+    const handleProfileImageModify = (e) => {
+        e.preventDefault();
 
-    /* 이미지 전송 테스트 코드 */
-    let uploadFile;
-    let formData;
+        if(formData) {
+            functionProfileImageModify(formData, setProfileImage, handleProfileImageModifyModalClose);
+        }
+    }
+    /* Modal Click event function */
 
+    /* 이미지 수정 이벤트 함수 */
     const onChangeImg = (e) => {
         e.preventDefault();
         
@@ -123,16 +144,7 @@ function MyPage() {
             uploadFile = e.target.files[0];
             formData = new FormData();
             formData.append('files',uploadFile);
-        }
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if(formData) {
-            console.log(uploadFile);
-            console.log(formData);
-
-            functionImage(formData, setBaseValue);
+            formData.append('id', window.sessionStorage.id);
         }
     }
     /* 이미지 전송 테스트 코드 */
@@ -142,7 +154,7 @@ function MyPage() {
             <div className="mypageContentsAllContainer">
                 <div className="mypageProfileAllContainer mypageContentsContainer">
                     <div className="mypageProfileContainer">
-                        <PersonCircle></PersonCircle>
+                        {profileImage.length !== 0 ? <img src={`data:image/png;base64,${profileImage}`} onClick={handleProfileImageModifyModalShow} /> : null}
                         <span>{window.sessionStorage.nickname}</span>
                         <span id="userEmailText">{userEmail}</span>
                         <button onClick={handleEmailModifyModalShow}>email Edit</button>
@@ -283,6 +295,23 @@ function MyPage() {
                         <div className="signButtonContainer" style={{marginTop:"20px"}}>
                             <Button type="submit" variant="outline-primary" className="modifyButtons" style={{fontSize:"13px"}}>코멘트 수정</Button>
                             <Button variant="outline-danger" className="modifyButtons" style={{marginLeft:"10px", fontSize:"13px"}} onClick={handleCommentsModifyModalClose}>취소</Button>
+                        </div>
+                    </form>
+                </Modal.Body>
+            </Modal>
+            <Modal show={profileImageModifyModalShow} onHide={handleProfileImageModifyModalClose}>
+                <Modal.Header closeButton>
+                    <h4>Profile Image Change</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    <form className="signContainer" onSubmit={handleProfileImageModify}>
+                        <div>
+                            <label htmlFor="profile-upload" />
+                            <input type="file" id="profile-upload" accept="image/*" onChange={onChangeImg}/>
+                        </div>
+                        <div className="signButtonContainer" style={{marginTop:"20px"}}>
+                            <Button type="submit" variant="outline-primary" className="modifyButtons" style={{fontSize:"13px"}}>프로필 사진 수정</Button>
+                            <Button variant="outline-danger" className="modifyButtons" style={{marginLeft:"10px", fontSize:"13px"}} onClick={handleProfileImageModifyModalClose}>취소</Button>
                         </div>
                     </form>
                 </Modal.Body>

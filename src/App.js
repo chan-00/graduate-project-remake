@@ -21,6 +21,9 @@ import BoardDetail from "./Components/BoardPage/BoardDetail";
 import BoardWrite from "./Components/BoardPage/BoardWrite";
 import BoardModify from "./Components/BoardPage/BoardModify";
 
+import InfoSearch from "./Components/SearchPage/InfoSearch";
+import TeamSearch from "./Components/SearchPage/TeamSearch";
+
 //import App css
 import "./css/App.css";
 
@@ -46,6 +49,9 @@ function App() {
           <Route path="/boarddetail" element={<BoardDetail></BoardDetail>}></Route>
           <Route path="/boardwrite" element={<BoardWrite></BoardWrite>}></Route>
           <Route path="/boardmodify" element={<BoardModify></BoardModify>}></Route>
+
+          <Route path="/infosearch" element={<InfoSearch></InfoSearch>}></Route>
+          <Route path="/teamsearch" element={<TeamSearch></TeamSearch>}></Route>
         </Routes>
         <Footer></Footer>
       </Router>

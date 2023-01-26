@@ -1,7 +1,6 @@
 /* 팀 페이지 전체 영역 Container css */
 #teamPageAllContainer {
     width: 100vw;
-    height: 100vh;
 }
 
 #teamPageAllContainer > .spinner-border {

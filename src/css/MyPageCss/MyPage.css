@@ -1,7 +1,6 @@
 /* 마이페이지 전체 영역 Container css */
 .mypageAllContainer {
     width: 100vw;
-    height: 100vh;
     padding-top: 80px;
 }
 /* 마이페이지 전체 영역 Container css */
@@ -10,7 +9,7 @@
 /* 마이페이지 컨텐츠 내용을 감싸는 전체 영역 Container css */
 .mypageContentsAllContainer {
     margin: 0 auto;
-    width: 1500px;
+    width: 90%;
     height: 1000px;
 }
 /* 마이페이지 컨텐츠 내용을 감싸는 전체 영역 Container css */
@@ -40,9 +39,10 @@
     padding-left: 30px;
 }
 
-.mypageProfileContainer > svg {
-    font-size: 40px;
-    color: #616161;
+.mypageProfileContainer > img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
 .mypageProfileContainer > span {

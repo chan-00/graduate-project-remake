@@ -87,3 +87,12 @@
     display: inline-block;
 }
 /* 채팅 시간을 감싸는 Container */
+
+
+/* 채팅 날짜를 구분하는 p 태그의 css */
+.chatLogDateText {
+    text-align: center;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+/* 채팅 날짜를 구분하는 p 태그의 css */
