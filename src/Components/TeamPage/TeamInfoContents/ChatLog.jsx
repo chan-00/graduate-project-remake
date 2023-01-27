@@ -38,8 +38,6 @@ function ChatLog() {
                         else if(chatLogDate === chatLog[3].substr(0, 10)) {
                             chatDateChangeStatus = 0;
                         }
-                        console.log(chatLogDate);
-                        console.log(chatDateChangeStatus);
 
                         return (
                             <div className={chatLog[2] === window.sessionStorage.nickname ? "myChat" : "otherChat"} key={chatLog[0]}>

@@ -9,7 +9,7 @@ function functionUserInfo(idValue, setUserEmail, setUserComments, setUserTeamArr
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
         const { team_data } = res.data;
 
-        //setProfileImage(res.data.post_data);
+        setProfileImage(res.data.post_data);
         setUserEmail(res.data.user_data[0][0]);
         setUserComments(res.data.user_data[0][1]);
         setUserTeamArray(team_data);

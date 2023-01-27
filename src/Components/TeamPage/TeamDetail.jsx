@@ -3,7 +3,7 @@ import "../../css/TeamPageCss/TeamDetail.css";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
 //import react icons
-import { PersonLinesFill, FolderSymlink, Chat, BarChartSteps } from "react-bootstrap-icons";
+import { PersonLinesFill, Clipboard, Chat, BarChartSteps } from "react-bootstrap-icons";
 //import react hooks
 import { useEffect, useState } from "react";
 //import functions
@@ -46,9 +46,9 @@ function TeamDetail() {
                         <PersonLinesFill></PersonLinesFill>
                         <span>Team Info</span> 
                     </div>
-                    <div id="FileHistory" className={selectedMenu === "FileHistory" ? "selectedTeamSideBarMenu" : ""} onClick={() => handleTeamSideBarMenuClick("FileHistory")}>
-                        <FolderSymlink></FolderSymlink>
-                        <span>File History</span> 
+                    <div id="TeamBoard" className={selectedMenu === "TeamBoard" ? "selectedTeamSideBarMenu" : ""} onClick={() => handleTeamSideBarMenuClick("TeamBoard")}>
+                        <Clipboard></Clipboard>
+                        <span>Team Board</span> 
                     </div>
                     <div id="ChatLog" className={selectedMenu === "ChatLog" ? "selectedTeamSideBarMenu" : ""} onClick={() => handleTeamSideBarMenuClick("ChatLog")}>
                         <Chat></Chat>
@@ -61,7 +61,7 @@ function TeamDetail() {
                     </div> : 
                     null}
                 </div>
-                <TeamInfoContentsContainer currentSelectMenu={selectedMenu} teamBelong={teamBelong}></TeamInfoContentsContainer>
+                <TeamInfoContentsContainer currentSelectMenu={selectedMenu} teamBelong={teamBelong} setSelectedMenu={setSelectedMenu}></TeamInfoContentsContainer>
             </div>
         )
     }

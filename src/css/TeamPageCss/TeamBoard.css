@@ -1,0 +1,33 @@
+/* 팀 게시판 전체 영역을 감싸는 Container css */
+#teamBoardAllContainer {
+    width: 100vw;
+}
+/* 팀 게시판 전체 영역을 감싸는 Container css */
+
+
+/* 팀 게시판 컨텐츠 영역을 감싸는 Container css */
+#teamBoardContentsAllContainer {
+    margin: 100px 0 200px 240px;
+}
+
+#teamBoardContentsAllContainer .boardButtonContainer {
+    width: 50%;
+    margin-left: 20%;
+}
+
+#teamBoardContentsAllContainer .boardMainContentsContainer {
+    width: 50%;
+    margin-left: 20%;
+}
+
+#teamBoardContentsAllContainer #teamMainPaginationContainer {
+    width: 50%;
+    margin-left: 20%;
+}
+
+#teamBoardContentsAllContainer .boardMainContentsContainer tr {
+    grid-template-columns: 60% 20% 20%;
+}
+/* 팀 게시판 컨텐츠 영역을 감싸는 Container css */
+
+

@@ -67,7 +67,7 @@ function OfferBoard() {
         e.preventDefault();
         setLoadingStatus(false);
 
-        functionBoardSearchList(window.sessionStorage.category, setLoadingStatus, setTeamBoardList, searchRef)
+        functionBoardSearchList(window.sessionStorage.category, setLoadingStatus, setTeamBoardList, searchRef);
     }
 
     //글 작성 버튼 클릭 시 글 작성 페이지로 이동하게 하는 이벤트 함수

@@ -209,7 +209,7 @@
 
 /* 자료 공유 게시글일 경우 자료 공유에 대한 Container css */
 #shareInfoContainer {
-    border: 1px solid black;
+    border: 1px solid blue;
     border-radius: 10px;
     display: inline-block;
     padding: 10px;
@@ -218,9 +218,8 @@
 }
 
 #shareInfoContainer:hover {
-    background-color: gray;
+    background-color: blue;
     color: white;
-    border: 1px solid gray;
     transition-duration: 0.3s;
 }
 

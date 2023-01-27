@@ -1,19 +1,20 @@
 //import components
 import TeamInfo from "./TeamInfo"
-import FileHistory from "./FileHistory"
+import TeamBoard from "./TeamBoard"
 import ChatLog from "./ChatLog"
 import Management from "./Management"
+import TeamBoardDetail from "./TeamBoardDetail"
 
 
-function TeamInfoContentsContainer({ currentSelectMenu, teamBelong }) {
+function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedMenu }) {
     if(currentSelectMenu === "TeamInfo") {
         return (
             <TeamInfo teamBelong={teamBelong}></TeamInfo>
         )
     }
-    else if(currentSelectMenu === "FileHistory") {
+    else if(currentSelectMenu === "TeamBoard") {
         return (
-            <FileHistory></FileHistory>
+            <TeamBoard setSelectedMenu={setSelectedMenu}></TeamBoard>
         )
     }
     else if(currentSelectMenu === "ChatLog") {
@@ -26,7 +27,11 @@ function TeamInfoContentsContainer({ currentSelectMenu, teamBelong }) {
             <Management></Management>
         )
     }
-    
+    else if(currentSelectMenu === "BoardDetail") {
+        return (
+            <TeamBoardDetail setSelectedMenu={setSelectedMenu}></TeamBoardDetail>
+        )
+    }
 }
 
 export default TeamInfoContentsContainer;
