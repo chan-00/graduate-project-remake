@@ -4,15 +4,20 @@ import "../../css/SearchPage/InfoSearch.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 //import react hooks
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 //import functions
 import functionGetInfoSearch from "../../Functions/FunctionSearch/functionGetInfoSearch";
 import functionGetInfoMoveSearch from "../../Functions/FunctionSearch/functionGetInfoMoveSearch";
 import functionShareUserTeamList from "../../Functions/FunctionSearch/functionShareUserTeamList";
 import functionSharePublicBoard from "../../Functions/FunctionSearch/functionSharePublicBoard";
+import functionShareTeamBoard from "../../Functions/FunctionSearch/functionShareTeamBoard";
+//import react router
+import { useNavigate } from "react-router-dom";
 
 
 function InfoSearch() {
+    //공유 이후 화면 전환을 위한 useNavigate 변수
+    const navigate = useNavigate();
 
     //검색어 input 값을 알기 위한 ref 변수
     const searchTextRef = useRef();
@@ -44,6 +49,12 @@ function InfoSearch() {
     //공유 버튼을 눌렀을 때 해당 URL에 대한 정보를 담고 있을 변수
     const [ shareUrlInfo, setShareUrlInfo ] = useState([]);
 
+    useEffect(() => {
+        if(shareBoardType === "Team") {
+            functionShareUserTeamList(window.sessionStorage.id, setUserTeamList, handleSearchShareModalClose);
+        }
+    }, [shareBoardType]);
+
     //검색어 입력 후 검색 submit 이벤트 발생 시 호출되는 이벤트 함수
     const handleSearchSubmit = (e) => {
         e.preventDefault();
@@ -59,14 +70,7 @@ function InfoSearch() {
     }
 
     //url input Modal 창을 켜고 끄는 함수이다.
-    const handleSearchShareModalShow = () => {
-        if(shareBoardType === "Team") {
-            functionShareUserTeamList(window.sessionStorage.id, setUserTeamList, setSearchShareModalShow);
-        }
-        else {
-            setSearchShareModalShow(true);
-        }
-    }
+    const handleSearchShareModalShow = () => setSearchShareModalShow(true);
     const handleSearchShareModalClose = () => setSearchShareModalShow(false);
     //share type select Modal 창을 켜고 끄는 함수이다.
     const handleSelectShareTypeModalShow = () => setShareModeShow(true);
@@ -85,9 +89,9 @@ function InfoSearch() {
 
     //Share Select Modal 창에서 버튼 클릭 시 호출되는 이벤트 함수이다.
     const handleSelectShareMode = (mode) => {
-        setShareBoardType(mode);
         handleSelectShareTypeModalClose();
         handleSearchShareModalShow();
+        setShareBoardType(mode);
     }
 
     //URL 공유 Modal창에서 공유 버튼 클릭 시 호출되는 이벤트 함수이다.
@@ -96,10 +100,10 @@ function InfoSearch() {
         const contents = `${shareUrlInfo.title}(게시글구분문자열)${shareUrlInfo.link}(게시글구분문자열)${shareUrlInfo.snippet}`;
 
         if(shareBoardType === "Public") {
-            functionSharePublicBoard(window.sessionStorage.id, shareBoardTitleRef.current.value, contents, categoryRef.current.value, handleSearchShareModalClose);
+            functionSharePublicBoard(window.sessionStorage.id, shareBoardTitleRef.current.value, contents, categoryRef.current.value, handleSearchShareModalClose, navigate);
         }
         else if(shareBoardType === "Team") {
-
+            functionShareTeamBoard(window.sessionStorage.id, shareBoardTitleRef.current.value, contents, teamRef.current.value, handleSearchShareModalClose, navigate);
         }
     }
 

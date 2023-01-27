@@ -59,6 +59,8 @@ function MyPage() {
     const [ loadingStatus, setLoadingStatus ] = useState(false);
     //이미지 base64 값 테스트 useState
     const [ profileImage, setProfileImage ] = useState("");
+    //해당 계정이 작성한 게시글 개수와 댓글 개수를 표시해 주는 데이터를 담을 useState 변수
+    
     /* modify value useState */
 
     //기존 비밀번호 입력 input에 대한 useRef 변수

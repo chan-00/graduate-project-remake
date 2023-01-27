@@ -19,10 +19,12 @@ function JoinTeam({teamArray, teamInfo, setTeamInfo, loadingStatus}) {
 
     //현재 클릭한 팀명 값을 담을 useState 변수
     const [ currentTeamName, setCurrentTeamName ] = useState("");
+    //팀에 속한 팀원들의 프로필 사진 base64 값을 담을 배열 useState 변수
+    const [ userProfileInfo, setUserProfileInfo ] = useState([]);
 
     //팀 리스트에서 특정 팀 클릭 시 발생하는 click 이벤트 함수
     const handleClickTeam = (e) => {
-        functionUserTeamInfo(e.target.id, setTeamInfo);
+        functionUserTeamInfo(e.target.id, setTeamInfo, setUserProfileInfo);
         setCurrentTeamName(e.target.id);
     }
 
@@ -45,10 +47,10 @@ function JoinTeam({teamArray, teamInfo, setTeamInfo, loadingStatus}) {
                 <div className="mypageTeamMemberContainer">
                     {teamInfo.length !== 0 ? <h2>Team member</h2> : <h2 style={{marginTop:"150px"}}>Select Team</h2>}
                     <div className="mypageTeamMemberInfo">
-                        {teamInfo.map((member) => {
+                        {teamInfo.map((member, index) => {
                             return (
                                 <div key={member[0]} id={member[0]}>
-                                    <PersonCircle></PersonCircle>
+                                    <img src={`data:image/png;base64,${userProfileInfo[index]}`} />
                                     {member[1] === "1" ? <span style={{color:"royalblue"}}>{member[0]}</span> : <span>{member[0]}</span>}
                                 </div>
                             )
@@ -61,7 +63,7 @@ function JoinTeam({teamArray, teamInfo, setTeamInfo, loadingStatus}) {
     }
     else if(teamArray.length === 0 && loadingStatus) {
         return (
-            <div className="mypageTeamContainer"> 
+            <div className="mypageTeamContainer" style={{display:"block"}}> 
             {/*   가입된 팀이 없을 때의 디자인  */}
                 <div id="mypageNoneTeamMessageContainer">
                     <EmojiFrown></EmojiFrown>

@@ -54,10 +54,10 @@
     margin-bottom: 100px;
 }
 
-.mypageTeamMemberInfo > div > svg {
+.mypageTeamMemberInfo > div > img {
     margin-left: 10px;
-    font-size: 50px;
-    color: gray;
+    width: 50px;
+    height: 50px;
 }
 
 .mypageTeamMemberInfo > div > span {
@@ -82,7 +82,7 @@
 
 /* 마이페이지에서 팀이 없을 시 표현되는 메시지 Container css */
 #mypageNoneTeamMessageContainer {
-    width: 1200px;
+    width: 100%;
     text-align: center;
     padding-top: 100px;
 }
