@@ -76,6 +76,9 @@ function TeamBoard({ setSelectedMenu }) {
         return (
             <div id="teamBoardAllContainer">
                 <div id="teamBoardContentsAllContainer">
+                    <div className="boardTitleContainer" style={{marginLeft: "40%", marginBottom: "20px"}}>
+                        <h4 onClick={() => functionGetTeamAllBoardList(setTeamBoardList, window.sessionStorage.currentClickTeam, setLoadingStatus)} style={{cursor:"pointer"}}>{window.sessionStorage.currentClickTeam} 게시판</h4>
+                    </div>
                     <div className="boardButtonContainer">
                         <button onClick={() => setSelectedMenu("BoardWrite")}>글 작성</button>
                         <form className="boardSearchContainer" onSubmit={handleTeamBoardSearch}>

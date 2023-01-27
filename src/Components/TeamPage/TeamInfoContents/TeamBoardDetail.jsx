@@ -55,7 +55,7 @@ function TeamBoardDetail({ setSelectedMenu }) {
                             <span>{teamBoardInfo[0]}</span>
                             {(teamBoardInfo[3] === window.sessionStorage.nickname && teamBoardInfo[4] !== "share") ?
                                 <div id="boardButtonContainer">
-                                    <button className="outlinePrimary">수정</button> 
+                                    <button className="outlinePrimary" onClick={() => setSelectedMenu("BoardModify")}>수정</button> 
                                     <button className="outlineDanger" onClick={handleTeamBoardDelete}>삭제</button>
                                 </div>
                             : (teamBoardInfo[3] === window.sessionStorage.nickname && teamBoardInfo[4] === "share") ?
