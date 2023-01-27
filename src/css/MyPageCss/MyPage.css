@@ -188,6 +188,7 @@ button.modifyButtons {
 /* 본인이 작성한 게시글 리스트를 감싸는 Container css */
 #userBoardListGroup {
     height: 500px;
+    width: 450px;
     overflow: auto;
 }
 

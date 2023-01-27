@@ -18,6 +18,7 @@ import functionEmailModify from "../../Functions/FunctionModify/functionEmailMod
 import functionCommentsModify from "../../Functions/FunctionModify/functionCommentsModify";
 import functionProfileImageModify from "../../Functions/FunctionModify/functionProfileImageModify";
 import functionGetMyBoardList from "../../Functions/FunctionMyPage/functionGetMyBoardList";
+import functionGetMyBoardCommentList from "../../Functions/FunctionMyPage/functionGetMyBoardCommentList";
 //import atom
 import { useRecoilState } from "recoil";
 import atomNickname from "../../Atoms/atomNickname";
@@ -48,6 +49,8 @@ function MyPage() {
     const [ profileImageModifyModalShow, setProfileImageModifyModalShow ] = useState(false);
     //게시글 개수를 표시하는 영역 클릭 시 내가 작성한 게시글들을 볼 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
     const [ boardListModalShow, setBoardListModifyModalShow ] = useState(false);
+    //댓글 개수를 표시하는 영역 클릭 시 내가 작성한 댓글들을 볼 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
+    const [ boardCommentListModalShow, setBoardCommentListModifyModalShow ] = useState(false);
     /* Modal Boolean useState */
 
     /* modify value useState */
@@ -67,6 +70,8 @@ function MyPage() {
     const [ countData, setCountData ] = useState([]);
     //해당 계정이 작성한 게시글 리스트를 받아 저장할 useState 변수
     const [ userBoardList, setUserBoardList ] = useState([]);
+    //해당 계정이 작성한 댓글 리스트를 받아 저장할 useState 변수
+    const [ userBoardCommentList, setUserBoardCommentList ] = useState([]);
     /* modify value useState */
 
     //기존 비밀번호 입력 input에 대한 useRef 변수
@@ -114,6 +119,9 @@ function MyPage() {
     //Board Modal 창을 켜고 끄는 함수이다.
     const handleBoardListModifyModalShow = () => setBoardListModifyModalShow(true);
     const handleBoardListModifyModalClose = () => setBoardListModifyModalShow(false);
+    //Board Comment Modal 창을 켜고 끄는 함수이다.
+    const handleBoardCommentListModifyModalShow = () => setBoardCommentListModifyModalShow(true);
+    const handleBoardCommentListModifyModalClose = () => setBoardCommentListModifyModalShow(false);
     /* Modal on/off event function */
 
     /* Modal Click event function */
@@ -169,31 +177,59 @@ function MyPage() {
             alert("작성한 게시글이 없습니다.");
         }
     }
+    //댓글 개수 영역 클릭 시 해당 계정이 작성한 게시글 목록을 보여 주도록 하는 이벤트 함수이다.
+    const handleCommentListClick = () => {
+        if(countData[1] !== 0) {
+            functionGetMyBoardCommentList(window.sessionStorage.id, handleBoardCommentListModifyModalShow, setUserBoardCommentList);
+        }
+        else if(countData[1] === 0) {
+            alert("작성한 댓글이 없습니다.");
+        }
+    }
 
     //본인이 작성한 게시글 리스트 중 특정 게시글 클릭 시 해당 게시글로 화면 이동하기 위한 이벤트 함수
     const handleUserBoardClick = (e) => {
-        console.log(e.target.id);
-        console.log(e.target.className);
         //클래스 이름을 space 값으로 split하여 나누면 첫 번째 인덱스의 값이 카테고리가 되도록 설정하였다.
-        const targetClassInfo = e.target.className.split(" ");
+        const targetClassInfo = e.target.className.split("list-group-item");
 
         //카테고리 값에 따라 공용 게시판으로 화면 이동시킬 것인지, 팀 게시판으로 화면 이동시킬 것인지 조건문으로 분류한다.
-        if(targetClassInfo[0] === "Team" || targetClassInfo[0] === "Question" || targetClassInfo[0] === "Share") {
-            if(targetClassInfo[0] === "Team") {
+        if(targetClassInfo[0] === "Team " || targetClassInfo[0] === "Question " || targetClassInfo[0] === "Share ") {
+            if(targetClassInfo[0] === "Team ") {
                 window.sessionStorage.setItem("category", "Team");
             }
-            else if(targetClassInfo[0] === "Question") {
+            else if(targetClassInfo[0] === "Question ") {
                 window.sessionStorage.setItem("category", "Question");
             }
-            else if(targetClassInfo[0] === "Share") {
+            else if(targetClassInfo[0] === "Share ") {
                 window.sessionStorage.setItem("category", "Share");
             }
             window.sessionStorage.setItem("currentClickBoardID", e.target.id);
             navigate("/boarddetail");
         }
         else {
-            
+            window.sessionStorage.setItem("currentClickTeam", targetClassInfo[0]);
+            window.sessionStorage.setItem("currentClickTeamBoardID", e.target.id);
+            window.sessionStorage.setItem("teamSelectMenuValue", "BoardDetail");
+            navigate("/teaminfo");
         }
+    }
+    //본인이 작성한 댓글 리스트 중 특정 댓글 클릭 시 해당 게시글로 화면 이동하기 위한 이벤트 함수
+    const handleUserBoardCommentClick = (e) => {
+        //클래스 이름을 space 값으로 split하여 나누면 첫 번째 인덱스의 값이 카테고리가 되도록 설정하였다.
+        const targetClassInfo = e.target.className.split("list-group-item");
+
+        //카테고리 값에 따라 게시판 종류 값을 세션 저장소에 나눠 저장하기 위해 조건문으로 분류하였다.
+        if(targetClassInfo[0] === "Team ") {
+            window.sessionStorage.setItem("category", "Team");
+        }
+        else if(targetClassInfo[0] === "Question ") {
+            window.sessionStorage.setItem("category", "Question");
+        }
+        else if(targetClassInfo[0] === "Share ") {
+            window.sessionStorage.setItem("category", "Share");
+        }
+        window.sessionStorage.setItem("currentClickBoardID", e.target.id);
+        navigate("/boarddetail");
     }
 
     return (
@@ -216,7 +252,7 @@ function MyPage() {
                     <div className="mypageUserContentsListContainer">
                         <div><p>{userTeamArray.length}</p><span>Join Team</span></div>
                         <div><p onClick={handleBoardListClick}>{countData[0]}</p><span>Write Post</span></div>
-                        <div><p>{countData[1]}</p><span>Write Comments</span></div>
+                        <div><p onClick={handleCommentListClick}>{countData[1]}</p><span>Write Comments</span></div>
                     </div>
                 </div>
                 <div className="mypageTeamAllContainer mypageContentsContainer">
@@ -387,6 +423,22 @@ function MyPage() {
 
                             return (
                                 <ListGroup.Item key={index} id={board[0]} className={board[2]} onClick={handleUserBoardClick}>{listContents}</ListGroup.Item>
+                            )
+                        })}
+                    </ListGroup>
+                </Modal.Body>
+            </Modal>
+            <Modal show={boardCommentListModalShow} onHide={handleBoardCommentListModifyModalClose}>
+                <Modal.Header closeButton>
+                    <h4>Board Comment List</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    <ListGroup id="userBoardListGroup">
+                        {userBoardCommentList.map((boardComment, index) => {
+                            const listContents = `${boardComment[2]} (${boardComment[1]})`;
+
+                            return (
+                                <ListGroup.Item key={index} id={boardComment[0]} className={boardComment[4]} onClick={handleUserBoardCommentClick}>{listContents}</ListGroup.Item>
                             )
                         })}
                     </ListGroup>

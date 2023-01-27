@@ -82,7 +82,7 @@ function TeamBoard() {
         return (
             <div id="teamBoardAllContainer">
                 <div id="teamBoardContentsAllContainer">
-                    <div className="boardTitleContainer" style={{marginLeft: "40%", marginBottom: "20px"}}>
+                    <div className="teamBoardTitleContainer">
                         <h4 onClick={() => functionGetTeamAllBoardList(setTeamBoardList, window.sessionStorage.currentClickTeam, setLoadingStatus)} style={{cursor:"pointer"}}>{window.sessionStorage.currentClickTeam} 게시판</h4>
                     </div>
                     <div className="boardButtonContainer">

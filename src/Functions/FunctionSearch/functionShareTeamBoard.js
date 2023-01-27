@@ -13,6 +13,7 @@ function functionShareTeamBoard(userID, title, contents, teamname, handleSearchS
         if(res.data.post_data === "작성이 완료되었습니다!") {
             alert("공유가 완료되었습니다.");
             window.sessionStorage.setItem("currentClickTeam", teamname);
+            window.sessionStorage.setItem("teamSelectMenuValue", "TeamBoard");
             navigate("/teaminfo");
         }
         handleSearchShareModalClose();

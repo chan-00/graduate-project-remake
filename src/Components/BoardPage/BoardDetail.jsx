@@ -101,6 +101,7 @@ function BoardDetail() {
     //게시글 내에서 팀 페이지 바로 가기 버튼 클릭 시 호출되는 이벤트 함수
     const handleTeamButtonClick = () => {
         window.sessionStorage.setItem("currentClickTeam", boardInfo[5]);
+        window.sessionStorage.setItem("teamSelectMenuValue", "TeamInfo");
         navigate("/teaminfo");
     }
 

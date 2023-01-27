@@ -31,3 +31,10 @@
 /* 팀 게시판 컨텐츠 영역을 감싸는 Container css */
 
 
+/* 팀 게시판 제목 영역을 감싸는 Container css */
+.teamBoardTitleContainer {
+    width: 50%;
+    margin-left: 20%;
+    text-align: center;
+}
+/* 팀 게시판 제목 영역을 감싸는 Container css */

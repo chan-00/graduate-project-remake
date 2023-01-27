@@ -16,6 +16,10 @@ function functionTeamMake(idValue, teamnameRef, teamDescRef, teamCategory, navig
             alert("이미 해당 팀명으로 팀이 만들어져 있습니다.");
             teamnameRef.current.focus();
         }
+        else if(res.data.chk_message === "사용 할 수 없는 팀 이름입니다.") {
+            alert("사용 할 수 없는 팀 이름입니다.(Team, Question, Share, list-group-item)");
+            teamnameRef.current.focus();
+        }
     }).catch((err) => {
         console.log(err);
     })

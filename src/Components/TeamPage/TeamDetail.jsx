@@ -30,6 +30,7 @@ function TeamDetail() {
     useEffect(() => {
         //로그인 상태라면 로그인된 계정의 아이디값, 비로그인 상태라면 "not_login"이라는 특정 값을 백엔드에 요청한다.
         if(window.sessionStorage.id) {
+            setSelectedMenu(window.sessionStorage.teamSelectMenuValue);
             functionGetTeamBelong(window.sessionStorage.id, window.sessionStorage.currentClickTeam, setTeamBelong, setLoadingStatus);
         }
         else {

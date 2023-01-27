@@ -11,6 +11,7 @@ function TeamListShow({posts}) {
     //팀 리스트에서 특정 팀을 클릭했을 때 팀 상세 페이지로 넘어가게 하기 위한 이벤트 함수
     const handleTeamClick = (teamname) => {
         window.sessionStorage.setItem("currentClickTeam", teamname);
+        window.sessionStorage.setItem("teamSelectMenuValue", "TeamInfo");
         navigate("/teaminfo");
     }
 
