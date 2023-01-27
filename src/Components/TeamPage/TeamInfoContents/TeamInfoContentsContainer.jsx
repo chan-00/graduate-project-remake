@@ -6,9 +6,15 @@ import Management from "./Management"
 import TeamBoardDetail from "./TeamBoardDetail"
 import TeamBoardWrite from "./TeamBoardWrite"
 import TeamBoardModify from "./TeamBoardModify"
+//import atom
+import { useSetRecoilState } from "recoil";
+import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
 
-function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedMenu }) {
+function TeamInfoContentsContainer({ currentSelectMenu, teamBelong }) {
+    //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
+    const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
+
     if(currentSelectMenu === "TeamInfo") {
         return (
             <TeamInfo teamBelong={teamBelong}></TeamInfo>
@@ -16,7 +22,7 @@ function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedM
     }
     else if(currentSelectMenu === "TeamBoard") {
         return (
-            <TeamBoard setSelectedMenu={setSelectedMenu}></TeamBoard>
+            <TeamBoard></TeamBoard>
         )
     }
     else if(currentSelectMenu === "ChatLog") {
@@ -31,17 +37,17 @@ function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedM
     }
     else if(currentSelectMenu === "BoardDetail") {
         return (
-            <TeamBoardDetail setSelectedMenu={setSelectedMenu}></TeamBoardDetail>
+            <TeamBoardDetail></TeamBoardDetail>
         )
     }
     else if(currentSelectMenu === "BoardWrite") {
         return (
-            <TeamBoardWrite setSelectedMenu={setSelectedMenu}></TeamBoardWrite>
+            <TeamBoardWrite></TeamBoardWrite>
         )
     }
     else if(currentSelectMenu === "BoardModify") {
         return (
-            <TeamBoardModify setSelectedMenu={setSelectedMenu}></TeamBoardModify>
+            <TeamBoardModify></TeamBoardModify>
         )
     }
 }

@@ -7,9 +7,14 @@ import "../../../css/TeamPageCss/TeamBoardWrite.css";
 import { useRef } from 'react';
 //import functions
 import functionTeamBoardWrite from '../../../Functions/FunctionTeam/functionTeamBoardWrite';
+//import atom
+import { useSetRecoilState } from "recoil";
+import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
 
-function TeamBoardWrite({ setSelectedMenu }) {
+function TeamBoardWrite() {
+    //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
+    const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
 
     //게시글 작성 내용을 알기 위한 ref 변수
     const titleRef=  useRef();

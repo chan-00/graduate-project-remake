@@ -13,14 +13,20 @@ import functionTeamBoardSearch from "../../../Functions/FunctionTeam/functionTea
 import TeamBoardListShow from "./TeamBoardListShow";
 //import react router
 import { useNavigate } from "react-router-dom";
+//import atom
+import { useSetRecoilState } from "recoil";
+import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
 
-function TeamBoard({ setSelectedMenu }) {
+function TeamBoard() {
     //pagination number array를 반복문으로 돌릴 때 사용할 index 변수
     let number;
 
     //화면 전환을 위한 navigate 함수
     const navigate = useNavigate();
+
+    //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
+    const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
 
     //검색어 input과 연결된 ref 변수
     const searchRef = useRef();
@@ -97,7 +103,7 @@ function TeamBoard({ setSelectedMenu }) {
                                 <th>작성일</th>
                             </tr>
                         </thead>
-                        <TeamBoardListShow posts={currentPosts(teamBoardList)} setSelectedMenu={setSelectedMenu}></TeamBoardListShow>
+                        <TeamBoardListShow posts={currentPosts(teamBoardList)}></TeamBoardListShow>
                     </Table>
                     <div id="teamMainPaginationContainer">
                         <Pagination id='paginationContainer'>{paginationNumArray}</Pagination>

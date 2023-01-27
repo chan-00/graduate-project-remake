@@ -95,11 +95,18 @@
 .mypageUserContentsListContainer > div > p {
     margin-bottom: 0;
     font-size: 30px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.mypageUserContentsListContainer > div:first-child > p {
+    cursor: auto;
 }
 
 .mypageUserContentsListContainer > div > span {
     font-size: 15px;
     color: #b4b4b4;
+    display: block;
 }
 /* 프로필의 유저 컨텐츠 Container css */
 
@@ -176,3 +183,20 @@ button.modifyButtons {
     color: white;
 }
 /* User Comments Container css */
+
+
+/* 본인이 작성한 게시글 리스트를 감싸는 Container css */
+#userBoardListGroup {
+    height: 500px;
+    overflow: auto;
+}
+
+#userBoardListGroup > div {
+    cursor: pointer;
+}
+
+#userBoardListGroup > div:hover {
+    background-color: #f8f8fa;
+    transition-duration: 0.3s;
+}
+/* 본인이 작성한 게시글 리스트를 감싸는 Container css */

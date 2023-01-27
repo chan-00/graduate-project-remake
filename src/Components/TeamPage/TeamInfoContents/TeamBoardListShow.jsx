@@ -1,8 +1,14 @@
 //import react router
 import { useNavigate } from "react-router-dom";
+//import atom
+import { useSetRecoilState } from "recoil";
+import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
 
-function TeamBoardListShow({posts, setSelectedMenu}) {
+function TeamBoardListShow({posts}) {
+    //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
+    const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
+
     //라우팅을 위한 useNavigate 함수
     const navigate = useNavigate();
 

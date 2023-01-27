@@ -3,6 +3,7 @@ import "../../css/MyPageCss/MyPage.css";
 import "../../css/SignPageCss/Sign.css";
 //import react bootstrap
 import { Button, Modal } from "react-bootstrap";
+import ListGroup from 'react-bootstrap/ListGroup';
 //import react hooks
 import { useEffect, useState, useRef } from "react";
 //import components
@@ -16,6 +17,7 @@ import functionNicknameModify from "../../Functions/FunctionModify/functionNickn
 import functionEmailModify from "../../Functions/FunctionModify/functionEmailModify";
 import functionCommentsModify from "../../Functions/FunctionModify/functionCommentsModify";
 import functionProfileImageModify from "../../Functions/FunctionModify/functionProfileImageModify";
+import functionGetMyBoardList from "../../Functions/FunctionMyPage/functionGetMyBoardList";
 //import atom
 import { useRecoilState } from "recoil";
 import atomNickname from "../../Atoms/atomNickname";
@@ -44,6 +46,8 @@ function MyPage() {
     const [ commentsModifyModalShow, setCommentsModifyModalShow ] = useState(false);
     //프로필 클릭 시 프로필 사진 수정을 할 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
     const [ profileImageModifyModalShow, setProfileImageModifyModalShow ] = useState(false);
+    //게시글 개수를 표시하는 영역 클릭 시 내가 작성한 게시글들을 볼 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
+    const [ boardListModalShow, setBoardListModifyModalShow ] = useState(false);
     /* Modal Boolean useState */
 
     /* modify value useState */
@@ -60,7 +64,9 @@ function MyPage() {
     //이미지 base64 값 테스트 useState
     const [ profileImage, setProfileImage ] = useState("");
     //해당 계정이 작성한 게시글 개수와 댓글 개수를 표시해 주는 데이터를 담을 useState 변수
-    
+    const [ countData, setCountData ] = useState([]);
+    //해당 계정이 작성한 게시글 리스트를 받아 저장할 useState 변수
+    const [ userBoardList, setUserBoardList ] = useState([]);
     /* modify value useState */
 
     //기존 비밀번호 입력 input에 대한 useRef 변수
@@ -78,7 +84,7 @@ function MyPage() {
     useEffect(() => {
         if(window.sessionStorage.id) {
             document.body.style.backgroundColor = "#f8f8fa";
-            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus, setProfileImage);
+            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus, setProfileImage, setCountData);
         }
         else {
             alert("로그인 되어 있지 않습니다!");
@@ -105,6 +111,9 @@ function MyPage() {
     //profile image edit Modal 창을 켜고 끄는 함수이다.
     const handleProfileImageModifyModalShow = () => setProfileImageModifyModalShow(true);
     const handleProfileImageModifyModalClose = () => setProfileImageModifyModalShow(false);
+    //Board Modal 창을 켜고 끄는 함수이다.
+    const handleBoardListModifyModalShow = () => setBoardListModifyModalShow(true);
+    const handleBoardListModifyModalClose = () => setBoardListModifyModalShow(false);
     /* Modal on/off event function */
 
     /* Modal Click event function */
@@ -151,6 +160,42 @@ function MyPage() {
     }
     /* 이미지 전송 테스트 코드 */
 
+    //게시글 개수 영역 클릭 시 해당 계정이 작성한 게시글 목록을 보여 주도록 하는 이벤트 함수이다.
+    const handleBoardListClick = () => {
+        if(countData[0] !== 0) {
+            functionGetMyBoardList(window.sessionStorage.id, handleBoardListModifyModalShow, setUserBoardList);
+        }
+        else if(countData[0] === 0) {
+            alert("작성한 게시글이 없습니다.");
+        }
+    }
+
+    //본인이 작성한 게시글 리스트 중 특정 게시글 클릭 시 해당 게시글로 화면 이동하기 위한 이벤트 함수
+    const handleUserBoardClick = (e) => {
+        console.log(e.target.id);
+        console.log(e.target.className);
+        //클래스 이름을 space 값으로 split하여 나누면 첫 번째 인덱스의 값이 카테고리가 되도록 설정하였다.
+        const targetClassInfo = e.target.className.split(" ");
+
+        //카테고리 값에 따라 공용 게시판으로 화면 이동시킬 것인지, 팀 게시판으로 화면 이동시킬 것인지 조건문으로 분류한다.
+        if(targetClassInfo[0] === "Team" || targetClassInfo[0] === "Question" || targetClassInfo[0] === "Share") {
+            if(targetClassInfo[0] === "Team") {
+                window.sessionStorage.setItem("category", "Team");
+            }
+            else if(targetClassInfo[0] === "Question") {
+                window.sessionStorage.setItem("category", "Question");
+            }
+            else if(targetClassInfo[0] === "Share") {
+                window.sessionStorage.setItem("category", "Share");
+            }
+            window.sessionStorage.setItem("currentClickBoardID", e.target.id);
+            navigate("/boarddetail");
+        }
+        else {
+            
+        }
+    }
+
     return (
         <div className="mypageAllContainer">
             <div className="mypageContentsAllContainer">
@@ -170,8 +215,8 @@ function MyPage() {
                     <hr></hr>
                     <div className="mypageUserContentsListContainer">
                         <div><p>{userTeamArray.length}</p><span>Join Team</span></div>
-                        <div><p>810</p><span>Write Post</span></div>
-                        <div><p>270</p><span>Write Comments</span></div>
+                        <div><p onClick={handleBoardListClick}>{countData[0]}</p><span>Write Post</span></div>
+                        <div><p>{countData[1]}</p><span>Write Comments</span></div>
                     </div>
                 </div>
                 <div className="mypageTeamAllContainer mypageContentsContainer">
@@ -316,6 +361,35 @@ function MyPage() {
                             <Button variant="outline-danger" className="modifyButtons" style={{marginLeft:"10px", fontSize:"13px"}} onClick={handleProfileImageModifyModalClose}>취소</Button>
                         </div>
                     </form>
+                </Modal.Body>
+            </Modal>
+            <Modal show={boardListModalShow} onHide={handleBoardListModifyModalClose}>
+                <Modal.Header closeButton>
+                    <h4>Board List</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    <ListGroup id="userBoardListGroup">
+                        {userBoardList.map((board, index) => {
+                            //어떤 게시판에 작성했는지에 따라 리스트에 표시해 줄 텍스트를 조건문으로 나눠서 다르게 구성한다.
+                            let listContents;
+                            if(board[2] === "Team") {
+                                listContents = `${board[1]} (팀 구인 게시판)`;
+                            }
+                            else if(board[2] === "Question") {
+                                listContents = `${board[1]} (질문 게시판)`;
+                            }
+                            else if(board[2] === "Share") {
+                                listContents = `${board[1]} (정보 공유 게시판)`;
+                            }
+                            else {
+                                listContents = `${board[1]} (${board[2]} 팀게시판)`;
+                            }
+
+                            return (
+                                <ListGroup.Item key={index} id={board[0]} className={board[2]} onClick={handleUserBoardClick}>{listContents}</ListGroup.Item>
+                            )
+                        })}
+                    </ListGroup>
                 </Modal.Body>
             </Modal>
         </div>

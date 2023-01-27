@@ -7,8 +7,13 @@ import { useEffect, useState } from "react";
 //import functions
 import functionTeamBoardDetailInfo from "../../../Functions/FunctionTeam/functionTeamBoardDetailInfo";
 import functionTeamBoardDelete from "../../../Functions/FunctionTeam/functionTeamBoardDelete";
+//import atom
+import { useSetRecoilState } from "recoil";
+import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
-function TeamBoardDetail({ setSelectedMenu }) {
+function TeamBoardDetail() {
+    //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
+    const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
 
     //팀 게시글 상세 정보들을 담을 배열 useState 변수
     const [ teamBoardInfo, setTeamBoardInfo ] = useState([]);
