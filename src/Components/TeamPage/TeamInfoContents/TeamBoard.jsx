@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState, useRef } from "react";
 //import functions
 import functionGetTeamAllBoardList from "../../../Functions/FunctionTeam/functionGetTeamAllBoardList";
+import functionTeamBoardSearch from "../../../Functions/FunctionTeam/functionTeamBoardSearch";
 //import components
 import TeamBoardListShow from "./TeamBoardListShow";
 //import react router
@@ -64,13 +65,20 @@ function TeamBoard({ setSelectedMenu }) {
         return currentPosts;
     };
 
+    //게시글 검색 시 호출되는 이벤트 함수
+    const handleTeamBoardSearch = (e) => {
+        e.preventDefault();
+        setLoadingStatus(false);
+        functionTeamBoardSearch(searchRef.current.value, window.sessionStorage.currentClickTeam, setTeamBoardList, setLoadingStatus);
+    }
+
     if(loadingStatus) {
         return (
             <div id="teamBoardAllContainer">
                 <div id="teamBoardContentsAllContainer">
                     <div className="boardButtonContainer">
-                        <button>글 작성</button>
-                        <form className="boardSearchContainer">
+                        <button onClick={() => setSelectedMenu("BoardWrite")}>글 작성</button>
+                        <form className="boardSearchContainer" onSubmit={handleTeamBoardSearch}>
                             <input 
                                 type="text"
                                 placeholder="검색어를 입력하세요."

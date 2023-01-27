@@ -4,6 +4,7 @@ import TeamBoard from "./TeamBoard"
 import ChatLog from "./ChatLog"
 import Management from "./Management"
 import TeamBoardDetail from "./TeamBoardDetail"
+import TeamBoardWrite from "./TeamBoardWrite"
 
 
 function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedMenu }) {
@@ -30,6 +31,11 @@ function TeamInfoContentsContainer({ currentSelectMenu, teamBelong, setSelectedM
     else if(currentSelectMenu === "BoardDetail") {
         return (
             <TeamBoardDetail setSelectedMenu={setSelectedMenu}></TeamBoardDetail>
+        )
+    }
+    else if(currentSelectMenu === "BoardWrite") {
+        return (
+            <TeamBoardWrite setSelectedMenu={setSelectedMenu}></TeamBoardWrite>
         )
     }
 }
