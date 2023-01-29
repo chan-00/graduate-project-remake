@@ -1,5 +1,5 @@
 //import react bootstrap icons
-import { PersonCircle, EmojiFrown } from "react-bootstrap-icons";
+import { EmojiFrown } from "react-bootstrap-icons";
 //import react bootstrap
 import { Button } from "react-bootstrap";
 import Spinner from 'react-bootstrap/Spinner';
@@ -30,6 +30,7 @@ function JoinTeam({teamArray, teamInfo, setTeamInfo, loadingStatus}) {
 
     const handleTeamClick = (teamname) => {
         window.sessionStorage.setItem("currentClickTeam", teamname);
+        window.sessionStorage.setItem("teamSelectMenuValue", "TeamInfo");
         navigate("/teaminfo");
     }
 

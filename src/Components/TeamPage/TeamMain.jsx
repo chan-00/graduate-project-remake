@@ -31,10 +31,12 @@ function TeamMain() {
     const [ loadingStatus, setLoadingStatus ] = useState(false);
     //pagination 버튼을 표시해주기 위한 배열 useState 변수
     const [ paginationNumArray, setPaginationNumArray ] = useState([]);
+    //팀에 속한 팀원들의 프로필 사진 base64 값을 담을 배열 useState 변수
+    const [ userProfileInfo, setUserProfileInfo ] = useState([]);
 
     //처음 페이지 렌더링 시 팀 리스트 값을 받아오기 위한 useEffect 함수
     useEffect(() => {
-        functionGetTeamInfoList(setUserTeamInfoList, window.sessionStorage.id, setLoadingStatus);
+        functionGetTeamInfoList(setUserTeamInfoList, window.sessionStorage.id, setLoadingStatus, setUserProfileInfo);
     }, []);
     //팀 리스트를 받아온 후 pagination 값을 표시해주기 위한 useEffect 함수
     useEffect(() => {
@@ -55,6 +57,11 @@ function TeamMain() {
     const currentPosts = (posts) => {
         let currentPosts = 0;
         currentPosts = posts.slice(indexOfFirst, indexOfLast);
+        return currentPosts;
+    };
+    const currentPhotoPosts = (photos) => {
+        let currentPosts = 0;
+        currentPosts = photos.slice(indexOfFirst, indexOfLast);
         return currentPosts;
     };
 
@@ -80,7 +87,7 @@ function TeamMain() {
                             <th>Member</th>
                         </tr>
                     </thead>
-                    <TeamListShow posts={currentPosts(userTeamInfoList)}></TeamListShow>
+                    <TeamListShow posts={currentPosts(userTeamInfoList)} userProfileInfo={currentPhotoPosts(userProfileInfo)}></TeamListShow>
                 </Table>
                 <div id="teamMainPaginationContainer">
                     <Pagination id='paginationContainer'>{paginationNumArray}</Pagination>

@@ -1,10 +1,8 @@
-//import react bootstrap icons
-import { PersonCircle } from "react-bootstrap-icons"
 //import react router
 import { useNavigate } from "react-router-dom";
 
 
-function TeamListShow({posts}) {
+function TeamListShow({ posts, userProfileInfo }) {
     //라우팅을 위한 useNavigate 함수
     const navigate = useNavigate();
 
@@ -17,14 +15,14 @@ function TeamListShow({posts}) {
 
     return (
         <tbody>
-            {posts.map((post, index) => (
+            {posts.map((post, index1) => (
                 <tr key={post[0][0]} id={post[0][0]} onClick={() => handleTeamClick(post[0][0])}>
                     <td>{post[0][0]}</td>
                     <td>{post[0][2]}</td>
                     <td>{post[0][1]}</td>
                     <td>
-                        {post[1].map((member) => (
-                            <PersonCircle key={member[0]} title={member[0]}></PersonCircle>
+                        {post[1].map((member, index2) => (
+                            <img className="userProfile" src={`data:image/png;base64,${userProfileInfo[index1][index2]}`} key={member[0]} title={member[0]} />
                         ))}
                     </td>
                 </tr>

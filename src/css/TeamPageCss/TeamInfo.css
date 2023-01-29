@@ -1,10 +1,3 @@
-/* 팀 정보 컴포넌트 전체를 감싸는 Container css */
-#teaminfoAllContainer {
-    
-}
-/* 팀 정보 컴포넌트 전체를 감싸는 Container css */
-
-
 /* 팀 정보 영역을 감싸는 Container css */
 #teaminfoContainer {
     width: 50%;
@@ -89,7 +82,7 @@
 .cardContainer img {
     width: 100px;
     height: 100px;
-    margin: 0 auto;
+    margin: 10px auto 0;
 }
 
 .cardContainer > .card {

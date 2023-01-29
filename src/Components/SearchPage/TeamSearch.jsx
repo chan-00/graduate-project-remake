@@ -36,10 +36,12 @@ function TeamSearch() {
     const [ currentPageNum, setCurrentPageNum ] = useState(1);
     //pagination 버튼을 표시해주기 위한 배열 useState 변수
     const [ paginationNumArray, setPaginationNumArray ] = useState([]);
+    //팀에 속한 팀원들의 프로필 사진 base64 값을 담을 배열 useState 변수
+    const [ userProfileInfo, setUserProfileInfo ] = useState([]);
 
     //팀 검색 페이지 첫 렌더링 시 전체 팀 리스트를 백엔드로부터 받아 오기 위한 useEffect 함수
     useEffect(() => {
-        functionTeamSearch("All", "", setLoadingStatus, setTeamList);
+        functionTeamSearch("All", "", setLoadingStatus, setTeamList, setUserProfileInfo, setCurrentPageNum);
     }, []);
     //팀 리스트를 받아온 후 pagination 값을 표시해주기 위한 useEffect 함수
     useEffect(() => {
@@ -62,6 +64,12 @@ function TeamSearch() {
         currentPosts = posts.slice(indexOfFirst, indexOfLast);
         return currentPosts;
     };
+    //pagination에 따라 현재 페이지에 해당하는 프로필 사진을 보여주기 위한 페이지네이션 코드
+    const currentPhotoPosts = (photos) => {
+        let currentPosts = 0;
+        currentPosts = photos.slice(indexOfFirst, indexOfLast);
+        return currentPosts;
+    };
 
     //pagination에서 마우스로 클릭 시 해당 버튼에 active 효과 부여하기 위한 onclick 함수
     const handlePaginationBtnOnClick = (e) => {
@@ -73,7 +81,7 @@ function TeamSearch() {
         e.preventDefault();
         setLoadingStatus(false);
 
-        functionTeamSearch(teamCategoryRef.current.value, teamNameRef.current.value, setLoadingStatus, setTeamList);
+        functionTeamSearch(teamCategoryRef.current.value, teamNameRef.current.value, setLoadingStatus, setTeamList, setUserProfileInfo, setCurrentPageNum);
     }
 
     return (
@@ -118,7 +126,7 @@ function TeamSearch() {
                                 <th>Member</th>
                             </tr>
                         </thead>
-                        <TeamListShow posts={currentPosts(teamList)}></TeamListShow>
+                        <TeamListShow posts={currentPosts(teamList)} userProfileInfo={currentPhotoPosts(userProfileInfo)}></TeamListShow>
                     </Table>
                     <div id="teamMainPaginationContainer">
                         <Pagination id='paginationContainer'>{paginationNumArray}</Pagination>

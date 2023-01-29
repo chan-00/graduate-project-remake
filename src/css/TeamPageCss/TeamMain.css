@@ -53,3 +53,12 @@
     margin-top: 60px;
 }
 /* pagination 페이지 번호 버튼 리스트 css */
+
+
+/* 유저 프로필 사진 크기 관련 css */
+.userProfile {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+/* 유저 프로필 사진 크기 관련 css */

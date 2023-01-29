@@ -27,10 +27,12 @@ function TeamInfo({ teamBelong }) {
     const [ teamCommentModifyModalShow, setTeamCommentModifyModalShow ] = useState(false);
     //해당 팀에 대한 member 데이터를 갖고 있는 배열 useState 변수
     const [ teamMemberArray, setTeamMemberArray ] = useState([]);
+    //팀에 속한 팀원들의 프로필 사진 base64 값을 담을 배열 useState 변수
+    const [ userProfileInfo, setUserProfileInfo ] = useState([]);
 
     //첫 렌더링 시 팀 정보를 표시하기 위한 useEffect 함수
     useEffect(() => {
-        functionGetTeamInfo(window.sessionStorage.currentClickTeam, setTeamInfoArray, setLoadingStatus, setTeamComment, setTeamMemberArray);
+        functionGetTeamInfo(window.sessionStorage.currentClickTeam, setTeamInfoArray, setLoadingStatus, setTeamComment, setTeamMemberArray, setUserProfileInfo);
     }, []);
 
     //comment edit Modal 창을 켜고 끄는 함수이다.
@@ -62,10 +64,10 @@ function TeamInfo({ teamBelong }) {
                     </div>
                 </div>
                 <div className="teamManagementContainer">
-                    {teamMemberArray.map((member) => (
+                    {teamMemberArray.map((member, index) => (
                         <div className="cardContainer" key={member[0]}>
                             <Card>
-                            <Card.Img variant="top" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/271deea8-e28c-41a3-aaf5-2913f5f48be6/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI3MWRlZWE4LWUyOGMtNDFhMy1hYWY1LTI5MTNmNWY0OGJlNlwvZGU3ODM0cy02NTE1YmQ0MC04YjJjLTRkYzYtYTg0My01YWMxYTk1YThiNTUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BopkDn1ptIwbmcKHdAOlYHyAOOACXW0Zfgbs0-6BY-E" />
+                                <img src={`data:image/png;base64,${userProfileInfo[index]}`} />
                                 <Card.Body>
                                     <Card.Title className={member[3] === "1" ? "leaderMemberColor" : null}>{member[0]}</Card.Title>
                                     <Card.Text>
