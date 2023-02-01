@@ -152,6 +152,9 @@ function MyPage() {
         if(formData) {
             functionProfileImageModify(formData, setProfileImage, handleProfileImageModifyModalClose);
         }
+        else {
+            alert("변경할 이미지를 선택해 주세요.");
+        }
     }
     /* Modal Click event function */
 
@@ -160,10 +163,17 @@ function MyPage() {
         e.preventDefault();
         
         if(e.target.files){
-            uploadFile = e.target.files[0];
-            formData = new FormData();
-            formData.append('files',uploadFile);
-            formData.append('id', window.sessionStorage.id);
+            const fileType = e.target.files[0].type.split("/");
+
+            if(fileType[0] === "image") {
+                uploadFile = e.target.files[0];
+                formData = new FormData();
+                formData.append('files',uploadFile);
+                formData.append('id', window.sessionStorage.id);
+            }
+            else {
+                alert("이미지만 선택 가능합니다.");
+            }
         }
     }
     /* 이미지 전송 테스트 코드 */

@@ -6,8 +6,12 @@
 /* 팀 게시판 전체를 감싸는 Container css */
 
 
-/* 팀 게시판 제목을 감싸는 Container css */
-#teamBoardTitleContainer {
-    
+/* 팀 게시판 정보 전체를 감싸는 Container css */
+#teamBoardInfoContentsAllContainer #boardAdditionInfoContainer > div > span > svg {
+    float: none;
 }
-/* 팀 게시판 제목을 감싸는 Container css */
+
+#teamBoardInfoContentsAllContainer #boardAdditionInfoContainer > div > span {
+    cursor: pointer;
+}
+/* 팀 게시판 정보 전체를 감싸는 Container css */

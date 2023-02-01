@@ -2,6 +2,8 @@
 import "../../../css/TeamPageCss/TeamBoardDetail.css";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
+//import react bootstrap icons
+import { Download } from "react-bootstrap-icons";
 //import react hooks
 import { useEffect, useState } from "react";
 //import functions
@@ -17,6 +19,8 @@ function TeamBoardDetail() {
 
     //팀 게시글 상세 정보들을 담을 배열 useState 변수
     const [ teamBoardInfo, setTeamBoardInfo ] = useState([]);
+    //파일 정보가 있을 때 파일 정보를 담을 useState 변수
+    const [ shareFileName, setShareFileName ] = useState("");
     //로딩 화면을 표시하기 위한 status 변수
     const [ loadingStatus, setLoadingStatus ] = useState(false);
     //자료 공유 게시글일 경우 해당 자료에 대한 정보를 나눠 담을 배열
@@ -24,7 +28,7 @@ function TeamBoardDetail() {
 
     //팀 게시글 첫 렌더링 시 해당 게시글에 대한 정보를 받아 오기 위한 useEffect 함수
     useEffect(() => {
-        functionTeamBoardDetailInfo(window.sessionStorage.currentClickTeamBoardID, setTeamBoardInfo, setLoadingStatus);
+        functionTeamBoardDetailInfo(window.sessionStorage.currentClickTeamBoardID, setTeamBoardInfo, setLoadingStatus, setShareFileName);
     }, []);
     //백엔드로부터 게시글 정보를 받아왔을 때 자료 공유 게시물일 경우 데이터를 변수에 나눠 저장하기 위한 useEffect 함수
     useEffect(() => {
@@ -47,6 +51,11 @@ function TeamBoardDetail() {
     //자료 공유 게시글일 경우 자료 공유 영역 클릭 시 호출되는 이벤트 함수
     const handleShareInfoClick = () => {
         window.open(shareInfo[1]);
+    }
+
+    //파일 공유 게시글일 경우 첨부 파일 다운로드 클릭 시 호출되는 이벤트 함수
+    const handleClickFileDownload = () => {
+        
     }
 
     if(loadingStatus) {
@@ -72,6 +81,11 @@ function TeamBoardDetail() {
                         <div id="boardAdditionInfoContainer">
                             <span>{teamBoardInfo[3]}</span>
                             <span>{teamBoardInfo[2]}</span>
+                            {teamBoardInfo[4] === "file_save" ? 
+                                <div>
+                                    <span onClick={handleClickFileDownload}><Download></Download> 첨부 파일 : {shareFileName}</span>
+                                </div>
+                            : null}
                         </div>
                         <hr></hr>
                     </div>
