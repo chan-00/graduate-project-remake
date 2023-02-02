@@ -36,8 +36,13 @@ function TeamBoardWrite() {
         uploadFiles = e.target.files[0];
 
         if(uploadFiles) {
-            formData = new FormData();
-            formData.append('files', uploadFiles);
+            if(uploadFiles.size <= 5242880) {
+                formData = new FormData();
+                formData.append('files', uploadFiles);
+            }
+            else {
+                alert("현재 첨부파일이 5MB 이상의 크기입니다.");
+            }
         }
     }
 
@@ -46,7 +51,12 @@ function TeamBoardWrite() {
         e.preventDefault();
 
         if(formData) {
-            functionTeamBoardFirstFileWrite(titleRef.current.value, contentsRef.current.value, window.sessionStorage.id, window.sessionStorage.currentClickTeam, setSelectedMenu, "file_save", formData);
+            if(uploadFiles.size <= 5242880) {
+                functionTeamBoardFirstFileWrite(titleRef.current.value, contentsRef.current.value, window.sessionStorage.id, window.sessionStorage.currentClickTeam, setSelectedMenu, "file_save", formData);
+            }
+            else {
+                alert("현재 첨부파일이 5MB 이상의 크기인지 확인해 주세요.");
+            }
         }
         else {
             functionTeamBoardWrite(titleRef.current.value, contentsRef.current.value, window.sessionStorage.id, window.sessionStorage.currentClickTeam, setSelectedMenu, "normal");

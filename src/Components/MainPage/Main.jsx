@@ -10,11 +10,16 @@ import MainMapArea from "./MainMapArea";
 import MainCharacterArea from "./MainCharacterArea";
 //import functions
 import functionDownloadUnityFile from "../../Functions/functionDownloadUnityFile";
+//import react router
+import { useNavigate } from "react-router-dom";
 
 
 //메인 페이지 영역 제작
 //맵 소개와 캐릭터 소개 영역은 내용이 길어져 따로 component로 만들었다.
 function Main() {
+    //화면 이동을 담당할 useNavigate 변수
+    const navigate = useNavigate();
+
     //blob 객체의 다운로드 url 값을 저장할 useState 변수
     const [ downloadUrl, setDownloadUrl ] = useState("");
 
@@ -29,12 +34,14 @@ function Main() {
     useEffect(() => {
         if(downloadUrl.length !== 0) {
             downloadElementRef.current.click();
+            navigate("/downloadinfo");
         }
     }, [downloadUrl]);
 
     //시작하기 버튼 클릭 시 백엔드로부터 unity 프로그램 파일을 받아 오는 이벤트 함수이다.
     const handleDownloadButtonClick = () => {
         functionDownloadUnityFile(setDownloadUrl, downloadUrl);
+        alert("프로그램이 설치되기 전까지 잠깐 기다려 주세요.");
     }
 
     return (

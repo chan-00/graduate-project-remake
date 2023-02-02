@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Header from "./Components/MainPage/Header";
 import Footer from "./Components/MainPage/Footer";
 import Main from "./Components/MainPage/Main";
+import DownloadFileInfo from "./Components/MainPage/DownloadFileInfo";
 
 import SignIn from "./Components/SignPage/SignIn";
 import SignUp from "./Components/SignPage/SignUp";
@@ -35,6 +36,7 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path="/" element={<Main></Main>}></Route>
+          <Route path="/downloadinfo" element={<DownloadFileInfo></DownloadFileInfo>}></Route>
           <Route path="/signin" element={<SignIn></SignIn>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
           <Route path="/mypage" element={<MyPage></MyPage>}></Route>
