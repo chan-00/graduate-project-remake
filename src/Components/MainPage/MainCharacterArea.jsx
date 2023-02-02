@@ -34,7 +34,7 @@ function MainCharacterArea() {
             */}
             <div data-aos="fade-up" data-aos-duration="1200" className="mainContentsContainer">
                 <div>
-                    <img src="https://i.ibb.co/nMjWSJ5/image.png"></img>
+                    <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g"></img>
                 </div>
             </div>
         </div>

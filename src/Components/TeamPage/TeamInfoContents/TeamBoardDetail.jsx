@@ -5,15 +5,19 @@ import Spinner from 'react-bootstrap/Spinner';
 //import react bootstrap icons
 import { Download } from "react-bootstrap-icons";
 //import react hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 //import functions
 import functionTeamBoardDetailInfo from "../../../Functions/FunctionTeam/functionTeamBoardDetailInfo";
 import functionTeamBoardDelete from "../../../Functions/FunctionTeam/functionTeamBoardDelete";
+import functionTeamBoardFileDownload from "../../../Functions/FunctionTeam/functionTeamBoardFileDownload";
 //import atom
 import { useSetRecoilState } from "recoil";
 import atomTeamSelectedMenu from "../../../Atoms/atomTeamSelectedMenu"
 
 function TeamBoardDetail() {
+    //blob 객체를 받을 시 a 링크 클릭을 담당하는 useRef
+    const downloadElementRef = useRef();
+
     //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
     const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
 
@@ -25,6 +29,8 @@ function TeamBoardDetail() {
     const [ loadingStatus, setLoadingStatus ] = useState(false);
     //자료 공유 게시글일 경우 해당 자료에 대한 정보를 나눠 담을 배열
     const [ shareInfo, setShareInfo ] = useState([]);
+    //blob 객체의 다운로드 url 값을 저장할 useState 변수
+    const [ downloadUrl, setDownloadUrl ] = useState("");
 
     //팀 게시글 첫 렌더링 시 해당 게시글에 대한 정보를 받아 오기 위한 useEffect 함수
     useEffect(() => {
@@ -37,7 +43,13 @@ function TeamBoardDetail() {
             setShareInfo(tempShareInfo);
         }
     }, [teamBoardInfo]);
-
+    //백엔드로부터 파일 객체를 받을 시 다운받는 경로가 생기는데, 이 때 화면상에는 보이지 않는 a 태그의 클릭 이벤트를 호출하여 파일을 다운받도록 한다.
+    useEffect(() => {
+        if(downloadUrl.length !== 0) {
+            downloadElementRef.current.click();
+        }
+    }, [downloadUrl]);
+    
     //게시판 title 클릭 시 팀 게시판으로 돌아가게끔 하는 이벤트 함수
     const handleTeamBoard = () => {
         setSelectedMenu("TeamBoard");
@@ -55,7 +67,8 @@ function TeamBoardDetail() {
 
     //파일 공유 게시글일 경우 첨부 파일 다운로드 클릭 시 호출되는 이벤트 함수
     const handleClickFileDownload = () => {
-        
+        alert("다운로드 버튼은 한 번만 클릭해 주십시오.");
+        functionTeamBoardFileDownload(window.sessionStorage.currentClickTeamBoardID, setDownloadUrl, downloadUrl);
     }
 
     if(loadingStatus) {
@@ -83,7 +96,8 @@ function TeamBoardDetail() {
                             <span>{teamBoardInfo[2]}</span>
                             {teamBoardInfo[4] === "file_save" ? 
                                 <div>
-                                    <span onClick={handleClickFileDownload}><Download></Download> 첨부 파일 : {shareFileName}</span>
+                                    <span onClick={handleClickFileDownload} style={{border:"none"}}><Download></Download> 첨부 파일 : {shareFileName}</span>
+                                    <a style={{visibility:"hidden"}} ref={downloadElementRef} href={downloadUrl.length !== 0 ? downloadUrl : null} download={shareFileName}></a>
                                 </div>
                             : null}
                         </div>

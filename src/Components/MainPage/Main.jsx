@@ -22,9 +22,10 @@ function Main() {
         <>
             <div className="contentCenter" id="mainContentContainer">
                 <div data-aos="fade-up" data-aos-duration="1200">
-                상상하는 모든 것.<br/>
-                서일대학교에서.
+                    상상하는 모든 것.<br/>
+                    서일대학교에서.
                 </div>
+                <button id="">시작하기</button>
             </div>
             <MainMapArea></MainMapArea>
             <MainCharacterArea></MainCharacterArea>
