@@ -42,13 +42,36 @@ function SignUp() {
     //아이디 중복 버튼 클릭 시 백엔드와 통신하는 함수 호출
     const handleIdCheck = (e) => {
         e.preventDefault();
-        functionIdCheck(idRef, setIdCheckMessage, setSignBtnActivation);
+        if(idRef.current.value.length > 12) {
+            alert("아이디가 12글자 이상입니다!");
+        }
+        else {
+            functionIdCheck(idRef, setIdCheckMessage, setSignBtnActivation);
+        }
     }
 
     //회원가입 버튼 클릭 시 백엔드와 통신하는 함수 호출
     const handleSignUp = (e) => {
         e.preventDefault();
-        functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigate, setNickname);
+
+        if(idRef.current.value.length > 12) {
+            alert("아이디가 12글자 이상입니다!");
+        }
+        else if(pwRef.current.value.length > 20) {
+            alert("비밀번호가 20글자 이상입니다!");
+        }
+        else if(pwCheckRef.current.value.length > 20) {
+            alert("비밀번호 확인 글자가 20글자 이상입니다!");
+        }
+        else if(emailRef.current.value.length > 30) {
+            alert("이메일이 30글자 이상입니다!");
+        }
+        else if(nicknameRef.current.value.length > 20) {
+            alert("닉네임이 20글자 이상입니다!");
+        }
+        else {
+            functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigate, setNickname);
+        }
     }
 
     return (

@@ -20,6 +20,32 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
         return false;
     }
 
+    //회원가입 전 정규식 표현에 맞는 아이디 값인지 확인한다.
+    const idPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
+    const pwPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣\!]*$/;
+    const emailPattern = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    if(!idPattern.test(idRef.current.value)) {
+        alert("현재 입력한 아이디 값에 특수문자 혹은 공백이 포함되어 있습니다.");
+        idRef.current.focus();
+        return false;
+    }
+    else if(!pwPattern.test(pwRef.current.value)) {
+        alert("현재 입력한 비밀번호 값에 !를 제외한 특수문자 혹은 공백이 포함되어 있습니다.");
+        pwRef.current.value = "";
+        pwRef.current.focus();
+        return false;
+    }
+    else if(!emailPattern.test(emailRef.current.value)) {
+        alert("현재 입력한 이메일 값에 특수문자, 공백이 포함되어 있습니다.");
+        emailRef.current.focus();
+        return false;
+    }
+    if(!idPattern.test(nicknameRef.current.value)) {
+        alert("현재 입력한 닉네임 값에 특수문자 혹은 공백이 포함되어 있습니다.");
+        nicknameRef.current.focus();
+        return false;
+    }
+
     //비밀번호와 비밀번호 체크 값이 같은지 확인하여 같으면 axios로 서버에 값을 보낸다.
     if(pwRef.current.value === pwCheckRef.current.value) {
         //axios post 방식으로 서버 url에 signup 요청을 보낸다.(입력한 값도 같이 보냄)

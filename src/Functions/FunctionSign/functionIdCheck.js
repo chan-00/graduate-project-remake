@@ -3,10 +3,10 @@ import server_ip from "../../serverIP.js";
 
 //아이디값을 백엔드로 보내고, 중복 여부를 확인하여 화면에 띄울 메시지값(setIdCheckMessage)과 버튼의 활성화 여부값(setSignBtnActivation)을 변경한다.
 function functionIdCheck(idRef, setIdCheckMessage, setSignBtnActivation) {
-    //사용자가 입력한 아이디 값이 특정 문자 개수 이상 넘길 수 있도록 제한한다.
-    if(idRef.current.value.length < 4) {
-        alert("id를 4글자 이상 입력하세요.");
-        idRef.current.focus();
+    //아이디 중복 여부 확인 전 정규식 표현에 맞는 아이디 값인지 확인한다.
+    const strPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
+    if(!strPattern.test(idRef.current.value)) {
+        alert("현재 입력한 아이디 값에 특수문자 혹은 공백이 포함되어 있습니다.");
         return false;
     }
 

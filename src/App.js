@@ -33,29 +33,29 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header></Header>
+        <Header/>
         <Routes>
-          <Route path="/" element={<Main></Main>}></Route>
-          <Route path="/downloadinfo" element={<DownloadFileInfo></DownloadFileInfo>}></Route>
-          <Route path="/signin" element={<SignIn></SignIn>}></Route>
-          <Route path="/signup" element={<SignUp></SignUp>}></Route>
-          <Route path="/mypage" element={<MyPage></MyPage>}></Route>
+          <Route path="/" element={<Main/>}></Route>
+          <Route path="/downloadinfo" element={<DownloadFileInfo/>}></Route>
+          <Route path="/signin" element={<SignIn/>}></Route>
+          <Route path="/signup" element={<SignUp/>}></Route>
+          <Route path="/mypage" element={<MyPage/>}></Route>
 
-          <Route path="/teammake" element={<TeamMake></TeamMake>}></Route>
-          <Route path="/team" element={<TeamMain></TeamMain>}></Route>
-          <Route path="/teaminfo" element={<TeamDetail></TeamDetail>}></Route>
+          <Route path="/teammake" element={<TeamMake/>}></Route>
+          <Route path="/team" element={<TeamMain/>}></Route>
+          <Route path="/teaminfo" element={<TeamDetail/>}></Route>
           
-          <Route path="/offerboard" element={<OfferBoard></OfferBoard>}></Route>
-          <Route path="/questionboard" element={<QuestionBoard></QuestionBoard>}></Route>
-          <Route path="/shareboard" element={<ShareBoard></ShareBoard>}></Route>
-          <Route path="/boarddetail" element={<BoardDetail></BoardDetail>}></Route>
-          <Route path="/boardwrite" element={<BoardWrite></BoardWrite>}></Route>
-          <Route path="/boardmodify" element={<BoardModify></BoardModify>}></Route>
+          <Route path="/offerboard" element={<OfferBoard/>}></Route>
+          <Route path="/questionboard" element={<QuestionBoard/>}></Route>
+          <Route path="/shareboard" element={<ShareBoard/>}></Route>
+          <Route path="/boarddetail" element={<BoardDetail/>}></Route>
+          <Route path="/boardwrite" element={<BoardWrite/>}></Route>
+          <Route path="/boardmodify" element={<BoardModify/>}></Route>
 
-          <Route path="/infosearch" element={<InfoSearch></InfoSearch>}></Route>
-          <Route path="/teamsearch" element={<TeamSearch></TeamSearch>}></Route>
+          <Route path="/infosearch" element={<InfoSearch/>}></Route>
+          <Route path="/teamsearch" element={<TeamSearch/>}></Route>
         </Routes>
-        <Footer></Footer>
+        <Footer/>
       </Router>
     </div>
   )

@@ -26,7 +26,15 @@ function SignIn() {
     //로그인 버튼 클릭 시 백엔드와 통신하는 함수 호출
     const handleSignIn = (e) => {
         e.preventDefault();
-        functionSignIn(idRef, pwRef, navigate, setNickname);
+        if(idRef.current.value.length > 12) {
+            alert("아이디 길이가 12글자 이상입니다!");
+        }
+        else if(pwRef.current.value.length > 20) {
+            alert("비밀번호 길이가 20글자 이상입니다!");
+        }
+        else {
+            functionSignIn(idRef, pwRef, navigate, setNickname);
+        }
     }
 
     return (
