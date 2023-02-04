@@ -21,10 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-package.json
-package-lock.json
-
-/src/serverIP.js
-
-/src/searchApiKey.js
