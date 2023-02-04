@@ -1,9 +1,8 @@
 import axios from "axios";
-import server_ip from "../../serverIP.js";
 
 function functionTeamBoardWrite(title, contents, id, teamname, setSelectedMenu, category) {
     //팀 게시판에서 게시글 작성 시 백엔드와 통신하는 코드이다.
-    axios.post("http://" + server_ip + ":8000/back/write_team_post/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/write_team_post/", {
         title: title,
         contents: contents,
         id: id,

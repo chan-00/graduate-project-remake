@@ -1,5 +1,4 @@
 import axios from "axios";
-import server_ip from "../../serverIP";
 
 function functionPwdModify(idValue, pwRef, newPwRef, handlePasswordModifyModalClose) {
     //글자 수 제한과 관련된 조건문 코드이다.
@@ -25,7 +24,7 @@ function functionPwdModify(idValue, pwRef, newPwRef, handlePasswordModifyModalCl
         return false;
     }
 
-    axios.post("http://" + server_ip + ":8000/back/pass_ch/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/pass_ch/", {
         id: idValue,
         old_pw: pwRef.current.value,
         new_pw: newPwRef.current.value

@@ -1,9 +1,8 @@
 import axios from "axios";
-import server_ip from "../../serverIP.js";
 
 function functionBoardCommentDelete(currentClickBoardID, currentCommentID, setCommentInfo, setModifyState, commentRef) {
     //댓글 작성 시 작성된 값을 백엔드로 전송하기 위한 코드이다.
-    axios.post("http://" + server_ip + ":8000/back/comment_delete/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/comment_delete/", {
         commentID: currentCommentID,
         boardID: currentClickBoardID,
     }).then((res) => {

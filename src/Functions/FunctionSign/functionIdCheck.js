@@ -1,5 +1,4 @@
 import axios from "axios";
-import server_ip from "../../serverIP.js";
 
 //아이디값을 백엔드로 보내고, 중복 여부를 확인하여 화면에 띄울 메시지값(setIdCheckMessage)과 버튼의 활성화 여부값(setSignBtnActivation)을 변경한다.
 function functionIdCheck(idRef, setIdCheckMessage, setSignBtnActivation) {
@@ -11,7 +10,7 @@ function functionIdCheck(idRef, setIdCheckMessage, setSignBtnActivation) {
     }
 
     //백엔드에 현재 사용자가 입력한 id 값을 전송한다.
-    axios.post("http://" + server_ip + ":8000/back/id_chk/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/id_chk/", {
         id: idRef.current.value
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.

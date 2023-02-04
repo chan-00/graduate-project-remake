@@ -1,9 +1,8 @@
 import axios from "axios";
-import server_ip from "../../serverIP.js";
 
 //사용자가 입력한 팀 이름, 팀 카테고리 값을 백엔드로 전송하여 그에 해당되는 팀 리스트 값을 받아온다.
 function functionTeamSearch(category, teamname, setLoadingStatus, setTeamList, setUserProfileInfo, setCurrentPageNum) {
-    axios.post("http://" + server_ip + ":8000/back/team_search/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/team_search/", {
         category: category,
         teamname: teamname
     }).then((res) => {

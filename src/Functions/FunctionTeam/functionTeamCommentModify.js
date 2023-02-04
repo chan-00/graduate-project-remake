@@ -1,8 +1,7 @@
 import axios from "axios";
-import server_ip from "../../serverIP";
 
 function functionTeamCommentModify(newCommentRef, currentClickTeam, setTeamComment, handleTeamCommentModifyModalClose) {
-    axios.post("http://" + server_ip + ":8000/back/ch_comment/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/ch_comment/", {
         teamname: currentClickTeam,
         teamcomment: newCommentRef.current.value,
     }).then((res) => {

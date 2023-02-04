@@ -1,9 +1,8 @@
 import axios from "axios";
-import server_ip from "../../serverIP.js";
 
 function functionBoardModify(category, teamname, contentsRef, titleRef, navigate, currentClickBoardID) {
     //팀 구인 게시판 글 수정 시 백엔드에게 작성한 글 내용을 전송하는 코드이다.
-    axios.post("http://" + server_ip + ":8000/back/post_change/", {
+    axios.post("http://" + process.env.server_ip + ":8000/back/post_change/", {
         post_id: currentClickBoardID,
         text: contentsRef.current.value,
         title: titleRef.current.value,
