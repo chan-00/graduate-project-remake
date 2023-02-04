@@ -2,6 +2,13 @@ import axios from "axios";
 import server_ip from "../../serverIP";
 
 function functionCommentsModify(idValue, newCommentsRef, handleCommentsModifyModalClose, setUserComments) {
+    //글자 수 제한과 관련된 조건문 코드이다.
+    if(newCommentsRef.current.value.length === 0 || newCommentsRef.current.value.length > 400) {
+        alert("코멘트를 입력하지 않았거나 400글자 이상 입력하였습니다.");
+        newCommentsRef.current.focus();
+        return false;
+    }
+
     axios.post("http://" + server_ip + ":8000/back/comment_ch/", {
         id: idValue,
         comment: newCommentsRef.current.value,
