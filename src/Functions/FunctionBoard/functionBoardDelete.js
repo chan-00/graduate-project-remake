@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionBoardDelete(currentClickBoardID, navigate) {
     //댓글 작성 시 작성된 값을 백엔드로 전송하기 위한 코드이다.
-    axios.post("http://" + process.env.server_ip + ":8000/back/post_delete/", {
+    axios.post(server_url + "/back/post_delete/", {
         post_id: currentClickBoardID,
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.

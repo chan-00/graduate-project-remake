@@ -1,4 +1,5 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionEmailModify(idValue, newEmailRef, handleEmailModifyModalClose, setUserEmail) {
     //입력 길이에 제한을 거는 조건문 코드이다.
@@ -16,7 +17,7 @@ function functionEmailModify(idValue, newEmailRef, handleEmailModifyModalClose, 
         return false;
     }
 
-    axios.post("http://" + process.env.server_ip + ":8000/back/email_ch/", {
+    axios.post(server_url + "/back/email_ch/", {
         id: idValue,
         email: newEmailRef.current.value,
     }).then((res) => {

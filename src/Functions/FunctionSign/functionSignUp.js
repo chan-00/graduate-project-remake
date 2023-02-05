@@ -1,4 +1,5 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigate, setNickname) {
     //사용자가 입력한 아이디, 비밀번호, 닉네임 값이 특정 문자 개수 이상 넘길 수 있도록 제한한다.
@@ -48,7 +49,7 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
     //비밀번호와 비밀번호 체크 값이 같은지 확인하여 같으면 axios로 서버에 값을 보낸다.
     if(pwRef.current.value === pwCheckRef.current.value) {
         //axios post 방식으로 서버 url에 signup 요청을 보낸다.(입력한 값도 같이 보냄)
-        axios.post("http://" + process.env.server_ip + ":8000/back/regist/", {
+        axios.post(server_url + "/back/regist/", {
             id: idRef.current.value,
             pw: pwRef.current.value,
             email: emailRef.current.value,

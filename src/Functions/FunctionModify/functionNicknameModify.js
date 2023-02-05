@@ -1,4 +1,5 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 //닉네임 수정과 관련되어 백엔드와 통신하는 함수이다.
 function functionNicknameModify(idValue, newNicknameRef, handleNicknameModifyModalClose, setNickname) {
@@ -22,7 +23,7 @@ function functionNicknameModify(idValue, newNicknameRef, handleNicknameModifyMod
         return false;
     }
 
-    axios.post("http://" + process.env.server_ip + ":8000/back/name_ch/", {
+    axios.post(server_url + "/back/name_ch/", {
         id: idValue,
         nickname: newNicknameRef.current.value,
     }).then((res) => {

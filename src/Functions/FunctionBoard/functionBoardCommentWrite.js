@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionBoardCommentWrite(userID, boardID, commentRef, setCommentInfo) {
     //댓글 작성 시 작성된 값을 백엔드로 전송하기 위한 코드이다.
-    axios.post("http://" + process.env.server_ip + ":8000/back/write_comment/", {
+    axios.post(server_url + "/back/write_comment/", {
         id: userID,
         boardID: boardID,
         comment: commentRef.current.value,

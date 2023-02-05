@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionProfileImageModify(formData, setProfileImage, handleProfileImageModifyModalClose) {
     axios({
-        url: "http://" + process.env.server_ip + ":8000/back/image_test/",
+        url: server_url + "/back/image_test/",
         data: formData,
         method: "POST",
         headers: {

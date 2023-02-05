@@ -1,4 +1,5 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionCommentsModify(idValue, newCommentsRef, handleCommentsModifyModalClose, setUserComments) {
     //글자 수 제한과 관련된 조건문 코드이다.
@@ -8,7 +9,7 @@ function functionCommentsModify(idValue, newCommentsRef, handleCommentsModifyMod
         return false;
     }
 
-    axios.post("http://" + process.env.server_ip + ":8000/back/comment_ch/", {
+    axios.post(server_url + "/back/comment_ch/", {
         id: idValue,
         comment: newCommentsRef.current.value,
     }).then((res) => {

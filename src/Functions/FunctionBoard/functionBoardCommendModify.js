@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionBoardCommentModify(currentClickBoardID, modifyState, commentRef, setCommentInfo, setModifyState) {
     //댓글 수정 시 수정된 값을 백엔드로 전송하기 위한 코드이다.
-    axios.post("http://" + process.env.server_ip + ":8000/back/comment_change/", {
+    axios.post(server_url + "/back/comment_change/", {
         commentID: modifyState,
         boardID: currentClickBoardID,
         comment: commentRef.current.value,

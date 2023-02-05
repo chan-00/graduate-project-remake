@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionBoardRecommend(currentClickBoardID, setBoardInfo, recommendNum) {
     //댓글 작성 시 작성된 값을 백엔드로 전송하기 위한 코드이다.
-    axios.post("http://" + process.env.server_ip + ":8000/back/recommend/", {
+    axios.post(server_url + "/back/recommend/", {
         boardID: currentClickBoardID,
         recommendNum: recommendNum,
     }).then((res) => {

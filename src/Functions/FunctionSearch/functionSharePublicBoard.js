@@ -1,8 +1,9 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionSharePublicBoard(userID, title, contents, category, handleSearchShareModalClose, navigate) {
     //공용 게시판에 자료 검색 결과 공유 시 백엔드와 통신하는 코드이다.
-    axios.post("http://" + process.env.server_ip + ":8000/back/post_info_share/", {
+    axios.post(server_url + "/back/post_info_share/", {
         id: userID,
         category: category,
         contents: contents,

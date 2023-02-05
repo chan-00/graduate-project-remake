@@ -1,4 +1,5 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionTeamMake(idValue, teamnameRef, teamDescRef, teamCategory, navigate) {
     //백엔드와 통신하기 전 입력한 내용의 길이를 체크하는 조건문 코드이다.
@@ -21,7 +22,7 @@ function functionTeamMake(idValue, teamnameRef, teamDescRef, teamCategory, navig
         return false;
     }
 
-    axios.post("http://" + process.env.server_ip + ":8000/back/make_team/", {
+    axios.post(server_url + "/back/make_team/", {
         id: idValue,
         teamname: teamnameRef.current.value,
         teamdesc: teamDescRef.current.value,

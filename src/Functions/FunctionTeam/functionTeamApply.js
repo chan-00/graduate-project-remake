@@ -1,7 +1,8 @@
 import axios from "axios";
+import server_url from "../../serverUrl.js";
 
 function functionTeamApply(id, currentClickTeam) {
-    axios.post("http://" + process.env.server_ip + ":8000/back/team_apply/", {
+    axios.post(server_url + "/back/team_apply/", {
         id: id,
         teamname: currentClickTeam,
     }).then((res) => {
