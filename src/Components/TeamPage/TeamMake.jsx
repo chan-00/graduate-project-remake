@@ -20,6 +20,13 @@ function TeamMake() {
     //팀 카테고리 값이 담길 useState 변수
     const [ teamCategory, setTeamCategory ] = useState("국어");
 
+    //로그인이 안되어 있을 때 로그인 페이지로 이동하게 하는 useEffect 함수
+    useEffect(() => {
+        if(!window.sessionStorage.id) {
+            alert("로그인이 되어 있지 않습니다!");
+            navigate("/signin");
+        }
+    }, []);
 
     //팀 생성 버튼 클릭 시 호출되는 이벤트 함수
     const handleTeamMake = (e) => {

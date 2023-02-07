@@ -14,9 +14,14 @@ import TeamInfo from "./TeamInfoContents/TeamInfo";
 //import atom
 import { useRecoilState } from "recoil";
 import atomTeamSelectedMenu from "../../Atoms/atomTeamSelectedMenu";
+//import react router
+import { useNavigate } from "react-router-dom"
 
 
 function TeamDetail() {
+    //페이지 이동을 위한 useNavigate
+    const navigate = useNavigate();
+
     //현재 사이드바 옆에 어떤 내용을 출력할지에 대한 내용이 담긴 recoil 변수
     const [ selectedMenu, setSelectedMenu ] = useRecoilState(atomTeamSelectedMenu);
 
@@ -29,12 +34,16 @@ function TeamDetail() {
     //백엔드와 통신하는 함수의 매개변수로 넘겨주고 호출한다.
     useEffect(() => {
         //로그인 상태라면 로그인된 계정의 아이디값, 비로그인 상태라면 "not_login"이라는 특정 값을 백엔드에 요청한다.
-        if(window.sessionStorage.id) {
+        if(window.sessionStorage.id && window.sessionStorage.teamSelectMenuValue && window.sessionStorage.currentClickTeam) {
             setSelectedMenu(window.sessionStorage.teamSelectMenuValue);
             functionGetTeamBelong(window.sessionStorage.id, window.sessionStorage.currentClickTeam, setTeamBelong, setLoadingStatus);
         }
+        else if(!window.sessionStorage.id && window.sessionStorage.teamSelectMenuValue && window.sessionStorage.currentClickTeam) {
+            functionGetTeamBelong("not_login", window.sessionStorage.currentClickTeam, setTeamBelong, setLoadingStatus);
+        }
         else {
-            functionGetTeamBelong("not_login", "JavaScript 스터디", setTeamBelong);
+            alert("비정상적인 접근입니다.");
+            navigate("/");
         }
     }, []);
     

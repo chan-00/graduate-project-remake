@@ -31,10 +31,17 @@ function BoardModify() {
 
     useEffect(() => {
         //페이지 첫 렌더링 시 수정할 게시글의 정보를 백엔드로부터 받아 오는 함수를 호출한다.
-        functionBoardModifyDetail(window.sessionStorage.currentClickBoardID, setModifyBoardInfo, setLoadingStatus);
-        if(window.sessionStorage.category === "Team") {
-            functionBoardUserTeamList(window.sessionStorage.id, setUserTeamList, navigate);
+        if(window.sessionStorage.currentClickBoardID && window.sessionStorage.id && window.sessionStorage.category) {
+            functionBoardModifyDetail(window.sessionStorage.currentClickBoardID, setModifyBoardInfo, setLoadingStatus);
+            if(window.sessionStorage.category === "Team") {
+                functionBoardUserTeamList(window.sessionStorage.id, setUserTeamList, navigate);
+            }
         }
+        else {
+            alert("비정상적인 접근입니다.");
+            navigate("/");
+        }
+        
     }, []);
 
     //팀 구인 게시판으로 가게 하는 이벤트 함수

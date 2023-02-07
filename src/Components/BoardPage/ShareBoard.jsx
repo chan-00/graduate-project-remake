@@ -36,7 +36,8 @@ function ShareBoard() {
 
     //페이지 첫 렌더링 시 게시판 카테고리에 맞게 작성된 게시글 리스트들을 백엔드로부터 받아오는 함수 호출
     useEffect(() => {
-        functionBoardList(window.sessionStorage.category, setLoadingStatus, setTeamBoardList);
+        window.sessionStorage.setItem("category", "Share");
+        functionBoardList("Share", setLoadingStatus, setTeamBoardList);
     }, []);
     //백엔드로부터 게시글 리스트를 받아왔을 때 pagination 번호를 매기기 위한 코드
     useEffect(() => {

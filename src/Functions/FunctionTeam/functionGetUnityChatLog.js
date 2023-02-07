@@ -7,11 +7,9 @@ function functionGetUnityChatLog(currentClickTeam, setChatLogArray, setLoadingSt
         teamname: currentClickTeam,
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
-        if(res.data.chat_list.length !== 0) {
-            setLoadingStatus(true);
-            setUserProfileInfo(res.data.photo_data);
-            setChatLogArray(res.data.chat_list);
-        }
+        setLoadingStatus(true);
+        setUserProfileInfo(res.data.photo_data);
+        setChatLogArray(res.data.chat_list);
     }).catch((err) => {
         console.log(err);
     })

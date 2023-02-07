@@ -1,7 +1,5 @@
 //import css
 import "../../../css/TeamPageCss/ChatLog.css";
-//import react bootstrap icons
-import { PersonCircle } from "react-bootstrap-icons";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
 //import react hooks

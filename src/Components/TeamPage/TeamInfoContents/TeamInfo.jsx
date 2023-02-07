@@ -54,7 +54,7 @@ function TeamInfo({ teamBelong }) {
         return (
             <div id="teaminfoAllContainer">
                 <div id="teaminfoContainer">
-                    <h4>{window.sessionStorage.currentClickTeam}{teamBelong === "-1" ? <button className="outlinePrimary" onClick={handleApplyButtonClick}>신청</button> : null}</h4>
+                    <h4>{window.sessionStorage.currentClickTeam}{(teamBelong === "-1" && window.sessionStorage.id) ? <button className="outlinePrimary" onClick={handleApplyButtonClick}>신청</button> : null}</h4>
                     <span>Category : {teaminfoArray[2]}</span>
                     <span>Start Date : {teaminfoArray[1]}</span>
                     <hr></hr>

@@ -36,7 +36,13 @@ function TeamMain() {
 
     //처음 페이지 렌더링 시 팀 리스트 값을 받아오기 위한 useEffect 함수
     useEffect(() => {
-        functionGetTeamInfoList(setUserTeamInfoList, window.sessionStorage.id, setLoadingStatus, setUserProfileInfo);
+        if(window.sessionStorage.id) {
+            functionGetTeamInfoList(setUserTeamInfoList, window.sessionStorage.id, setLoadingStatus, setUserProfileInfo);
+        }
+        else {
+            alert("로그인이 되어 있지 않습니다!");
+            navigate("/signin");
+        }
     }, []);
     //팀 리스트를 받아온 후 pagination 값을 표시해주기 위한 useEffect 함수
     useEffect(() => {

@@ -46,7 +46,13 @@ function BoardDetail() {
 
     //게시글 첫 렌더링 시 해당 게시글의 내용을 받아오기 위한 useEffect 함수
     useEffect(() => {
-        functionBoardDetail(window.sessionStorage.currentClickBoardID, setBoardInfo, setCommentInfo, setLoadingStatus);
+        if(window.sessionStorage.currentClickBoardID) {
+            functionBoardDetail(window.sessionStorage.currentClickBoardID, setBoardInfo, setCommentInfo, setLoadingStatus);
+        }
+        else {
+            alert("비정상적인 접근입니다.");
+            navigate("/");
+        }
     }, []);
     //백엔드로부터 댓글 리스트를 받아왔을 때 pagination 번호를 매기기 위한 코드
     useEffect(() => {

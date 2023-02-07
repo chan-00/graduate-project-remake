@@ -32,6 +32,10 @@ function BoardWrite() {
             alert("로그인 한 상태에서만 글을 작성할 수 있습니다.");
             navigate("/signin");
         }
+        if(!window.sessionStorage.category) {
+            alert("비정상적인 접근입니다.");
+            navigate("/");
+        }
     }, []);
 
     //팀 구인 게시판으로 가게 하는 이벤트 함수
