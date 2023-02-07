@@ -25,6 +25,6 @@ yarn-error.log*
 package.json
 package-lock.json
 
-/src/serverIP.js
+/src/serverUrl.js
 
 /src/searchApiKey.js
