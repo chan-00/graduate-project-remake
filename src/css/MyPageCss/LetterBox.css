@@ -35,6 +35,8 @@
 #letterListGroupContainer {
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.125);
+
+    overflow: auto;
 }
 
 #letterListGroupContainer svg {
@@ -42,7 +44,25 @@
     float: none;
 }
 
-#letterListGroupContainer svg:last-child {
+#letterListGroupContainer span {
+    float: right;
+    padding-right: 10px;
+}
+
+#letterListGroupContainer > #noneLetterContents {
+    height: 100%;
+    padding-top: 15%;
+
+    text-align: center;
+    font-size: 2rem;
+    color: gray;
+}
+
+#letterListGroupContainer .letterContents {
+    padding: 20px;
+}
+
+#letterListGroupContainer .letterDeleteButton {
     float: right;
     font-size: 23px;
     margin-top: 3px;
