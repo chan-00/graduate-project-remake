@@ -18,6 +18,8 @@ function TeamBoardWrite() {
     let uploadFiles;
     //파일이 포함될 formData 변수
     let formData;
+    //파일 용량 제한 크기가 저장되어 있는 변수
+    const FILE_UPLOAD_SIZE = 10 * 1024 * 1024;
 
     //현재 선택된 메뉴에 대한 값을 갖고 있는 recoil set 함수
     const setSelectedMenu = useSetRecoilState(atomTeamSelectedMenu);
@@ -36,12 +38,12 @@ function TeamBoardWrite() {
         uploadFiles = e.target.files[0];
 
         if(uploadFiles) {
-            if(uploadFiles.size <= 5242880) {
+            if(uploadFiles.size <= FILE_UPLOAD_SIZE) {
                 formData = new FormData();
                 formData.append('files', uploadFiles);
             }
             else {
-                alert("현재 첨부파일이 5MB 이상의 크기입니다.");
+                alert("현재 첨부파일이 10MB 이상의 크기입니다.");
             }
         }
     }
@@ -51,11 +53,11 @@ function TeamBoardWrite() {
         e.preventDefault();
 
         if(formData) {
-            if(uploadFiles.size <= 5242880) {
+            if(uploadFiles.size <= FILE_UPLOAD_SIZE) {
                 functionTeamBoardFirstFileWrite(titleRef.current.value, contentsRef.current.value, window.sessionStorage.id, window.sessionStorage.currentClickTeam, setSelectedMenu, "file_save", formData);
             }
             else {
-                alert("현재 첨부파일이 5MB 이상의 크기인지 확인해 주세요.");
+                alert("현재 첨부파일이 10MB 이상의 크기인지 확인해 주세요.");
             }
         }
         else {

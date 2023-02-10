@@ -1,0 +1,56 @@
+/* 쪽지함 페이지 전체를 감싸는 Container css */
+#letterPageAllContainer {
+    width: 100vw;
+    height: 100vh;
+}
+/* 쪽지함 페이지 전체를 감싸는 Container css */
+
+/* 쪽지 메시지 리스트 전체를 감싸는 Container css */
+#letterContentsContainer {
+    width: 50%;
+    height: 60%;
+    margin: 5% auto 0;
+}
+
+#letterContentsContainer > h4 {
+    display: inline-block;
+}
+
+#letterContentsContainer > button {
+    margin: 0 0 10px 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+
+    background-color: white;
+}
+
+#letterContentsContainer > button:hover {
+    background-color: red;
+}
+/* 쪽지 메시지 리스트 전체를 감싸는 Container css */
+
+
+/* 쪽지 메시지 리스트 Container css */
+#letterListGroupContainer {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#letterListGroupContainer svg {
+    margin-right: 10px;
+    float: none;
+}
+
+#letterListGroupContainer svg:last-child {
+    float: right;
+    font-size: 23px;
+    margin-top: 3px;
+    color: red;
+}
+
+#letterListGroupContainer .list-group-item:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+}
+/* 쪽지 메시지 리스트 Container css */

@@ -98,6 +98,10 @@ function Header() {
     const handleTeamSearchPage = () => {
         navigate("/teamsearch");
     }
+    //쪽지함 페이지로 이동하게 하는 이벤트 함수
+    const handleLetter = () => {
+        navigate("/letterbox");
+    }
 
     return (
         <div>
@@ -121,6 +125,7 @@ function Header() {
                     {window.sessionStorage.id
                     ? <NavDropdown title={window.sessionStorage.nickname} id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={handleMyPage}>My Page</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLetter}>Letter Box</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                     </NavDropdown>
                     : <div>

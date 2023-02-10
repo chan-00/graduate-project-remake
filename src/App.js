@@ -10,6 +10,7 @@ import DownloadFileInfo from "./Components/MainPage/DownloadFileInfo";
 import SignIn from "./Components/SignPage/SignIn";
 import SignUp from "./Components/SignPage/SignUp";
 import MyPage from "./Components/MyPage/MyPage";
+import LetterBox from "./Components/MyPage/LetterBox";
 
 import TeamMake from "./Components/TeamPage/TeamMake";
 import TeamMain from "./Components/TeamPage/TeamMain";
@@ -40,7 +41,8 @@ function App() {
           <Route path="/signin" element={<SignIn/>}></Route>
           <Route path="/signup" element={<SignUp/>}></Route>
           <Route path="/mypage" element={<MyPage/>}></Route>
-
+          <Route path="/letterbox" element={<LetterBox/>}></Route>
+          
           <Route path="/teammake" element={<TeamMake/>}></Route>
           <Route path="/team" element={<TeamMain/>}></Route>
           <Route path="/teaminfo" element={<TeamDetail/>}></Route>

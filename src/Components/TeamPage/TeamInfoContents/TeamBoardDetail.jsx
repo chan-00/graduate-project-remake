@@ -49,6 +49,11 @@ function TeamBoardDetail() {
             downloadElementRef.current.click();
         }
     }, [downloadUrl]);
+
+    //뒤로가기 이벤트 발생 시 팀 게시판으로 돌아가게 하는 함수
+    window.onpopstate = () => {
+        setSelectedMenu("TeamBoard");
+    }
     
     //게시판 title 클릭 시 팀 게시판으로 돌아가게끔 하는 이벤트 함수
     const handleTeamBoard = () => {
@@ -67,7 +72,6 @@ function TeamBoardDetail() {
 
     //파일 공유 게시글일 경우 첨부 파일 다운로드 클릭 시 호출되는 이벤트 함수
     const handleClickFileDownload = () => {
-        alert("다운로드 버튼은 한 번만 클릭해 주십시오.");
         functionTeamBoardFileDownload(window.sessionStorage.currentClickTeamBoardID, setDownloadUrl, downloadUrl);
     }
 
