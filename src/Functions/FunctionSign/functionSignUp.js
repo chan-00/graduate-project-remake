@@ -21,8 +21,8 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
     }
 
     //회원가입 전 정규식 표현에 맞는 아이디 값인지 확인한다.
-    const idPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
-    const pwPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣\!]*$/;
+    const idPattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
+    const pwPattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣\!0-9]*$/;
     const emailPattern = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if(!idPattern.test(idRef.current.value)) {
         alert("현재 입력한 아이디 값에 특수문자 혹은 공백이 포함되어 있습니다.");

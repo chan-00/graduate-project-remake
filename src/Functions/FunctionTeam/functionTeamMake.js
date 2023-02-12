@@ -15,7 +15,7 @@ function functionTeamMake(idValue, teamnameRef, teamDescRef, teamCategory, navig
     }
 
     //팀명을 정규 표현식으로 입력에 제한을 거는 코드이다.
-    const teamnamePattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
+    const teamnamePattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
     if(!teamnamePattern.test(teamnameRef.current.value)) {
         alert("현재 입력한 팀 이름에 특수문자 혹은 공백이 포함되어 있습니다.");
         teamnameRef.current.focus();

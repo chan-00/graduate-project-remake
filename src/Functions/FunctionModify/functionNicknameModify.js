@@ -16,7 +16,7 @@ function functionNicknameModify(idValue, newNicknameRef, handleNicknameModifyMod
     }
 
     //입력에 제한을 거는 정규 표현식 코드이다.
-    const nicknamePattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
+    const nicknamePattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
     if(!nicknamePattern.test(newNicknameRef.current.value)) {
         alert("현재 입력한 닉네임 값에 특수문자, 공백이 포함되어 있습니다.");
         newNicknameRef.current.focus();

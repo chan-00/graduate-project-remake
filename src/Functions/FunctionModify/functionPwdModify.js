@@ -17,7 +17,7 @@ function functionPwdModify(idValue, pwRef, newPwRef, handlePasswordModifyModalCl
     }
 
     //비밀번호 입력 규칙과 관련된 정규 표현식 코드이다.
-    const pwPattern = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣\!]*$/;
+    const pwPattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣\!0-9]*$/;
     if(!pwPattern.test(newPwRef.current.value)) {
         alert("현재 입력한 비밀번호 값에 !를 제외한 특수문자 혹은 공백이 포함되어 있습니다.");
         pwRef.current.value = "";
