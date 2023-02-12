@@ -13,6 +13,8 @@ import { useState } from 'react';
 //import atom
 import { useRecoilState } from "recoil";
 import atomNickname from "../../Atoms/atomNickname";
+//import functions
+import functionGetReadMessageNumber from '../../Functions/FunctionMyPage/functionGetReadMessageNumber';
 
 //페이지 Header 영역을 bootstrap의 Navbar 활용하여 표현
 function Header() {
@@ -23,6 +25,10 @@ function Header() {
 
     //팀 페이지 메뉴 클릭 시 Modal 창을 띄우게 하기 위한 State 상태 관리값
     const [sessionShow, setSessionShow] = useState(false);
+    //사용자가 읽지 않은 메시지가 몇 개인지에 대한 숫자 값을 담는 useState 변수
+    const [ notReadMessage, setNotReadMessage ] = useState('0');
+    //백엔드와 통신 시 렌더링을 늦게 표시하게 하기 위한 loading 값 useState 변수
+    const [ loadingStatus, setLoadingStatus ] = useState(false);
 
     //Modal 창 활성/비활성화를 위한 State 값의 변경 함수
     const handleSessionShow = () => setSessionShow(true);
@@ -103,6 +109,14 @@ function Header() {
         navigate("/letterbox");
     }
 
+    //로그인 시 닉네임 버튼을 클릭했을 때 새로운 알림 메시지의 유무 표시를 위한 이벤트 함수
+    const handleClickNicknameButton = () => {
+        if(loadingStatus) {
+            setLoadingStatus(false);
+        }
+        functionGetReadMessageNumber(window.sessionStorage.id, setNotReadMessage, setLoadingStatus);
+    }
+
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark" id="navContainer">
@@ -123,10 +137,10 @@ function Header() {
                 </Nav>
                 <Nav id="userContainer">
                     {window.sessionStorage.id
-                    ? <NavDropdown title={window.sessionStorage.nickname} id="basic-nav-dropdown">
-                        <NavDropdown.Item onClick={handleMyPage}>My Page</NavDropdown.Item>
-                        <NavDropdown.Item onClick={handleLetter}>Letter Box</NavDropdown.Item>
-                        <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                    ? <NavDropdown title={window.sessionStorage.nickname} id="basic-nav-dropdown" onClick={handleClickNicknameButton}>
+                        <NavDropdown.Item onClick={handleMyPage}>마이페이지</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLetter}>쪽지함{(notReadMessage !== 0 && loadingStatus) ? <span id="readMessageNumberIcon">{notReadMessage}</span> : null}</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLogout}>로그아웃</NavDropdown.Item>
                     </NavDropdown>
                     : <div>
                         <button className='signBtn' onClick={handleLoginShow}>Sign In</button>

@@ -2,7 +2,6 @@ import axios from "axios";
 import server_url from "../../serverUrl.js";
 
 function functionGetMyBoardList(userID, handleBoardListModifyModalShow, setUserBoardList) {
-    //마이페이지 첫 렌더링 시 해당 유저의 이메일 값과 유저 코멘트 값을 받아오기 위한 post 코드이다.
     axios.post(server_url + "/back/list_of_my_post/", {
         id: userID,
     }).then((res) => {

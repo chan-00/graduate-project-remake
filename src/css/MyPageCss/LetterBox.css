@@ -49,6 +49,19 @@
     padding-right: 10px;
 }
 
+#letterListGroupContainer .newMessageIcon {
+    font-size: 10px;
+    color: white;
+    float: none;
+
+    border: 1px solid red;
+    border-radius: 20px;
+
+    background-color: red;
+    padding: 1px 3px;
+    margin-left: 10px;
+}
+
 #letterListGroupContainer > #noneLetterContents {
     height: 100%;
     padding-top: 15%;

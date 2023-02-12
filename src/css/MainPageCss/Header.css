@@ -61,3 +61,16 @@ button {
     margin: 10px 0;
 }
 /* navbar dropdown item css */
+
+
+/* 읽지 않은 메시지 태그에 대한 css */
+#readMessageNumberIcon {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 3px 6px;
+
+    font-size: 13px;
+    color: white;
+    background-color: red;
+}
+/* 읽지 않은 메시지 태그에 대한 css */

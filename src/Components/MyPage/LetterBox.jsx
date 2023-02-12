@@ -36,7 +36,7 @@ function LetterBox() {
     //특정 리스트 아이템 클릭 시 화면 변화를 보여주기 위한 이벤트 함수
     const handleClickListItem = (index) => {
         const tempArray = [...letterArray];
-        tempArray[index][4] = !tempArray[index][4];
+        tempArray[index][5] = !tempArray[index][5];
 
         setLetterArray(tempArray);
     }
@@ -62,8 +62,8 @@ function LetterBox() {
                         <ListGroup id="letterListGroupContainer">
                             {letterArray.map((letter, index) => (
                                 <ListGroup.Item key={letter[0]} onClick={() => handleClickListItem(index)}>
-                                    {letter[4] ? <CaretDownFill/> : <CaretRightFill/>}{letter[1]}<XCircle id={letter[0]} className="letterDeleteButton" onClick={handleDeleteListItem}/><span>{letter[3]}</span>
-                                    {letter[4] ?
+                                    {letter[5] ? <CaretDownFill/> : <CaretRightFill/>}{letter[1]}{letter[4] === 1 ? <span className="newMessageIcon">N</span> : null}<XCircle id={letter[0]} className="letterDeleteButton" onClick={handleDeleteListItem}/><span>{letter[3]}</span>
+                                    {letter[5] ?
                                         <div className="letterContents">
                                             {letter[2]}
                                         </div>
