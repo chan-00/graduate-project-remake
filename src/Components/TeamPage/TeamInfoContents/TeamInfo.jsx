@@ -72,7 +72,7 @@ function TeamInfo({ teamBelong }) {
 
     //팀장이 팀 삭제 버튼 클릭 시 호출되는 이벤트 함수
     const handleDeleteTeamButtonClick = () => {
-        //functionTeamDelete(window.sessionStorage.currentClickTeam, navigate, handleTeamDeleteModalClose);
+        functionTeamDelete(window.sessionStorage.currentClickTeam, navigate, handleTeamDeleteModalClose);
     }
 
     //특정 멤버 영역 클릭 시 해당 유저의 상세 정보가 나오는 모달 창을 띄우기 위한 이벤트 함수
@@ -101,8 +101,8 @@ function TeamInfo({ teamBelong }) {
                 </div>
                 <div className="teamManagementContainer">
                     {teamMemberArray.map((member, index) => (
-                        <div className="cardContainer" key={member[0]} onClick={() => handleClickTeamMember(member, index)} style={{cursor:"pointer"}}>
-                            <Card>
+                        <div className="cardContainer" key={member[0]} >
+                            <Card onClick={() => handleClickTeamMember(member, index)} style={{cursor:"pointer"}}>
                                 <img src={`data:image/png;base64,${userProfileInfo[index]}`} />
                                 <Card.Body>
                                     <Card.Title className={member[3] === "1" ? "leaderMemberColor" : null}>{member[0]}</Card.Title>
@@ -116,17 +116,17 @@ function TeamInfo({ teamBelong }) {
                     ))}
                 </div>
 
-                <Modal show={teamCommentModifyModalShow} onHide={handleTeamDeleteModalClose}>
+                <Modal show={teamDeleteModalShow} onHide={handleTeamDeleteModalClose}>
                     <Modal.Header closeButton>
                         <h5>정말 {window.sessionStorage.currentClickTeam} 팀을 삭제하시겠습니까?</h5>
                     </Modal.Header>
-                    <Modal.Body>
-                        <Button type="submit" variant="outline-primary" className="modifyButtons" onClick={handleDeleteTeamButtonClick}>삭제</Button>
-                        <Button variant="outline-danger" className="modifyButtons" onClick={handleTeamDeleteModalClose}>취소</Button>
+                    <Modal.Body style={{textAlign:"center"}}>
+                        <Button type="submit" variant="outline-danger" className="modifyButtons" onClick={handleDeleteTeamButtonClick} style={{marginRight:"20%", padding:"0 20px"}}>삭제</Button>
+                        <Button variant="outline-primary" className="modifyButtons" onClick={handleTeamDeleteModalClose} style={{padding:"0 20px"}}>취소</Button>
                     </Modal.Body>
                 </Modal>
 
-                <Modal show={teamDeleteModalShow} onHide={handleTeamCommentModifyModalClose}>
+                <Modal show={teamCommentModifyModalShow} onHide={handleTeamCommentModifyModalClose}>
                     <Modal.Header closeButton>
                         <h4>Comment Change</h4>
                     </Modal.Header>
@@ -158,11 +158,11 @@ function TeamInfo({ teamBelong }) {
                         <h4>User Profile</h4>
                     </Modal.Header>
                     <Modal.Body>
-                        <div>
+                        <div id="clickUserProfileContainer">
                             <img src={`data:image/png;base64,${userProfileInfo[userProfileIndex]}`} />
-                            <h4>{clickTeamMemberInfo[0]}</h4>
-                            <span className="userInfoText">{clickTeamMemberInfo[2]}</span>
-                            <span className="userInfoText">{clickTeamMemberInfo[1]}</span>
+                            <h3>{clickTeamMemberInfo[0]}</h3>
+                            <p className="userInfoText">{clickTeamMemberInfo[2]}</p>
+                            <p className="userInfoText">{clickTeamMemberInfo[1]}</p>
                         </div>
                     </Modal.Body>
                 </Modal>

@@ -5,7 +5,7 @@ function functionTeamDelete(currentClickTeam, navigate, handleTeamDeleteModalClo
     axios.post(server_url + "/back/delete_team/", {
         teamname: currentClickTeam,
     }).then((res) => {
-        if(res.data.chk_message) {
+        if(res.data.return_data === "팀이 삭제되었습니다!") {
             alert(currentClickTeam + " 팀이 삭제되었습니다.");
             handleTeamDeleteModalClose();
             navigate("/team");

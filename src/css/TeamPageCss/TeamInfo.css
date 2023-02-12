@@ -143,3 +143,15 @@
     color: blue;
 }
 /* 리더인 멤버의 카드 닉네임 텍스트 컬러를 바꾸는 css */
+
+
+/* 멤버 클릭 시 나오는 Modal 창의 user profile container css */
+#clickUserProfileContainer {
+    text-align: center;
+}
+
+#clickUserProfileContainer > img {
+    width: 60%;
+    height: 300px;
+}
+/* 멤버 클릭 시 나오는 Modal 창의 user profile container css */
