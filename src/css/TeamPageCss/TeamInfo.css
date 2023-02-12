@@ -36,6 +36,24 @@
     color: white;
     transition-duration: 0.3s;
 }
+
+#teaminfoContainer > h4 > .outlineDanger {
+    float: right;
+    padding: 10px 20px;
+    margin-right: 20px;
+
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 15px;
+    color: red;
+    font-size: 15px;
+}
+
+#teaminfoContainer > h4 > .outlineDanger:hover {
+    background-color: red;
+    color: white;
+    transition-duration: 0.3s;
+}
 /* 팀 정보 영역을 감싸는 Container css */
 
 
