@@ -40,6 +40,7 @@
 
 #chatContentsContainer .userProfile {
     margin-left: 0;
+    margin-bottom: 1rem;
 }
 /* 채팅 메시지 영역 Container */
 
@@ -51,6 +52,10 @@
 
 .otherChat .chatTime span {
     margin-left: 3.2rem;
+}
+
+.chatContents {
+    font-size: 0.8rem;
 }
 
 .myChat {
@@ -80,11 +85,8 @@
 
 /* 채팅 시간을 감싸는 Container */
 .chatTime {
-    display: block;
-}
-
-.chatTime span {
-    display: inline-block;
+    font-size: 0.8rem;
+    padding-left: 1%;
 }
 /* 채팅 시간을 감싸는 Container */
 
@@ -96,3 +98,23 @@
     border-bottom: 1px solid gray;
 }
 /* 채팅 날짜를 구분하는 p 태그의 css */
+
+
+/* 내 채팅 컨텐츠를 감싸는 Container css */
+.myChatContentsContainer {
+    display: block;
+}
+/* 내 채팅 컨텐츠를 감싸는 Container css */
+
+
+/* 유저 프로필을 제외한 채팅 컨텐츠를 감싸는 Container css */
+.userChatContentsContainer {
+    display: inline-block;
+    width: 90%;
+}
+
+.userChatContentsContainer > p {
+    font-size: 0.8rem;
+    display: block;
+}
+/* 유저 프로필을 제외한 채팅 컨텐츠를 감싸는 Container css */

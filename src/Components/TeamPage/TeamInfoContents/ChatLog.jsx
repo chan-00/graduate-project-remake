@@ -47,16 +47,40 @@ function ChatLog() {
                             return (
                                 <div className={chatLog[2] === window.sessionStorage.nickname ? "myChat" : "otherChat"} key={chatLog[0]}>
                                     {chatDateChangeStatus === 1 ? <p className="chatLogDateText" style={{marginBottom:"10px"}}>{chatLogDate}</p> : null}
-                                    {chatLog[2] === window.sessionStorage.nickname ? null : <img className="userProfile" src={`data:image/png;base64,${userProfileInfo[index]}`} title={chatLog[2]} />}
-                                    <div className="chatContents">
-                                        <p>
-                                            {chatLog[1]}
-                                        </p>
-                                    </div>
-                                    {chatLog[2] === window.sessionStorage.nickname ? <img className="userProfile" src={`data:image/png;base64,${userProfileInfo[index]}`} title={chatLog[2]} /> : null}
-                                    <div className="chatTime">
-                                        <span>{chatLog[3].substr(11, 15)}</span>
-                                    </div>
+                                    {chatLog[2] === window.sessionStorage.nickname ? null : 
+                                        <div>
+                                            <img className="userProfile" src={`data:image/png;base64,${userProfileInfo[index]}`} />
+                                            <div className="userChatContentsContainer">
+                                                <p>
+                                                    {chatLog[2]}
+                                                </p>
+                                                <div className="chatContents">
+                                                    <p>
+                                                        {chatLog[1]}
+                                                    </p>
+                                                </div>
+                                                <span className="chatTime">{chatLog[3].substr(11, 15)}</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    
+                                    {chatLog[2] === window.sessionStorage.nickname ? 
+                                        <div style={{width:"90%"}}>
+                                            <div className="userChatContentsContainer">
+                                                <p>
+                                                    {chatLog[2]}
+                                                </p>
+                                                <span className="chatTime">{chatLog[3].substr(11, 15)}</span>
+                                                <div className="chatContents">
+                                                    <p>
+                                                        {chatLog[1]}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <img className="userProfile" src={`data:image/png;base64,${userProfileInfo[index]}`} />
+                                        </div>
+                                    : null}
+                                    
                                 </div>
                             )
                         })}
