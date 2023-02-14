@@ -40,7 +40,8 @@
 
 #chatContentsContainer .userProfile {
     margin-left: 0;
-    margin-bottom: 1rem;
+    margin-top: 0.8rem;
+    vertical-align: top;
 }
 /* 채팅 메시지 영역 Container */
 
@@ -56,6 +57,7 @@
 
 .chatContents {
     font-size: 0.8rem;
+    max-width: 80%;
 }
 
 .myChat {
