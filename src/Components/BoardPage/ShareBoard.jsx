@@ -33,11 +33,13 @@ function ShareBoard() {
     const [ currentPageNum, setCurrentPageNum ] = useState(1);
     //pagination 버튼을 표시해주기 위한 배열 useState 변수
     const [ paginationNumArray, setPaginationNumArray ] = useState([]);
+    //정렬 select가 바뀔 때마다 화면에 표시해주기 위한 useState 변수
+    const [ selectIndex, setSelectIndex ] = useState("post_id desc");
 
     //페이지 첫 렌더링 시 게시판 카테고리에 맞게 작성된 게시글 리스트들을 백엔드로부터 받아오는 함수 호출
     useEffect(() => {
         window.sessionStorage.setItem("category", "Share");
-        functionBoardList("Share", setLoadingStatus, setTeamBoardList);
+        functionBoardList("Share", setLoadingStatus, setTeamBoardList, "post_id desc", setCurrentPageNum);
     }, []);
     //백엔드로부터 게시글 리스트를 받아왔을 때 pagination 번호를 매기기 위한 코드
     useEffect(() => {
@@ -91,6 +93,14 @@ function ShareBoard() {
         return currentPosts;
     };
 
+    //정렬 select box의 값이 바뀔 때마다 호출되는 이벤트 함수
+    const handleChangeArraySort = (e) => {
+        e.preventDefault();
+        setSelectIndex(e.target.value);
+        setLoadingStatus(false);
+        functionBoardList("Share", setLoadingStatus, setTeamBoardList, e.target.value, setCurrentPageNum);
+    }
+
     if(loadingStatus) {
         return (
             <div className="boardAllContainer">
@@ -99,8 +109,15 @@ function ShareBoard() {
                 </div>
                 <div className="boardButtonContainer">
                     <button onClick={handleClickWriteBoard}>글 작성</button>
+                    <select onChange={handleChangeArraySort} value={selectIndex}>
+                        <option value="post_id desc">최신순</option>
+                        <option value="post_id asc">오래된순</option>
+                        <option value="comment">댓글순</option>
+                        <option value="num_of_open desc">조회순</option>
+                        <option value="num_of_recommend desc">추천순</option>
+                    </select>
                     <form className="boardSearchContainer" onSubmit={handleSearchSubmit}>
-                        <input 
+                        <input
                             type="text"
                             placeholder="검색어를 입력하세요."
                             ref={searchRef}/>

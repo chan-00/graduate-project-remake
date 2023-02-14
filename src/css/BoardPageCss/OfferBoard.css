@@ -44,6 +44,11 @@ table.boardMainContentsContainer {
     margin: 0 auto 10px;
 }
 
+.boardButtonContainer > select {
+    margin-left: 1rem;
+    padding: 5px 10px;
+}
+
 .boardButtonContainer > button {
     border: 1px solid blue;
     border-radius: 5px;
