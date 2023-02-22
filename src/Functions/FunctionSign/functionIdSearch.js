@@ -16,6 +16,7 @@ function functionIdSearch(emailRef, setSearchId) {
     }).then((res) => {
         if(res.data.id_message === "입력하신 이메일이 맞는 아이디가 없습니다.") {
             alert("입력하신 이메일이 맞는 아이디가 없습니다.");
+            setSearchId("");
         }
         else if(res.data.id_message !== "입력하신 이메일이 맞는 아이디가 없습니다.") {
             setSearchId(res.data.id_message);

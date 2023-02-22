@@ -46,6 +46,10 @@ function IdSearch() {
                     />
                     <Button type="submit" variant="outline-primary" className="formElements" style={{width:"37%", marginBottom:"5px" ,height:"42px", fontSize:"14px"}}>이메일 인증</Button>
                 </div>
+                {searchId.length !== 0 ? 
+                <div>
+                    <span style={{fontSize:"14px"}}>해당 이메일 계정의 아이디 : {searchId}</span>
+                </div> : null}
                 <hr></hr>
                 <div>
                     <span style={{fontSize:"14px"}}>비밀번호를 잊어버리셨나요? <Link to="/pwsearch">비밀번호 찾기</Link></span><br/>
