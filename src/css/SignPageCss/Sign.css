@@ -52,3 +52,15 @@
     margin-top: 30px;
 }
 /* sign button css */
+
+
+/* email input container css */
+#emailInputContainer > input {
+    width: 60%;
+    margin-right: 10px;
+}
+
+#emailInputContainer > button {
+    
+}
+/* email input container css */

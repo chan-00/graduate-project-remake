@@ -9,6 +9,8 @@ import DownloadFileInfo from "./Components/MainPage/DownloadFileInfo";
 
 import SignIn from "./Components/SignPage/SignIn";
 import SignUp from "./Components/SignPage/SignUp";
+import IdSearch from "./Components/SignPage/IdSearch";
+import PwSearch from "./Components/SignPage/PwSearch";
 import MyPage from "./Components/MyPage/MyPage";
 import LetterBox from "./Components/MyPage/LetterBox";
 
@@ -40,6 +42,8 @@ function App() {
           <Route path="/downloadinfo" element={<DownloadFileInfo/>}></Route>
           <Route path="/signin" element={<SignIn/>}></Route>
           <Route path="/signup" element={<SignUp/>}></Route>
+          <Route path="/idsearch" element={<IdSearch/>}></Route>
+          <Route path="/pwsearch" element={<PwSearch/>}></Route>
           <Route path="/mypage" element={<MyPage/>}></Route>
           <Route path="/letterbox" element={<LetterBox/>}></Route>
           

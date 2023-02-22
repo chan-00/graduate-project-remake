@@ -67,6 +67,7 @@ function SignIn() {
                     <Button type="submit" variant="primary" className="formElements">로그인</Button>
                 </div>
                 <div>
+                    <span style={{fontSize:"14px"}}>계정을 잊어버리셨나요? <Link to="/idsearch">아이디 찾기</Link> <Link to="/pwsearch">비밀번호 찾기</Link></span><br/>
                     <span style={{fontSize:"14px"}}>서일대가 처음이신가요? <Link to="/signup">회원가입</Link></span>
                 </div>
             </form>
