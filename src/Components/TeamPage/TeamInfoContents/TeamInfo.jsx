@@ -10,6 +10,7 @@ import functionGetTeamInfo from "../../../Functions/FunctionTeam/functionGetTeam
 import functionTeamCommentModify from "../../../Functions/FunctionTeam/functionTeamCommentModify";
 import functionTeamApply from "../../../Functions/FunctionTeam/functionTeamApply";
 import functionTeamDelete from "../../../Functions/FunctionTeam/functionTeamDelete";
+import functionSecession from "../../../Functions/FunctionTeam/functionSecession";
 //import react hooks
 import { useEffect, useState, useRef } from "react";
 //import react router dom
@@ -82,6 +83,11 @@ function TeamInfo({ teamBelong }) {
         handleTeamMemberDataShowModalShow();
     }
 
+    //팀 멤버가 탈퇴 버튼 클릭 시 호출되는 이벤트 함수
+    const handleSecession = () => {
+        functionSecession(window.sessionStorage.id, window.sessionStorage.currentClickTeam, window.sessionStorage.nickname, navigate);
+    }
+
     if(loadingStatus) {
         return (
             <div id="teaminfoAllContainer">
@@ -89,6 +95,7 @@ function TeamInfo({ teamBelong }) {
                     <h4>
                         {window.sessionStorage.currentClickTeam}
                         {(teamBelong === "-1" && window.sessionStorage.id) ? <button className="outlinePrimary" onClick={handleApplyButtonClick}>신청</button> : null}
+                        {teamBelong === "0" ? <button className="outlineDanger" onClick={handleSecession}>탈퇴</button> : null}
                         {teamBelong === "1" ? <button className="outlineDanger" onClick={handleTeamDeleteModalShow}>팀 삭제</button> : null}
                     </h4>
                     <span>Category : {teaminfoArray[2]}</span>

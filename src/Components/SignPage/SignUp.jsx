@@ -95,6 +95,7 @@ function SignUp() {
             alert("이메일이 30글자 이상이거나 입력하지 않았습니다.");
         }
         else {
+            alert("해당 메일로 인증 번호가 전송되었습니다.");
             functionEmailAuth(emailRef, setRandEmailAuthNumber, setEmailAuthInputShow);
         }
     }

@@ -145,7 +145,12 @@ function BoardDetail() {
 
     //게시글에서 사용자가 추천 버튼 클릭 시 호출되는 이벤트 함수
     const handleRecommendBoard = () => {
-        functionBoardRecommend(window.sessionStorage.currentClickBoardID, setBoardInfo, boardInfo[3]);
+        if(window.sessionStorage.id) {
+            functionBoardRecommend(window.sessionStorage.currentClickBoardID, setBoardInfo, boardInfo[3]);
+        }
+        else {
+            alert("로그인한 유저만 이용 가능한 기능입니다.");
+        }
     }
 
     //자료 공유 게시글일 경우 자료 공유 영역 클릭 시 호출되는 이벤트 함수
