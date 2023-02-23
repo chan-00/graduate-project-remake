@@ -25,11 +25,17 @@ function functionNewPwdModify(idValue, pwRef, navigate) {
         return false;
     }
 
-    axios.post(server_url + "/back/pass_ch/", {
+    axios.post(server_url + "/back/new_pass/", {
         id: idValue,
-        pw: pwRef.current.value
+        password: pwRef.current.value
     }).then((res) => {
-        console.log(res);
+        if(res.data.return_message === "새로 입력하신 비밀번호는 기존에 사용하던 것과 같습니다!") {
+            alert("현재 입력한 비밀번호는 이전에 사용했던 비밀번호입니다.");
+        }
+        else if(res.data.return_message === "비밀번호 수정이 완료 되었습니다!") {
+            alert("비밀번호 재설정이 완료되었습니다!");
+            navigate("/");
+        }
     }).catch((err) => {
         console.log(err);
     })

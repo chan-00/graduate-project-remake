@@ -165,7 +165,7 @@ function SignUp() {
                 {emailAuthInputShow ? 
                 <div id="emailInputContainer">
                     <input
-                        type="email"
+                        type="text"
                         placeholder="인증 번호 입력"
                         ref={emailAuthRef}
                         maxLength="6"

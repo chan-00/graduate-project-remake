@@ -250,7 +250,7 @@ function MyPage() {
 
     //회원탈퇴 Modal 창에서 "예" 버튼 클릭 시 호출되는 이벤트 함수
     const handleWithDrawal = () => {
-        //functionWithDrawal(window.sessionStorage.id, navigate, setNickname, handleWidhDrawalModifyModalClose);
+        functionWithDrawal(window.sessionStorage.id, navigate, setNickname, handleWidhDrawalModifyModalClose);
     }
 
     return (

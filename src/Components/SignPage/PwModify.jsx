@@ -47,7 +47,12 @@ function PwModify() {
     //비밀번호 재설정 이벤트 발생 시 호출되는 이벤트 함수
     const handlePasswordModify = (e) => {
         e.preventDefault();
-        functionNewPwdModify(window.sessionStorage.checkId, pwRef, navigate);
+        if(pwRef.current.value === pwCheckRef.current.value) {
+            functionNewPwdModify(window.sessionStorage.checkId, pwRef, navigate);
+        }
+        else {
+            alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
+        }
     }
 
     return (
