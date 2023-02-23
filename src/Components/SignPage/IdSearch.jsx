@@ -19,6 +19,14 @@ function IdSearch() {
     //백엔드로부터 이메일에 맞는 아이디 값을 받아와서 저장할 useState 변수
     const [ searchId, setSearchId ] = useState("");
 
+    //페이지 처음 렌더링 시 사용자가 이미 로그인한 상태에서 비정상적인 접근(url 접근 등....)을 했는지에 대한 체크를 위한 useEffect
+    useEffect(() => {
+        if(window.sessionStorage.id) {
+            alert("이미 로그인한 상태입니다.");
+            navigate("/");
+        }
+    }, []);
+
     //이메일 인증 버튼 클릭 시 호출되는 이벤트 함수
     const handleEmailAuth = (e) => {
         e.preventDefault();
@@ -41,6 +49,7 @@ function IdSearch() {
                         placeholder="이메일 입력"
                         ref={emailRef}
                         maxLength="30"
+                        autoFocus
                         required
                         className="formElements inputElements"
                     />

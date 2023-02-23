@@ -7,52 +7,46 @@ import { Link, useNavigate } from "react-router-dom"
 //import react hooks
 import { useRef, useState, useEffect } from "react";
 //import functions
-import functionAccountAuth from "../../Functions/FunctionSign/functionAccountAuth";
 
-function PwSearch() {
+function PwModify() {
     //입력 값을 알기 위한 useRef 변수들
-    const idRef = useRef();
-    const emailRef = useRef();
+    const pwRef = useRef();
+    const pwCheckRef = useRef();
 
     //페이지 이동을 위한 useNavigate 변수
     const navigate = useNavigate();
 
-    //페이지 처음 렌더링 시 사용자가 이미 로그인한 상태에서 비정상적인 접근(url 접근 등....)을 했는지에 대한 체크를 위한 useEffect
+    //페이지 첫 렌더링 시 비정상적인 접근일 경우를 차단하기 위한 useEffect 함수
     useEffect(() => {
-        if(window.sessionStorage.id) {
-            alert("이미 로그인한 상태입니다.");
-            navigate("/");
-        }
+
     }, []);
 
-    //계정 인증 버튼 클릭 시 호출되는 이벤트 함수
-    const handleAccountAuth = (e) => {
+    //비밀번호 재설정 이벤트 발생 시 호출되는 이벤트 함수
+    const handlePasswordModify = (e) => {
         e.preventDefault();
-        functionAccountAuth(idRef, emailRef, navigate);
     }
 
     return (
         <div className="signAllContainer">
-            <form className="signContainer" onSubmit={handleAccountAuth}>
-                <h2>서일대 비밀번호 찾기</h2>
+            <form className="signContainer" onSubmit={handlePasswordModify}>
+                <h2>서일대 비밀번호 재설정</h2>
                 <hr></hr>
                 <div>
                     <input
-                        type="text"
-                        placeholder="아이디 입력"
-                        ref={idRef}
-                        maxLength="12"
-                        autoFocus
+                        type="password"
+                        placeholder="비밀번호 입력"
+                        ref={pwRef}
+                        maxLength="20"
                         required
                         className="formElements inputElements"
                     />
                 </div>
                 <div>
                     <input
-                        type="email"
-                        placeholder="이메일 입력"
-                        ref={emailRef}
-                        maxLength="30"
+                        type="password"
+                        placeholder="비밀번호 확인"
+                        ref={pwCheckRef}
+                        maxLength="20"
                         required
                         className="formElements inputElements"
                     />
@@ -67,7 +61,7 @@ function PwSearch() {
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
-export default PwSearch;
+export default PwModify;
