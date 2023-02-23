@@ -201,3 +201,34 @@ button.modifyButtons {
     transition-duration: 0.3s;
 }
 /* 본인이 작성한 게시글 리스트를 감싸는 Container css */
+
+
+/* 마이페이지의 회원 탈퇴 버튼 span css */
+#withDrawalButton {
+    margin-left: 10px;
+
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 3px 5px;
+    font-size: 15px;
+    cursor: pointer;
+
+    color: red;
+    font-size: 11px;
+
+    transition-duration: 0.2s;
+}
+
+#withDrawalButton:hover {
+    background-color: red;
+    color: white;
+}
+
+#withDrawalButtonContainer > button {
+    padding: 5px 20px;
+}
+
+#withDrawalButtonContainer > button:last-child {
+    margin-left: 20px;
+}
+/* 마이페이지의 회원 탈퇴 버튼 span css */

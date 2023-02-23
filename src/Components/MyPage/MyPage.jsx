@@ -19,6 +19,7 @@ import functionCommentsModify from "../../Functions/FunctionModify/functionComme
 import functionProfileImageModify from "../../Functions/FunctionModify/functionProfileImageModify";
 import functionGetMyBoardList from "../../Functions/FunctionMyPage/functionGetMyBoardList";
 import functionGetMyBoardCommentList from "../../Functions/FunctionMyPage/functionGetMyBoardCommentList";
+import functionWithDrawal from "../../Functions/FunctionModify/functionWithDrawal";
 //import atom
 import { useRecoilState } from "recoil";
 import atomNickname from "../../Atoms/atomNickname";
@@ -51,6 +52,8 @@ function MyPage() {
     const [ boardListModalShow, setBoardListModifyModalShow ] = useState(false);
     //댓글 개수를 표시하는 영역 클릭 시 내가 작성한 댓글들을 볼 수 있는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
     const [ boardCommentListModalShow, setBoardCommentListModifyModalShow ] = useState(false);
+    //회원 탈퇴 클릭 시 정말 회원 탈퇴를 할 것인지 물어보는 Modal 창을 띄우게 하도록 하는 Boolean useState 변수
+    const [ withDrawalModalShow, setWithDrawalModifyModalShow ] = useState(false);
     /* Modal Boolean useState */
 
     /* modify value useState */
@@ -122,6 +125,9 @@ function MyPage() {
     //Board Comment Modal 창을 켜고 끄는 함수이다.
     const handleBoardCommentListModifyModalShow = () => setBoardCommentListModifyModalShow(true);
     const handleBoardCommentListModifyModalClose = () => setBoardCommentListModifyModalShow(false);
+    //widhDrawal Modal 창을 켜고 끄는 함수이다.
+    const handleWidhDrawalModifyModalShow = () => setWithDrawalModifyModalShow(true);
+    const handleWidhDrawalModifyModalClose = () => setWithDrawalModifyModalShow(false);
     /* Modal on/off event function */
 
     /* Modal Click event function */
@@ -242,6 +248,11 @@ function MyPage() {
         navigate("/boarddetail");
     }
 
+    //회원탈퇴 Modal 창에서 "예" 버튼 클릭 시 호출되는 이벤트 함수
+    const handleWithDrawal = () => {
+        //functionWithDrawal(window.sessionStorage.id, navigate, setNickname, handleWidhDrawalModifyModalClose);
+    }
+
     return (
         <div className="mypageAllContainer">
             <div className="mypageContentsAllContainer">
@@ -250,6 +261,7 @@ function MyPage() {
                         {profileImage.length !== 0 ? <img src={`data:image/png;base64,${profileImage}`} onClick={handleProfileImageModifyModalShow} /> : null}
                         <span>{window.sessionStorage.nickname}</span>
                         <span id="userEmailText">{userEmail}</span>
+                        <span id="withDrawalButton" onClick={handleWidhDrawalModifyModalShow}>회원 탈퇴</span>
                         <button onClick={handleEmailModifyModalShow}>email Edit</button>
                         <button onClick={handleNicknameModifyModalShow}>Nickname Edit</button>
                         <button onClick={handlePasswordModifyModalShow}>Password Edit</button>
@@ -452,6 +464,17 @@ function MyPage() {
                             )
                         })}
                     </ListGroup>
+                </Modal.Body>
+            </Modal>
+            <Modal show={withDrawalModalShow} onHide={handleWidhDrawalModifyModalClose}>
+                <Modal.Header closeButton>
+                    <h4>정말 회원 탈퇴하실 겁니까?</h4>
+                </Modal.Header>
+                <Modal.Body>
+                        <div id="withDrawalButtonContainer" style={{marginTop:"20px"}}>
+                            <Button variant="outline-danger" className="modifyButtons" onClick={handleWithDrawal}>예</Button>
+                            <Button variant="outline-primary" className="modifyButtons" onClick={handleWidhDrawalModifyModalClose}>아니오</Button>
+                        </div>
                 </Modal.Body>
             </Modal>
         </div>
