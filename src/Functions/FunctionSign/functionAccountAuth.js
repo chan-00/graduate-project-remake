@@ -26,8 +26,9 @@ function functionAccountAuth(idRef, emailRef, navigate) {
             idRef.current.focus();
         }
         else {
-            alert("계정 인증이 완료되었습니다.");
+            alert("해당 이메일로 인증 번호가 전송되었습니다.");
             window.sessionStorage.setItem("pwModifyAuthNumber", res.data.return_message);
+            window.sessionStorage.setItem("checkId", idRef.current.value);
             navigate("/pwmodify");
         }
     }).catch((err) => {
