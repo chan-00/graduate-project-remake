@@ -14,12 +14,12 @@ function Footer() {
                 <MDBContainer className='text-center text-md-start mt-5'>
                 <MDBRow className='mt-3'>
                     <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-                    <h6 className='text-uppercase fw-bold mb-4'>
-                        Seoil University Graduate Project
-                    </h6>
-                    <p>
-                        서일대학교 졸업작품 홈페이지입니다.
-                    </p>
+                        <h6 className='text-uppercase fw-bold mb-4'>
+                            Project Withrium
+                        </h6>
+                        <p>
+                            서일대학교 소프트웨어공학과<br/> 졸업작품 홈페이지입니다.
+                        </p>
                     </MDBCol>
 
                     <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>

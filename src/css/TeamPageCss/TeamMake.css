@@ -29,15 +29,16 @@
 
 #teammakeImageContainer > h3 {
     color: white;
-    margin-top: 250px;
-    font-size: 40px;
+    margin-top: 30%;
+    font-size: 50px;
+    font-weight: 600;
 }
 
 #teammakeImageContainer > span {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 20%;
 }
 /* 팀 생성 화면의 이미지 영역 Container css */
 

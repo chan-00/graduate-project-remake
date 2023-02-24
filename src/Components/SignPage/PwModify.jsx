@@ -58,7 +58,7 @@ function PwModify() {
     return (
         <div className="signAllContainer">
             <form className="signContainer" onSubmit={handlePasswordModify}>
-                <h2>서일대 비밀번호 재설정</h2>
+                <h2>위드리움 비밀번호 재설정</h2>
                 <hr></hr>
                 <div id="emailInputContainer">
                     <input
@@ -102,7 +102,7 @@ function PwModify() {
                 <hr></hr>
                 <div>
                     <span style={{fontSize:"14px"}}>아이디를 잊어버리셨나요? <Link to="/idsearch">아이디 찾기</Link></span><br/>
-                    <span style={{fontSize:"14px"}}>서일대가 처음이신가요? <Link to="/signup">회원가입</Link></span>
+                    <span style={{fontSize:"14px"}}>위드리움이 처음이신가요? <Link to="/signup">회원가입</Link></span>
                 </div>
             </form>
         </div>

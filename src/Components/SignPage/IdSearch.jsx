@@ -41,7 +41,7 @@ function IdSearch() {
     return (
         <div className="signAllContainer">
             <form className="signContainer" onSubmit={handleEmailAuth}>
-                <h2>서일대 아이디 찾기</h2>
+                <h2>위드리움 아이디 찾기</h2>
                 <hr></hr>
                 <div id="emailInputContainer">
                     <input
@@ -62,7 +62,7 @@ function IdSearch() {
                 <hr></hr>
                 <div>
                     <span style={{fontSize:"14px"}}>비밀번호를 잊어버리셨나요? <Link to="/pwsearch">비밀번호 찾기</Link></span><br/>
-                    <span style={{fontSize:"14px"}}>서일대가 처음이신가요? <Link to="/signup">회원가입</Link></span>
+                    <span style={{fontSize:"14px"}}>위드리움이 처음이신가요? <Link to="/signup">회원가입</Link></span>
                 </div>
             </form>
         </div>

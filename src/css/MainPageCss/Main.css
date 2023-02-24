@@ -50,6 +50,13 @@
     font-weight: 800;
     margin-top: 100px;
 }
+
+.contentsTitle > p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 10px;
+}
 /* 컨텐츠 소개 영역 제목 css */
 
 

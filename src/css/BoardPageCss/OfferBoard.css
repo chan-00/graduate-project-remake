@@ -30,6 +30,7 @@ table.boardMainContentsContainer {
 .boardMainContentsContainer > tbody > tr {
     display: grid;
     grid-template-columns: 50% 10% 10% 10% 10% 10%;
+    cursor: pointer;
 }
 
 .boardMainContentsContainer > tbody > tr:hover {
@@ -47,6 +48,7 @@ table.boardMainContentsContainer {
 .boardButtonContainer > select {
     margin-left: 1rem;
     padding: 5px 10px;
+    font-size: 15px;
 }
 
 .boardButtonContainer > button {

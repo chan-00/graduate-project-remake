@@ -115,7 +115,7 @@ function SignUp() {
     return (
         <div className="signAllContainer">
             <form className="signContainer" onSubmit={handleSignUp}>
-                <h2>서일대 계정을 생성하세요</h2>
+                <h2>위드리움 회원가입</h2>
                 <hr></hr>
                 <div>
                     <input

@@ -49,7 +49,7 @@ function Main() {
             <div className="contentCenter" id="mainContentContainer">
                 <div data-aos="fade-up" data-aos-duration="1200">
                     상상하는 모든 것.<br/>
-                    서일대학교에서.<br />
+                    위드리움에서.<br />
                     <button id="withriumDownloadButton" onClick={handleDownloadButtonClick}>시작하기</button>
                     <a style={{visibility:"hidden"}} ref={downloadElementRef} href={downloadUrl.length !== 0 ? downloadUrl : null} download="WithRium.zip"></a>
                 </div>
