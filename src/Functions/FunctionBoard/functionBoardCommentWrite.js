@@ -9,7 +9,7 @@ function functionBoardCommentWrite(userID, boardID, commentRef, setCommentInfo) 
         comment: commentRef.current.value,
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
-        alert("댓글이 작성되었습니다.");
+        alert("댓글이 작성되었습니다. (+1p)");
         setCommentInfo(res.data.comment_data);
         commentRef.current.value = "";
     }).catch((err) => {

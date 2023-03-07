@@ -74,7 +74,7 @@ function BoardWrite() {
                     {window.sessionStorage.category === "Team" ? <h4 onClick={handleOfferBoard}>팀 구인 게시판</h4> : 
                             (window.sessionStorage.category === "Question" ? <h4 onClick={handleQuestionBoard}>질문 게시판</h4> : 
                                 <h4 onClick={handleShareBoard}>정보 공유 게시판</h4>)}
-                        <hr></hr>
+                        <hr/>
                 </div>
                 <Form onSubmit={handleBoardWriteSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicText">

@@ -11,7 +11,7 @@ function functionShareTeamBoard(userID, title, contents, teamname, handleSearchS
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
         if(res.data.post_data === "작성이 완료되었습니다!") {
-            alert("공유가 완료되었습니다.");
+            alert("공유가 완료되었습니다. (+2p)");
             window.sessionStorage.setItem("currentClickTeam", teamname);
             window.sessionStorage.setItem("teamSelectMenuValue", "TeamBoard");
             navigate("/teaminfo");

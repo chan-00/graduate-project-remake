@@ -12,7 +12,7 @@ function functionSharePublicBoard(userID, title, contents, category, handleSearc
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
         if(res.data.post_data === "작성이 완료되었습니다!") {
             //공유 성공 시 알림창을 띄우고 기존 Modal 창을 끈 다음, 카테고리에 맞게 해당 공용 게시판으로 화면을 이동시킨다.
-            alert("공유가 완료되었습니다.");
+            alert("공유가 완료되었습니다. (+2p)");
             handleSearchShareModalClose();
             window.sessionStorage.setItem("category", category);
             if(category === "Question") {

@@ -29,7 +29,7 @@ function functionTeamMake(idValue, teamnameRef, teamDescRef, teamCategory, navig
         teamcategory: teamCategory
     }).then((res) => {
         if(res.data.chk_message === "팀 생성이 완료되었습니다.") {
-            alert(res.data.chk_message);
+            alert("팀 생성이 완료되었습니다. (+10p)");
             navigate("/team");
         }
         else if(res.data.chk_message === "팀 이름이 중복입니다.") {

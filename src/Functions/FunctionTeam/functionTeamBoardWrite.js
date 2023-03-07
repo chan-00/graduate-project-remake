@@ -12,7 +12,7 @@ function functionTeamBoardWrite(title, contents, id, teamname, setSelectedMenu, 
     }).then((res) => {
         //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
         if(res.data.message === "게시글 작성이 완료되었습니다!") {
-            alert(res.data.message);
+            alert("게시글 작성이 완료되었습니다! (+2p)");
             setSelectedMenu("TeamBoard");
         }
     }).catch((err) => {

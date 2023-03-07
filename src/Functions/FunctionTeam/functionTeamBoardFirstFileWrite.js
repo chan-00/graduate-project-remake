@@ -22,7 +22,7 @@ function functionTeamBoardFirstFileWrite(title, contents, id, teamname, setSelec
                 },
             }).then((res) => {
                 if(res.data.message === "파일 업로드 성공") {
-                    alert("게시글 작성이 완료되었습니다!");
+                    alert("게시글 작성이 완료되었습니다! (+2p)");
                     setSelectedMenu("TeamBoard");
                 }
             }).catch((err) => {
