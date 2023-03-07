@@ -1,0 +1,41 @@
+/* 상품 전체 컨테이너 css */
+.ProductContainer {
+    width: 70%;
+    margin: 30px auto;
+}
+/* 상품 전체 컨테이너 css */
+
+
+/* 상품 카드 컨테이너 css */
+.ProductCardContainer {
+    width: 250px;
+    height: 350px;
+
+    border: 1px solid gray;
+    border-radius: 10%;
+
+    text-align: center;
+    padding-top: 10px;
+
+    display: inline-block;
+    cursor: pointer;
+
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+
+.ProductCardContainer:last-child {
+    margin-right: 0;
+}
+
+.ProductCardContainer > img {
+    width: 248px;
+    height: 200px;
+}
+
+.ProductCardContainer > p {
+    margin-top: 30px;
+    font-size: 18px;
+    color: rgb(60, 60, 60);
+}
+/* 상품 카드 컨테이너 css */
