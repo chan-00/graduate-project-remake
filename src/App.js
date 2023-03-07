@@ -30,6 +30,8 @@ import BoardModify from "./Components/BoardPage/BoardModify";
 import InfoSearch from "./Components/SearchPage/InfoSearch";
 import TeamSearch from "./Components/SearchPage/TeamSearch";
 
+import ShopMain from "./Components/PointShop/ShopMain";
+
 //import App css
 import "./css/App.css";
 
@@ -49,6 +51,8 @@ function App() {
           <Route path="/pwmodify" element={<PwModify/>}></Route>
           <Route path="/mypage" element={<MyPage/>}></Route>
           <Route path="/letterbox" element={<LetterBox/>}></Route>
+
+          <Route path="/shop" element={<ShopMain/>}></Route>
           
           <Route path="/teammake" element={<TeamMake/>}></Route>
           <Route path="/team" element={<TeamMain/>}></Route>

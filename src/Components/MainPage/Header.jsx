@@ -108,6 +108,10 @@ function Header() {
     const handleLetter = () => {
         navigate("/letterbox");
     }
+    //상점 페이지로 이동하게 하는 이벤트 함수
+    const handlePointShop = () => {
+        navigate("/shop");
+    }
 
     //로그인 시 닉네임 버튼을 클릭했을 때 새로운 알림 메시지의 유무 표시를 위한 이벤트 함수
     const handleClickNicknameButton = () => {
@@ -123,6 +127,7 @@ function Header() {
                 <Navbar.Brand href="/" id="navTitle">Withrium</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="mr-auto">
+                    <Nav.Link onClick={handlePointShop}>상점</Nav.Link>
                     <Nav.Link onClick={handleTeamMakePageClick}>팀 생성</Nav.Link>
                     <Nav.Link onClick={handleTeamPageClick}>팀 페이지</Nav.Link>
                     <NavDropdown title="검색" id="basic-nav-dropdown">
