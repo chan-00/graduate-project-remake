@@ -84,7 +84,7 @@
 .mypageUserContentsListContainer {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .mypageUserContentsListContainer > div {
@@ -100,6 +100,10 @@
 }
 
 .mypageUserContentsListContainer > div:first-child > p {
+    cursor: auto;
+}
+
+.mypageUserContentsListContainer > div:last-child > p {
     cursor: auto;
 }
 

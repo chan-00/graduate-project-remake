@@ -75,6 +75,8 @@ function MyPage() {
     const [ userBoardList, setUserBoardList ] = useState([]);
     //해당 계정이 작성한 댓글 리스트를 받아 저장할 useState 변수
     const [ userBoardCommentList, setUserBoardCommentList ] = useState([]);
+    //해당 계정의 포인트 값을 저장할 변수
+    const [ userPoint, setUserPoint ] = useState("");
     /* modify value useState */
 
     //기존 비밀번호 입력 input에 대한 useRef 변수
@@ -92,7 +94,7 @@ function MyPage() {
     useEffect(() => {
         if(window.sessionStorage.id) {
             document.body.style.backgroundColor = "#f8f8fa";
-            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus, setProfileImage, setCountData);
+            functionUserInfo(window.sessionStorage.id, setUserEmail, setUserComments, setUserTeamArray, setLoadingStatus, setProfileImage, setCountData, setUserPoint);
         }
         else {
             alert("로그인 되어 있지 않습니다!");
@@ -275,6 +277,7 @@ function MyPage() {
                         <div><p>{userTeamArray.length}</p><span>Join Team</span></div>
                         <div><p onClick={handleBoardListClick}>{countData[0]}</p><span>Write Post</span></div>
                         <div><p onClick={handleCommentListClick}>{countData[1]}</p><span>Write Comments</span></div>
+                        <div><p>{userPoint}</p><span>Point</span></div>
                     </div>
                 </div>
                 <div className="mypageTeamAllContainer mypageContentsContainer">
