@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 //import functions
 import functionUserPoint from "../../Functions/FunctionShop/functionUserPoint";
 import functionPurchase from "../../Functions/FunctionShop/functionPurchase";
+import functionGetRandomProduct from "../../Functions/FunctionShop/functionGetRandomProduct";
 
 
 function ProductDetail() {
