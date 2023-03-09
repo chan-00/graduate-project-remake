@@ -2,6 +2,8 @@
 import "../../css/PointShopCss/ShopMain.css";
 //import react bootstrap
 import { useNavigate } from "react-router-dom";
+//image src
+import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
 
 
 function ShopMain() {
@@ -122,7 +124,7 @@ function ShopMain() {
                 </div>
                 <div className="ProductCardContainer" id="randomBox" onClick={handleProductClick}>
                     <h4>랜덤박스</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/12/09/04/02/presents-1893640_960_720.jpg"/>
+                    <img src={RandomBoxSrc}/>
                     <p>Point : 50p</p>
                 </div>
             </div>

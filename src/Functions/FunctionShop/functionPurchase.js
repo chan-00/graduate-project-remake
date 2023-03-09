@@ -1,6 +1,7 @@
 import axios from "axios";
 import server_url from "../../serverUrl.js";
 
+//랜덤박스 제외 물품 구매 시 호출되는 함수
 function functionPurchase(itemCost, id, itemId, itemCategory, navigate) {
     axios.post(server_url + "/back/buy_item/", {
         item_cost: itemCost,

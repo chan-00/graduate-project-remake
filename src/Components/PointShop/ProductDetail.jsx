@@ -2,6 +2,7 @@
 import "../../css/PointShopCss/ProductDetail.css";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
+import { Modal } from "react-bootstrap";
 //import react hooks
 import { useEffect, useState } from "react";
 //import react bootstrap
@@ -10,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 import functionUserPoint from "../../Functions/FunctionShop/functionUserPoint";
 import functionPurchase from "../../Functions/FunctionShop/functionPurchase";
 import functionGetRandomProduct from "../../Functions/FunctionShop/functionGetRandomProduct";
+import functionRandomPurchase from "../../Functions/FunctionShop/functionRandomPurchase";
+//image src
+import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
+import PointSrc from "../../Images/PointImage.png";
 
 
 function ProductDetail() {
@@ -24,6 +29,7 @@ function ProductDetail() {
     //제품 가격
     const [ productPrice, setProductPrice ] = useState();
     //---접속된 아이템에 따라 화면을 다르게 표시하게 하기 위한 값---
+
     //유저가 현재 보유하고 있는 포인트 값을 갖고 있을 useState 변수
     const [ userPoint, setUserPoint ] = useState(0);
     //로딩 화면을 표시하기 위한 status 변수
@@ -32,6 +38,19 @@ function ProductDetail() {
     const [ productCategory, setProductCategory ] = useState();
     //염색약일 경우 어떤 색을 선택했는지에 대한 값
     const [ selectHairColor, setSelectHairColor ] = useState("color0");
+
+    //랜덤박스 뽑기 시 결과 화면을 띄워 줄 Modal 창의 Boolean useState 변수
+    const [ randomResultModalShow, setRandomResultModalShow ] = useState(false);
+    //모달 창에 띄울 이미지 src를 담고 있는 useState 변수
+    const [ randomResultImageSrc, setRandomResultImageSrc ] = useState();
+    //모달 창에 띄울 타이틀을 담고 있는 useState 변수
+    const [ randomResultTitle, setRandomResultTitle ] = useState();
+    //랜덤박스 결과가 이미 보유하고 있는 아이템이라면 포인트를 환전해 준다는 메시지를 담을 useState 변수
+    const [ resultMessage, setResultMessage ] = useState("");
+
+    //randombox result Modal 창을 켜고 끄는 함수이다.
+    const handleRandomResultModalShow = () => setRandomResultModalShow(true);
+    const handleRandomResultModalClose = () => setRandomResultModalShow(false);
 
     //비정상적인 경로 접속 차단과 유저의 보유 포인트 값을 알기 위한 useEffect 함수
     useEffect(() => {
@@ -133,7 +152,7 @@ function ProductDetail() {
                 setProductCategory("hair color");
             }
             else if(window.sessionStorage.clickItem === "randomBox") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/12/09/04/02/presents-1893640_960_720.jpg");
+                setImageSrc(RandomBoxSrc);
                 setProductTitle("랜덤박스");
                 setProductPrice(50);
                 setProductCategory("random box");
@@ -157,7 +176,103 @@ function ProductDetail() {
             }
         }
         else if(userPoint - productPrice >= 0 && window.sessionStorage.clickItem === "randomBox") {
-            
+            const randomResult = functionGetRandomProduct();
+
+            if(randomResult === "ch0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultTitle("캐릭터01");
+            }
+            else if(randomResult === "ch1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultTitle("캐릭터02");
+            }
+            else if(randomResult === "ch2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultTitle("캐릭터03");
+            }
+            else if(randomResult === "ch3") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultTitle("랜덤박스 한정 캐릭터");
+            }
+            else if(randomResult === "top0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setRandomResultTitle("상의01");
+            }
+            else if(randomResult === "top1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setRandomResultTitle("상의02");
+            }
+            else if(randomResult === "top2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setRandomResultTitle("랜덤박스 한정 상의");
+            }
+            else if(randomResult === "pants0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setRandomResultTitle("하의01");
+            }
+            else if(randomResult === "pants1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setRandomResultTitle("하의02");
+            }
+            else if(randomResult === "pants2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setRandomResultTitle("랜덤박스 한정 하의");
+            }
+            else if(randomResult === "hat0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
+                setRandomResultTitle("모자01");
+            }
+            else if(randomResult === "hat1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
+                setRandomResultTitle("모자02");
+            }
+            else if(randomResult === "hat2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
+                setRandomResultTitle("모자03");
+            }
+            else if(randomResult === "hat3") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
+                setRandomResultTitle("랜덤박스 한정 모자");
+            }
+            else if(randomResult === "bag0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
+                setRandomResultTitle("가방01");
+            }
+            else if(randomResult === "bag1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
+                setRandomResultTitle("가방02");
+            }
+            else if(randomResult === "bag2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
+                setRandomResultTitle("랜덤박스 한정 가방");
+            }
+            else if(randomResult === "shoes0") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
+                setRandomResultTitle("신발01");
+            }
+            else if(randomResult === "shoes1") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
+                setRandomResultTitle("신발02");
+            }
+            else if(randomResult === "shoes2") {
+                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
+                setRandomResultTitle("랜덤박스 한정 신발");
+            }
+            else if(randomResult === "100" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
+                setRandomResultImageSrc(PointSrc);
+                setRandomResultTitle(randomResult + "p");
+            }
+
+            //랜덤박스 결과 포인트가 나왔다면 카테고리를 Point로 해서 백엔드로 전송
+            if(randomResult === "100" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
+                functionRandomPurchase(window.sessionStorage.id, randomResult, "Point", setResultMessage, handleRandomResultModalShow, setUserPoint);
+            }
+            else if(randomResult === "ch0" || randomResult === "ch1" || randomResult === "ch2" || randomResult === "ch3") {
+                functionRandomPurchase(window.sessionStorage.id, randomResult, "character", setResultMessage, handleRandomResultModalShow, setUserPoint);
+            }
+            else {
+                functionRandomPurchase(window.sessionStorage.id, randomResult, "outfit", setResultMessage, handleRandomResultModalShow, setUserPoint);
+            }
         }
         else if(userPoint - productPrice < 0) {
             alert("현재 보유한 포인트가 부족하여 구매할 수 없습니다.");
@@ -198,6 +313,16 @@ function ProductDetail() {
                         </div>
                     </div>
                 </div>
+                <Modal show={randomResultModalShow} onHide={handleRandomResultModalClose}>
+                    <Modal.Header closeButton>
+                        <h4>Random Box Result</h4>
+                    </Modal.Header>
+                    <Modal.Body id="randomResultModalContainer">
+                        <img src={randomResultImageSrc}/>
+                        <p style={{marginTop: "1rem"}}>{randomResultTitle} 제품을 휙득했습니다!</p>
+                        {resultMessage.length !== 0 ? <p>{resultMessage}</p> : null}
+                    </Modal.Body>
+                </Modal>
             </div>
         )
     }
