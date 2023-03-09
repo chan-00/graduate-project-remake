@@ -33,6 +33,8 @@ import TeamSearch from "./Components/SearchPage/TeamSearch";
 import ShopMain from "./Components/PointShop/ShopMain";
 import ProductDetail from "./Components/PointShop/ProductDetail";
 
+import ScrollToTop from "./Components/ScrollToTop";
+
 //import App css
 import "./css/App.css";
 
@@ -42,6 +44,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop/>
         <Header/>
         <Routes>
           <Route path="/" element={<Main/>}></Route>
