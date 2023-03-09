@@ -72,7 +72,7 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
             }
             //위의 두 조건에 걸리지 않는다면 회원가입 성공 메시지를 띄우고 session storage에 id 값을 부여한다.
             else {
-                alert("회원가입 성공!");
+                alert("회원가입 성공! (회원가입 기념 10p 지급)");
                 window.sessionStorage.setItem("id", idRef.current.value);
                 window.sessionStorage.setItem("nickname", nicknameRef.current.value);
                 setNickname(nicknameRef.current.value);
