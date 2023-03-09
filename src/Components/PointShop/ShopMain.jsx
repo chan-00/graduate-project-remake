@@ -1,6 +1,12 @@
 //import css
 import "../../css/PointShopCss/ShopMain.css";
 //import react bootstrap
+import { Modal } from "react-bootstrap";
+//import react bootstrap icon
+import { QuestionCircle } from "react-bootstrap-icons";
+//import react hooks
+import { useState } from "react";
+//import react router
 import { useNavigate } from "react-router-dom";
 //image src
 import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
@@ -9,6 +15,13 @@ import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
 function ShopMain() {
     //화면 전환을 위한 useNavigate 변수
     const navigate = useNavigate();
+
+    //포인트 휙득 방법을 알려주는 Modal 창의 Boolean useState 변수
+    const [ pointHintModalShow, setPointHintModalShow ] = useState(false);
+
+    //randombox result Modal 창을 켜고 끄는 함수이다.
+    const handlePointHintModalShow = () => setPointHintModalShow(true);
+    const handlePointHintModalClose = () => setPointHintModalShow(false);
 
     //특정 상품 카드를 클릭했을 때 화면 전환을 위해 호출되는 이벤트 함수
     const handleProductClick = (e) => {
@@ -25,6 +38,11 @@ function ShopMain() {
     return (
         <div>
             <div className="ProductContainer">
+                <div id="pointQuestionContainer" onClick={() => handlePointHintModalShow()}>
+                    <QuestionCircle/>
+                    <span>포인트 휙득 방법</span>
+                </div>
+                
                 <h3>캐릭터</h3>
                 <hr/>
                 <div className="ProductCardContainer" id="ch0" onClick={handleProductClick}>
@@ -128,6 +146,16 @@ function ShopMain() {
                     <p>Point : 50p</p>
                 </div>
             </div>
+            <Modal show={pointHintModalShow} onHide={handlePointHintModalClose}>
+                <Modal.Header closeButton>
+                    <h4>포인트 휙득 경로</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>댓글 작성 : 1 point</p>
+                    <p>게시글 작성 : 2 point</p>
+                    <p>팀 생성 : 10 point</p>
+                </Modal.Body>
+            </Modal>
         </div>
     )
 }

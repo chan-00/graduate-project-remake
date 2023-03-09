@@ -112,6 +112,10 @@ function Header() {
     const handlePointShop = () => {
         navigate("/shop");
     }
+    //보관함 페이지로 이동하게 하는 이벤트 함수
+    const handleLocker = () => {
+        navigate("/locker");
+    }
 
     //로그인 시 닉네임 버튼을 클릭했을 때 새로운 알림 메시지의 유무 표시를 위한 이벤트 함수
     const handleClickNicknameButton = () => {
@@ -145,6 +149,7 @@ function Header() {
                     ? <NavDropdown title={window.sessionStorage.nickname} id="basic-nav-dropdown" onClick={handleClickNicknameButton}>
                         <NavDropdown.Item onClick={handleMyPage}>마이페이지</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLetter}>쪽지함{(notReadMessage !== 0 && loadingStatus) ? <span id="readMessageNumberIcon">{notReadMessage}</span> : null}</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLocker}>상품 보관함</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLogout}>로그아웃</NavDropdown.Item>
                     </NavDropdown>
                     : <div>

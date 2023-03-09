@@ -39,3 +39,22 @@
     color: rgb(60, 60, 60);
 }
 /* 상품 카드 컨테이너 css */
+
+
+/* 상품 질문 컨테이너 css */
+#pointQuestionContainer {
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+#pointQuestionContainer > svg {
+    font-size: 20px;
+}
+
+#pointQuestionContainer > span {
+    font-size: 13px;
+    padding-left: 10px;
+    vertical-align: top;
+}
+/* 상품 질문 컨테이너 css */

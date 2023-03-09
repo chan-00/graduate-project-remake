@@ -15,6 +15,7 @@ import PwModify from "./Components/SignPage/PwModify";
 
 import MyPage from "./Components/MyPage/MyPage";
 import LetterBox from "./Components/MyPage/LetterBox";
+import LockerPage from "./Components/MyPage/LockerPage";
 
 import TeamMake from "./Components/TeamPage/TeamMake";
 import TeamMain from "./Components/TeamPage/TeamMain";
@@ -54,8 +55,10 @@ function App() {
           <Route path="/idsearch" element={<IdSearch/>}></Route>
           <Route path="/pwsearch" element={<PwSearch/>}></Route>
           <Route path="/pwmodify" element={<PwModify/>}></Route>
+
           <Route path="/mypage" element={<MyPage/>}></Route>
           <Route path="/letterbox" element={<LetterBox/>}></Route>
+          <Route path="/locker" element={<LockerPage/>}></Route>
 
           <Route path="/shop" element={<ShopMain/>}></Route>
           <Route path="/product" element={<ProductDetail/>}></Route>
