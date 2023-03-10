@@ -1,7 +1,8 @@
-
+//import css
+import "../../css/MyPageCss/LockerPage.css";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 //import react hooks
 import { useEffect, useState } from "react";
 //import react router dom
@@ -115,18 +116,94 @@ function LockerPage() {
                     }
                 }
                 setUserDivItemList(divList);
-                setLoadingStatus(true);
             }
-            
+            setLoadingStatus(true);
         }
     }, [userItemList]);
-
-    console.log(userDivItemList);
 
     if(loadingStatus && userItemList.length !== 0) {
         return (
             <div>
-                보관함 페이지입니다~
+                <div className="lockerAllContainer">
+                    <h3>랜덤박스 한정 캐릭터</h3>
+                    <hr/>
+                    <div className="lockerContainer teamManagementContainer">
+                    {userDivItemList[0].map((item, index) => (
+                        <div className="lockerCardContainer cardContainer" key={index}>
+                            <Card>
+                                <img className="itemImage" src={item[0]}/>
+                                <Card.Body>
+                                    <Card.Title>{item[1]}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                <div className="lockerAllContainer">
+                    <h3>랜덤박스 한정 의류</h3>
+                    <hr/>
+                    <div className="lockerContainer teamManagementContainer">
+                    {userDivItemList[1].map((item, index) => (
+                        <div className="lockerCardContainer cardContainer" key={index}>
+                            <Card>
+                                <img className="itemImage" src={item[0]}/>
+                                <Card.Body>
+                                    <Card.Title>{item[1]}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                <div className="lockerAllContainer">
+                    <h3>일반 캐릭터</h3>
+                    <hr/>
+                    <div className="lockerContainer teamManagementContainer">
+                    {userDivItemList[2].map((item, index) => (
+                        <div className="lockerCardContainer cardContainer" key={index}>
+                            <Card>
+                                <img className="itemImage" src={item[0]}/>
+                                <Card.Body>
+                                    <Card.Title>{item[1]}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                <div className="lockerAllContainer">
+                    <h3>일반 의류</h3>
+                    <hr/>
+                    <div className="lockerContainer teamManagementContainer">
+                    {userDivItemList[3].map((item, index) => (
+                        <div className="lockerCardContainer cardContainer" key={index}>
+                            <Card>
+                                <img className="itemImage" src={item[0]}/>
+                                <Card.Body>
+                                    <Card.Title>{item[1]}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                <div className="lockerAllContainer">
+                    <h3>머리 염색약</h3>
+                    <hr/>
+                    <div className="lockerContainer teamManagementContainer">
+                    {userDivItemList[4].map((item, index) => (
+                        <div className="lockerCardContainer cardContainer" key={index}>
+                            <Card>
+                                <img className="itemImage" src={item[0]}/>
+                                <Card.Body>
+                                    <Card.Title>{item[1]}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))}
+                    </div>
+                </div>
             </div>
         )
     }

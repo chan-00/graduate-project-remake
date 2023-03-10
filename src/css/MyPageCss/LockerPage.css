@@ -1,0 +1,24 @@
+/* 보관함 전체 컨테이너 css */
+.lockerAllContainer {
+    width: 1000px;
+    margin: 30px auto;
+}
+/* 보관함 전체 컨테이너 css */
+
+
+/* 보관함 컨테이너 css */
+.lockerAllContainer > .lockerContainer {
+    width: 100%;
+    margin: 0 auto;
+}
+/* 보관함 컨테이너 css */
+
+
+.lockerCardContainer .itemImage {
+    width: 195px;
+    height: 150px;
+}
+
+.lockerCardContainer .card-title {
+    margin-top: 30px;
+}
