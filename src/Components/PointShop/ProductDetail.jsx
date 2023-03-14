@@ -54,7 +54,7 @@ function ProductDetail() {
 
     //비정상적인 경로 접속 차단과 유저의 보유 포인트 값을 알기 위한 useEffect 함수
     useEffect(() => {
-        if(!window.sessionStorage.clickItem || !window.sessionStorage.id) {
+        if(!window.sessionStorage.clickItem && !window.sessionStorage.id) {
             alert("비정상적인 접근입니다!");
             navigate("/shop");
         }
