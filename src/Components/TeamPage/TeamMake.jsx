@@ -20,7 +20,7 @@ function TeamMake() {
     const teamnameRef = useRef();
     const teamDescRef = useRef();
     //팀 카테고리 값이 담길 useState 변수
-    const [ teamCategory, setTeamCategory ] = useState("국어");
+    const [ teamCategory, setTeamCategory ] = useState("IT");
 
     //팀 생성 Modal 창의 Boolean useState 변수
     const [ teamMakeHintModalShow, setTeamMakeHintModalShow ] = useState(false);

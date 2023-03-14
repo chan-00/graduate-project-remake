@@ -1,3 +1,5 @@
+import CafeSrc from "../../Images/MainCafeImage.png";
+import MainOfficeSrc from "../../Images/MainOfficeImage.png";
 
 //맵 소개 영역 컴포넌트
 function MainMapArea() {
@@ -20,13 +22,13 @@ function MainMapArea() {
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>2. 카페</h2>
                 <p>잔잔한 분위기의 학습하기 좋은 카페입니다</p>
-                <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g" />
+                <img src={CafeSrc} />
             </div>
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>3. 회의실</h2>
                 <p>오피스 분위기가 물씬 풍기는 회의실입니다</p>
-                <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g" />
+                <img src={MainOfficeSrc} />
             </div>
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
