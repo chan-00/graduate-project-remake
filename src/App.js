@@ -48,34 +48,34 @@ function App() {
         <ScrollToTop/>
         <Header/>
         <Routes>
-          <Route path="/" element={<Main/>}></Route>
-          <Route path="/downloadinfo" element={<DownloadFileInfo/>}></Route>
-          <Route path="/signin" element={<SignIn/>}></Route>
-          <Route path="/signup" element={<SignUp/>}></Route>
-          <Route path="/idsearch" element={<IdSearch/>}></Route>
-          <Route path="/pwsearch" element={<PwSearch/>}></Route>
-          <Route path="/pwmodify" element={<PwModify/>}></Route>
+          <Route path="/" element={<Main/>} />
+          <Route path="/downloadinfo" element={<DownloadFileInfo/>} />
+          <Route path="/signin" element={<SignIn/>} />
+          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/idsearch" element={<IdSearch/>} />
+          <Route path="/pwsearch" element={<PwSearch/>} />
+          <Route path="/pwmodify" element={<PwModify/>} />
 
-          <Route path="/mypage" element={<MyPage/>}></Route>
-          <Route path="/letterbox" element={<LetterBox/>}></Route>
-          <Route path="/locker" element={<LockerPage/>}></Route>
+          <Route path="/mypage" element={<MyPage/>} />
+          <Route path="/letterbox" element={<LetterBox/>} />
+          <Route path="/locker" element={<LockerPage/>} />
 
-          <Route path="/shop" element={<ShopMain/>}></Route>
-          <Route path="/product" element={<ProductDetail/>}></Route>
+          <Route path="/shop" element={<ShopMain/>} />
+          <Route path="/product" element={<ProductDetail/>} />
           
-          <Route path="/teammake" element={<TeamMake/>}></Route>
-          <Route path="/team" element={<TeamMain/>}></Route>
-          <Route path="/teaminfo" element={<TeamDetail/>}></Route>
+          <Route path="/teammake" element={<TeamMake/>} />
+          <Route path="/team" element={<TeamMain/>} />
+          <Route path="/teaminfo" element={<TeamDetail/>} />
           
-          <Route path="/offerboard" element={<OfferBoard/>}></Route>
-          <Route path="/questionboard" element={<QuestionBoard/>}></Route>
-          <Route path="/shareboard" element={<ShareBoard/>}></Route>
-          <Route path="/boarddetail" element={<BoardDetail/>}></Route>
-          <Route path="/boardwrite" element={<BoardWrite/>}></Route>
-          <Route path="/boardmodify" element={<BoardModify/>}></Route>
+          <Route path="/offerboard" element={<OfferBoard/>} />
+          <Route path="/questionboard" element={<QuestionBoard/>} />
+          <Route path="/shareboard" element={<ShareBoard/>} />
+          <Route path="/boarddetail" element={<BoardDetail/>} />
+          <Route path="/boardwrite" element={<BoardWrite/>} />
+          <Route path="/boardmodify" element={<BoardModify/>} />
 
-          <Route path="/infosearch" element={<InfoSearch/>}></Route>
-          <Route path="/teamsearch" element={<TeamSearch/>}></Route>
+          <Route path="/infosearch" element={<InfoSearch/>} />
+          <Route path="/teamsearch" element={<TeamSearch/>} />
         </Routes>
         <Footer/>
       </Router>

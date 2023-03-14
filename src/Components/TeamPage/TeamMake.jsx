@@ -1,7 +1,9 @@
 //import css
 import "../../css/TeamPageCss/TeamMake.css";
 //import react bootstrap
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
+//import react bootstrap icon
+import { QuestionCircle } from "react-bootstrap-icons";
 //import react hooks
 import { useEffect, useRef, useState } from "react";
 //import Functions
@@ -19,6 +21,13 @@ function TeamMake() {
     const teamDescRef = useRef();
     //팀 카테고리 값이 담길 useState 변수
     const [ teamCategory, setTeamCategory ] = useState("국어");
+
+    //팀 생성 Modal 창의 Boolean useState 변수
+    const [ teamMakeHintModalShow, setTeamMakeHintModalShow ] = useState(false);
+
+    //팀 생성 Modal 창을 켜고 끄는 함수이다.
+    const handleTeamMakeHintModalShow = () => setTeamMakeHintModalShow(true);
+    const handleTeamMakeHintModalClose = () => setTeamMakeHintModalShow(false);
 
     //로그인이 안되어 있을 때 로그인 페이지로 이동하게 하는 useEffect 함수
     useEffect(() => {
@@ -40,6 +49,10 @@ function TeamMake() {
 
     return (
         <div id="teammakeBody">
+            <div id="pointQuestionContainer" onClick={() => handleTeamMakeHintModalShow()}>
+                <QuestionCircle/>
+                <span>팀 생성 도움말</span>
+            </div>
             <div id="teammakeAllContainer">
                 <div id="teammakeImageContainer">
                     <h3>Welcome!</h3>
@@ -91,6 +104,16 @@ function TeamMake() {
                     </form>
                 </div>
             </div>
+            <Modal show={teamMakeHintModalShow} onHide={handleTeamMakeHintModalClose}>
+                <Modal.Header closeButton>
+                    <h4>팀 생성 도움말</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>팀명은 필수로 입력해야 하며 100글자 이상이 되면 안 됩니다.</p>
+                    <p>팀명에 공백 또는 특수문자가 들어가면 안 됩니다.</p>
+                    <p>팀 설명은 400자가 넘어가면 안 됩니다.</p>
+                </Modal.Body>
+            </Modal>
         </div>
     )
 }

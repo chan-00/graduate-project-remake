@@ -2,6 +2,11 @@
 #teammakeBody {
     width: 100vw;
     height: 100vh;
+    text-align: center;
+}
+
+#teammakeBody > #pointQuestionContainer {
+    margin-top: 150px;
 }
 /* 팀 생성 화면 body css */
 
@@ -10,13 +15,18 @@
 #teammakeAllContainer {
     width: 1200px;
     height: 600px;
-    margin: 150px auto 0;
+    margin: 0 auto;
     background-color: #f8f8fa;
 
     display: grid;
     grid-template-columns: 45% 55%;
 }
 /* 팀 생성 화면의 전체를 감싸는 Container css */
+
+
+/* 도움말 버튼 Container css */
+
+/* 도움말 버튼 Container css */
 
 
 /* 팀 생성 화면의 이미지 영역 Container css */
