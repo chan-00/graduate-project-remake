@@ -3,6 +3,8 @@ import "../../css/PointShopCss/ProductDetail.css";
 //import react bootstrap
 import Spinner from 'react-bootstrap/Spinner';
 import { Modal } from "react-bootstrap";
+//import react bootstrap icon
+import { QuestionCircle } from "react-bootstrap-icons";
 //import react hooks
 import { useEffect, useState } from "react";
 //import react bootstrap
@@ -47,10 +49,16 @@ function ProductDetail() {
     const [ randomResultTitle, setRandomResultTitle ] = useState();
     //랜덤박스 결과가 이미 보유하고 있는 아이템이라면 포인트를 환전해 준다는 메시지를 담을 useState 변수
     const [ resultMessage, setResultMessage ] = useState("");
+    //랜덤박스의 구성 요소를 알려주는 Modal 창의 Boolean useState 변수
+    const [ randomBoxItemModalShow, setRandomBoxItemModalShow ] = useState(false);
 
     //randombox result Modal 창을 켜고 끄는 함수이다.
     const handleRandomResultModalShow = () => setRandomResultModalShow(true);
     const handleRandomResultModalClose = () => setRandomResultModalShow(false);
+
+    //randombox item 요소를 보여주는 Modal 창을 켜고 끄는 함수이다.
+    const handleRandomBoxItemModalShow = () => setRandomBoxItemModalShow(true);
+    const handleRandomBoxItemModalClose = () => setRandomBoxItemModalShow(false); 
 
     //비정상적인 경로 접속 차단과 유저의 보유 포인트 값을 알기 위한 useEffect 함수
     useEffect(() => {
@@ -283,6 +291,7 @@ function ProductDetail() {
     const handleChangeHairColor = (e) => {
         setSelectHairColor(e.target.value);
     }
+    
 
     if(loadingStatus) {
         return (
@@ -290,7 +299,14 @@ function ProductDetail() {
                 <div id="productDetailContainer">
                     <img src={imageSrc}/>
                     <div>
-                        <h3>{productTitle}</h3>
+                        <h3 style={{display:"inline-block"}}>{productTitle}</h3>
+                        {window.sessionStorage.clickItem === "randomBox"
+                        ? 
+                        <div id="randomBoxItemQuestion" onClick={() => handleRandomBoxItemModalShow()}>
+                            <QuestionCircle/>
+                            <span>랜덤박스 구성 요소</span>
+                        </div>
+                        : null}
                         {window.sessionStorage.clickItem === "color" ? 
                         <select onChange={handleChangeHairColor}>
                             <option value="color0">빨간색</option>
@@ -321,6 +337,18 @@ function ProductDetail() {
                         <img src={randomResultImageSrc}/>
                         <p style={{marginTop: "1rem"}}>{randomResultTitle} 제품을 휙득했습니다!</p>
                         {resultMessage.length !== 0 ? <p>{resultMessage}</p> : null}
+                    </Modal.Body>
+                </Modal>
+                <Modal show={randomBoxItemModalShow} onHide={handleRandomBoxItemModalClose}>
+                    <Modal.Header closeButton>
+                        <h4>RandomBox 확률</h4>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>랜덤박스 한정 캐릭터(2%)</p>
+                        <p>랜덤박스 한정 아이템(모자, 상의, 하의, 가방, 신발)(4%)</p>
+                        <p>일반 캐릭터(4%)</p>
+                        <p>일반 아이템(모자, 상의, 하의, 가방, 신발)(20%)</p>
+                        <p>100p(5%), 50p(15%), 30p(30%), 10p(20%)</p>
                     </Modal.Body>
                 </Modal>
             </div>

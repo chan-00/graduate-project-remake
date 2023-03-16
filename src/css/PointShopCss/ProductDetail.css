@@ -61,3 +61,22 @@
     height: 300px;
 }
 /* 랜덤박스 결과값을 보여 주는 Container css */
+
+
+/* 랜덤박스 아이템 구성요소 모달 창을 보여주는 버튼 Container css */
+#randomBoxItemQuestion {
+    display: inline-block;
+    margin-left: 30px;
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+#randomBoxItemQuestion > svg {
+    float: none;
+}
+
+#randomBoxItemQuestion > span {
+    padding-left: 5px;
+}
+/* 랜덤박스 아이템 구성요소 모달 창을 보여주는 버튼 Container css */
