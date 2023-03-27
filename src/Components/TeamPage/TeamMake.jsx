@@ -55,7 +55,7 @@ function TeamMake() {
             </div>
             <div id="teammakeAllContainer">
                 <div id="teammakeImageContainer">
-                    <h3>Welcome!</h3>
+                    <h3>Welcome!</h3><br />
                     <span>팀을 생성하고 언제 어디서나 자유롭게 스터디하세요</span>
                 </div>
                 <div id="teammakeContentsContainer">
