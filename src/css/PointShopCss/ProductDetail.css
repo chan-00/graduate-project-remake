@@ -1,7 +1,7 @@
 /* 상품 상세 내역 전체 컨테이너 css */
 #productDetailAllContainer {
-    width: 1300px;
-    margin: 100px auto 0;
+    width: 90vw;
+    margin: 5% auto 0;
 }
 
 #productDetailContainer {
@@ -11,7 +11,7 @@
 
 #productDetailAllContainer img {
     width: 100%;
-    height: 550px;
+    height: 100%;
 }
 
 #productDetailContainer > div {
@@ -43,7 +43,7 @@
 }
 
 #productDetailContainer > div > p {
-    font-size: 25px;
+    font-size: 20px;
     color: blue;
     margin: 0;
     margin-top: 20px;
