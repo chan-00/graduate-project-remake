@@ -26,7 +26,7 @@ function Main() {
     //시작하기 버튼 클릭 시 백엔드로부터 unity 프로그램 파일을 받아 오는 이벤트 함수이다.
     const handleDownloadButtonClick = () => {
         alert("프로그램이 설치되기 전까지 잠깐 기다려 주세요.");
-        window.open("https://withrium-unity-file.s3.ap-northeast-2.amazonaws.com/4.zip");
+        window.open("https://withrium-unity-file.s3.ap-northeast-2.amazonaws.com/withrium.zip");
     }
 
     return (

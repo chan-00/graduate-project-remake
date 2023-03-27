@@ -21,6 +21,8 @@
     padding: 25px 20px;
     border-bottom: 1px solid #b4b4b4;
     font-size: 15px;
+
+    cursor: pointer;
 }
 
 .mypageTeamList > li:hover {
@@ -62,8 +64,9 @@
 
 .mypageTeamMemberInfo > div > span {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 0.8rem;
     vertical-align: middle;
+    text-overflow: ellipsis;
 }
 /* 마이페이지 팀 멤버 Info 영역 css */
 

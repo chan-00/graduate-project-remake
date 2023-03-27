@@ -40,7 +40,7 @@ function ShopMain() {
             <div className="ProductContainer">
                 <div id="pointQuestionContainer" onClick={() => handlePointHintModalShow()}>
                     <QuestionCircle/>
-                    <span>포인트 휙득 방법</span>
+                    <span>포인트 획득 방법</span>
                 </div>
                 
                 <h3>캐릭터</h3>
@@ -148,7 +148,7 @@ function ShopMain() {
             </div>
             <Modal show={pointHintModalShow} onHide={handlePointHintModalClose}>
                 <Modal.Header closeButton>
-                    <h4>포인트 휙득 경로</h4>
+                    <h4>포인트 획득 경로</h4>
                 </Modal.Header>
                 <Modal.Body>
                     <p>댓글 작성 : 1 point</p>
