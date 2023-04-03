@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 //import react icons
 import { PersonLinesFill, Clipboard, Chat, BarChartSteps } from "react-bootstrap-icons";
 //import react hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 //import functions
 import functionGetTeamBelong from "../../Functions/FunctionTeam/functionGetTeamBelong";
 //import component
@@ -21,6 +21,9 @@ import { useNavigate } from "react-router-dom"
 function TeamDetail() {
     //페이지 이동을 위한 useNavigate
     const navigate = useNavigate();
+
+    //메뉴 이동 시 page top 코드를 html element에 적용시키기 위한 ref 변수
+    const teamAllContainerRef = useRef(null);
 
     //현재 사이드바 옆에 어떤 내용을 출력할지에 대한 내용이 담긴 recoil 변수
     const [ selectedMenu, setSelectedMenu ] = useRecoilState(atomTeamSelectedMenu);
@@ -46,6 +49,12 @@ function TeamDetail() {
             navigate("/");
         }
     }, []);
+    //팀 상세 페이지에서는 react-router로 페이지가 렌더링되는 것이 아니라 recoil 값으로 따로 페이지가 렌더링되기 때문에,
+    //팀 상세 페이지 내에서 스크롤을 내린 상태로 다른 메뉴 클릭 시 스크롤이 페이지 위로 올라가는 코드가 적용되지 않는다.
+    //그렇기 때문에, 페이지 메뉴 값을 관리하는 recoil 값인 selectedMenu 값이 바뀌는 시점을 useEffect 함수로 판단하여 page top 코드를 따로 적용시켰다.
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [selectedMenu]);
     
     //팀 상세 페이지의 sidebar 메뉴 클릭 시 호출되는 이벤트 함수이다.
     const handleTeamSideBarMenuClick = (clickID) => {
@@ -54,7 +63,7 @@ function TeamDetail() {
 
     if((teamBelong === "0" || teamBelong === "1") && loadingStatus) {
         return (
-            <div id="teamPageAllContainer">
+            <div id="teamPageAllContainer" ref={teamAllContainerRef}>
                 <div id="teamPageSideBar">
                     <div id="TeamInfo" className={selectedMenu === "TeamInfo" ? "selectedTeamSideBarMenu" : ""} onClick={() => handleTeamSideBarMenuClick("TeamInfo")}>
                         <PersonLinesFill></PersonLinesFill>
