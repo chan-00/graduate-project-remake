@@ -24,7 +24,3 @@ yarn-error.log*
 
 package.json
 package-lock.json
-
-/src/serverUrl.js
-
-/src/searchApiKey.js
