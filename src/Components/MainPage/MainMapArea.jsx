@@ -1,5 +1,6 @@
 import CafeSrc from "../../Images/MainCafeImage.png";
 import MainOfficeSrc from "../../Images/MainOfficeImage.png";
+import MainSquareSrc from "../../Images/MainSquareImage.png"
 
 //맵 소개 영역 컴포넌트
 function MainMapArea() {
@@ -16,7 +17,7 @@ function MainMapArea() {
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>1. 광장</h2>
                 <p>모두가 모여 소통할 수 있는 광장입니다</p>
-                <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g" />
+                <img src={MainSquareSrc} />
             </div>
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
