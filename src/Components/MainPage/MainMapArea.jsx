@@ -1,6 +1,9 @@
+//import Image src
 import CafeSrc from "../../Images/MainCafeImage.png";
 import MainOfficeSrc from "../../Images/MainOfficeImage.png";
-import MainSquareSrc from "../../Images/MainSquareImage.png"
+import MainSquareSrc from "../../Images/MainSquareImage.png";
+import MainLibrarySrc from "../../Images/MainLibraryImage.png";
+import MainRoomSrc from "../../Images/MainRoomImage.png";
 
 //맵 소개 영역 컴포넌트
 function MainMapArea() {
@@ -35,13 +38,13 @@ function MainMapArea() {
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>4. 도서관</h2>
                 <p>마음이 편안해지는 도서관입니다</p>
-                <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g" />
+                <img src={MainLibrarySrc} />
             </div>
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>5. 방</h2>
                 <p>마치 자신의 방에 있는 듯한 느낌의 프라이빗 룸입니다</p>
-                <img src="https://media2.giphy.com/media/E5Hfk3kV0G5zcKPWy4/giphy.gif?cid=ecf05e47qjqmibqgahzkwf9og8phuofmfqartc3r748pnwum&rid=giphy.gif&ct=g" />
+                <img src={MainRoomSrc} />
             </div>
         </div>
     )

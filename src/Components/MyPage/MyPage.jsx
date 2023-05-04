@@ -264,7 +264,6 @@ function MyPage() {
                         <span>{window.sessionStorage.nickname}</span>
                         <span id="userEmailText">{userEmail}</span>
                         <span id="withDrawalButton" onClick={handleWidhDrawalModifyModalShow}>회원 탈퇴</span>
-                        <button onClick={handleEmailModifyModalShow}>email Edit</button>
                         <button onClick={handleNicknameModifyModalShow}>Nickname Edit</button>
                         <button onClick={handlePasswordModifyModalShow}>Password Edit</button>
                         <div id="userCommentsContainer">
