@@ -94,7 +94,7 @@ function PwModify() {
                         />
                     </div>
                     <div className="signButtonContainer">
-                        <Button type="submit" variant="primary" className="formElements">계정 인증</Button>
+                        <Button type="submit" variant="primary" className="formElements">{emailAuth ? "비밀번호 변경" : "계정 인증"}</Button>
                     </div>
                 </div>
                 : null}

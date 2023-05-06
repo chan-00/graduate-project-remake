@@ -34,7 +34,7 @@ function functionNewPwdModify(idValue, pwRef, navigate) {
         }
         else if(res.data.return_message === "비밀번호 수정이 완료 되었습니다!") {
             alert("비밀번호 재설정이 완료되었습니다!");
-            navigate("/");
+            navigate("/signin");
         }
     }).catch((err) => {
         console.log(err);
