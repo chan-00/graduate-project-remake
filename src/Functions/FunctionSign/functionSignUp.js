@@ -1,7 +1,7 @@
 import axios from "axios";
 import server_url from "../../serverUrl.js";
 
-function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigate, setNickname) {
+function functionSignUp(idRef, pwRef, pwCheckRef, emailValue, nicknameRef, navigate, setNickname) {
     //사용자가 입력한 아이디, 비밀번호, 닉네임 값이 특정 문자 개수 이상 넘길 수 있도록 제한한다.
     if(idRef.current.value.length < 4) {
         alert("id를 4글자 이상 입력하세요.");
@@ -23,7 +23,6 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
     //회원가입 전 정규식 표현에 맞는 아이디 값인지 확인한다.
     const idPattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
     const pwPattern = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣\!0-9]*$/;
-    const emailPattern = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if(!idPattern.test(idRef.current.value)) {
         alert("현재 입력한 아이디 값에 특수문자 혹은 공백이 포함되어 있습니다.");
         idRef.current.focus();
@@ -35,12 +34,7 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
         pwRef.current.focus();
         return false;
     }
-    else if(!emailPattern.test(emailRef.current.value)) {
-        alert("현재 입력한 이메일 값에 특수문자, 공백이 포함되어 있습니다.");
-        emailRef.current.focus();
-        return false;
-    }
-    if(!idPattern.test(nicknameRef.current.value)) {
+    else if(!idPattern.test(nicknameRef.current.value)) {
         alert("현재 입력한 닉네임 값에 특수문자 혹은 공백이 포함되어 있습니다.");
         nicknameRef.current.focus();
         return false;
@@ -52,7 +46,7 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
         axios.post(server_url + "/back/regist/", {
             id: idRef.current.value,
             pw: pwRef.current.value,
-            email: emailRef.current.value,
+            email: emailValue,
             nickname: nicknameRef.current.value
         }).then((res) => {
             //백에서 성공적으로 처리되었을 때 then 함수 안으로 들어오게 된다.
@@ -65,10 +59,6 @@ function functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigat
             else if(res.data.chk_message === "닉네임 중복입니다.") {
                 alert("이미 존재하는 닉네임입니다.");
                 nicknameRef.current.focus();
-            }
-            else if(res.data.chk_message === "이메일 중복입니다.") {
-                alert("이미 존재하는 이메일입니다.");
-                emailRef.current.focus();
             }
             //위의 두 조건에 걸리지 않는다면 회원가입 성공 메시지를 띄우고 session storage에 id 값을 부여한다.
             else {

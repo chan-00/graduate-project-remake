@@ -38,6 +38,7 @@ function TeamBoardWrite() {
         uploadFiles = e.target.files[0];
 
         if(uploadFiles) {
+            console.log(uploadFiles);
             if(uploadFiles.size <= FILE_UPLOAD_SIZE) {
                 formData = new FormData();
                 formData.append('files', uploadFiles);
@@ -45,6 +46,9 @@ function TeamBoardWrite() {
             else {
                 alert("현재 첨부파일이 10MB 이상의 크기입니다.");
             }
+        }
+        else {
+            formData = null;
         }
     }
 

@@ -40,6 +40,8 @@ function SignUp() {
     const [ randEmailAuthNumber, setRandEmailAuthNumber ] = useState("");
     //이메일 인증 버튼 클릭 후 랜덤 숫자값을 받아 오는데 성공하면 인증 번호를 입력하는 칸을 보여주는 boolean useState 변수
     const [ emailAuthInputShow, setEmailAuthInputShow ] = useState(false);
+    //이메일 인증 성공 시 입력한 이메일 값을 담는 useState 변수
+    const [ emailValue, setEmailValue ] = useState("");
 
     //회원가입 성공 시 메인 페이지로 가게 하기 위한 useNavigate 변수 선언
     const navigate = useNavigate();
@@ -78,14 +80,14 @@ function SignUp() {
         else if(pwCheckRef.current.value.length > 20 || pwCheckRef.current.value.length === 0) {
             alert("비밀번호 확인 글자가 20글자 이상이거나 입력하지 않았습니다.");
         }
-        else if(emailRef.current.value.length > 30 || emailRef.current.value.length === 0) {
-            alert("이메일이 30글자 이상이거나 입력하지 않았습니다.");
+        else if(!emailAuthSuccess) {
+            alert("이메일 인증을 하지 않았습니다.");
         }
         else if(nicknameRef.current.value.length > 20 || nicknameRef.current.value.length === 0) {
             alert("닉네임이 20글자 이상이거나 입력하지 않았습니다.");
         }
         else {
-            functionSignUp(idRef, pwRef, pwCheckRef, emailRef, nicknameRef, navigate, setNickname);
+            functionSignUp(idRef, pwRef, pwCheckRef, emailValue, nicknameRef, navigate, setNickname);
         }
     }
 
@@ -95,8 +97,7 @@ function SignUp() {
             alert("이메일이 30글자 이상이거나 입력하지 않았습니다.");
         }
         else {
-            alert("해당 메일로 인증 번호가 전송되었습니다.");
-            functionEmailAuth(emailRef, setRandEmailAuthNumber, setEmailAuthInputShow);
+            functionEmailAuth(emailRef, setRandEmailAuthNumber, setEmailAuthInputShow, setEmailValue);
         }
     }
 
@@ -108,7 +109,6 @@ function SignUp() {
         }
         else {
             alert("인증 번호가 다릅니다, 다시 한번 확인해주세요.");
-            setEmailAuthSuccess(false);
         }
     }
 
@@ -152,6 +152,7 @@ function SignUp() {
                         className="formElements inputElements"
                     />
                 </div>
+                {(!emailAuthInputShow) ? 
                 <div id="emailInputContainer">
                     <input
                         type="email"
@@ -163,7 +164,9 @@ function SignUp() {
                     />
                     <Button variant="outline-primary" className="formElements" style={{width:"37%", marginBottom:"5px" ,height:"42px", fontSize:"14px"}} onClick={handleEmailAuth}>이메일 인증</Button>
                 </div>
-                {emailAuthInputShow ? 
+                : null}
+                
+                {(emailAuthInputShow && !emailAuthSuccess) ? 
                 <div id="emailInputContainer">
                     <input
                         type="text"
@@ -175,6 +178,7 @@ function SignUp() {
                     />
                     <Button variant="outline-primary" className="formElements" style={{width:"37%", marginBottom:"5px" ,height:"42px", fontSize:"14px"}} onClick={handleAuthNumberCheck}>인증 확인</Button>
                 </div> : null}
+                {emailAuthSuccess ? <span style={{fontSize:"14px"}}>이메일 인증 성공!</span> : null}
                 <div>
                     <input
                         type="text"
