@@ -65,22 +65,12 @@ function ShopMain() {
                 <h3>옷</h3>
                 <hr/>
                 <div className="ProductCardContainer" id="top0" onClick={handleProductClick}>
-                    <h4>상의01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png"/>
-                    <p>Point : 100p</p>
-                </div>
-                <div className="ProductCardContainer" id="top1" onClick={handleProductClick}>
-                    <h4>상의02</h4>
+                    <h4>상의</h4>
                     <img src="https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png"/>
                     <p>Point : 100p</p>
                 </div>
                 <div className="ProductCardContainer" id="pants0" onClick={handleProductClick}>
-                    <h4>하의01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg"/>
-                    <p>Point : 100p</p>
-                </div>
-                <div className="ProductCardContainer" id="pants1" onClick={handleProductClick}>
-                    <h4>하의02</h4>
+                    <h4>하의</h4>
                     <img src="https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg"/>
                     <p>Point : 100p</p>
                 </div>
@@ -116,20 +106,6 @@ function ShopMain() {
                     <h4>가방02</h4>
                     <img src="https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg"/>
                     <p>Point : 80p</p>
-                </div>
-            </div>
-            <div className="ProductContainer">
-                <h3>신발</h3>
-                <hr/>
-                <div className="ProductCardContainer" id="shoes0" onClick={handleProductClick}>
-                    <h4>신발01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg"/>
-                    <p>Point : 60p</p>
-                </div>
-                <div className="ProductCardContainer" id="shoes1" onClick={handleProductClick}>
-                    <h4>신발02</h4>
-                    <img src="https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg"/>
-                    <p>Point : 60p</p>
                 </div>
             </div>
             <div className="ProductContainer">

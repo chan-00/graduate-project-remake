@@ -17,6 +17,11 @@ import functionRandomPurchase from "../../Functions/FunctionShop/functionRandomP
 //image src
 import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
 import PointSrc from "../../Images/PointImage.png";
+import RedHairSrc from "../../Images/RedHair.png";
+import BlueHairSrc from "../../Images/BlueHair.png";
+import YellowHairSrc from "../../Images/YellowHair.png";
+import GrayHairSrc from "../../Images/GrayHair.png";
+import PurpleHairSrc from "../../Images/PurpleHair.png";
 
 
 function ProductDetail() {
@@ -89,25 +94,13 @@ function ProductDetail() {
             }
             else if(window.sessionStorage.clickItem === "top0") {
                 setImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
-                setProductTitle("상의01");
-                setProductPrice(100);
-                setProductCategory("outfit");
-            }
-            else if(window.sessionStorage.clickItem === "top1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
-                setProductTitle("상의02");
+                setProductTitle("상의");
                 setProductPrice(100);
                 setProductCategory("outfit");
             }
             else if(window.sessionStorage.clickItem === "pants0") {
                 setImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
-                setProductTitle("하의01");
-                setProductPrice(100);
-                setProductCategory("outfit");
-            }
-            else if(window.sessionStorage.clickItem === "pants1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
-                setProductTitle("하의02");
+                setProductTitle("하의");
                 setProductPrice(100);
                 setProductCategory("outfit");
             }
@@ -141,20 +134,8 @@ function ProductDetail() {
                 setProductPrice(80);
                 setProductCategory("bag");
             }
-            else if(window.sessionStorage.clickItem === "shoes0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
-                setProductTitle("신발01");
-                setProductPrice(60);
-                setProductCategory("shoes");
-            }
-            else if(window.sessionStorage.clickItem === "shoes1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
-                setProductTitle("신발02");
-                setProductPrice(60);
-                setProductCategory("shoes");
-            }
             else if(window.sessionStorage.clickItem === "color") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg");
+                setImageSrc(RedHairSrc);
                 setProductTitle("머리 염색약");
                 setProductPrice(10);
                 setProductCategory("hair color");
@@ -289,7 +270,23 @@ function ProductDetail() {
 
     //염색약 고를 때 색 바뀔 때마다 호출되는 이벤트 함수
     const handleChangeHairColor = (e) => {
-        setSelectHairColor(e.target.value);
+        const hairColor = e.target.value;
+        setSelectHairColor(hairColor);
+        if(hairColor === "color0") {
+            setImageSrc(RedHairSrc);
+        }
+        else if(hairColor === "color1") {
+            setImageSrc(GrayHairSrc);
+        }
+        else if(hairColor === "color2") {
+            setImageSrc(BlueHairSrc);
+        }
+        else if(hairColor === "color3") {
+            setImageSrc(YellowHairSrc);
+        }
+        else if(hairColor === "color4") {
+            setImageSrc(PurpleHairSrc);
+        }
     }
     
 
@@ -310,10 +307,10 @@ function ProductDetail() {
                         {window.sessionStorage.clickItem === "color" ? 
                         <select onChange={handleChangeHairColor}>
                             <option value="color0">빨간색</option>
-                            <option value="color1">초록색</option>
+                            <option value="color1">회색</option>
                             <option value="color2">파란색</option>
-                            <option value="color3">검정색</option>
-                            <option value="color4">하얀색</option>
+                            <option value="color3">노란색</option>
+                            <option value="color4">보라색</option>
                         </select> : null}
                         <hr/>
                         <p>가격</p>
