@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //image src
 import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
+import RedHairSrc from "../../Images/RedHair.png";
 
 
 function ShopMain() {
@@ -113,7 +114,7 @@ function ShopMain() {
                 <hr/>
                 <div className="ProductCardContainer" id="color" onClick={handleProductClick}>
                     <h4>머리 염색약</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg"/>
+                    <img src={RedHairSrc}/>
                     <p>Point : 10p</p>
                 </div>
                 <div className="ProductCardContainer" id="randomBox" onClick={handleProductClick}>

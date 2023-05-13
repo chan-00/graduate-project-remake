@@ -27,6 +27,7 @@ function Main() {
     const handleDownloadButtonClick = () => {
         alert("프로그램이 설치되기 전까지 잠깐 기다려 주세요.");
         window.open("https://withrium-unity-file.s3.ap-northeast-2.amazonaws.com/withrium.zip");
+        navigate("/downloadinfo");
     }
 
     return (
