@@ -10,7 +10,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //image src
 import RandomBoxSrc from "../../Images/RandomBoxImage.jpg";
-import RedHairSrc from "../../Images/RedHair.png";
+import HairColorSrc from "../../Images/HairColorMainImage.png";
+import HatSrc01 from "../../Images/Hat01.png";
+import HatSrc02 from "../../Images/Hat02.png";
+import HatSrc03 from "../../Images/Hat03.png";
+import BagSrc01 from "../../Images/Bag01.png";
+import BagSrc02 from "../../Images/Bag02.png";
 
 
 function ShopMain() {
@@ -80,18 +85,18 @@ function ShopMain() {
                 <h3>모자</h3>
                 <hr/>
                 <div className="ProductCardContainer" id="hat0" onClick={handleProductClick}>
-                    <h4>모자01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg"/>
+                    <h4>토끼 모자</h4>
+                    <img src={HatSrc01}/>
                     <p>Point : 80p</p>
                 </div>
                 <div className="ProductCardContainer" id="hat1" onClick={handleProductClick}>
-                    <h4>모자02</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg"/>
+                    <h4>호랑이 모자</h4>
+                    <img src={HatSrc02}/>
                     <p>Point : 80p</p>
                 </div>
                 <div className="ProductCardContainer" id="hat2" onClick={handleProductClick}>
-                    <h4>모자03</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg"/>
+                    <h4>버킷 햇</h4>
+                    <img src={HatSrc03}/>
                     <p>Point : 80p</p>
                 </div>
             </div>
@@ -99,13 +104,13 @@ function ShopMain() {
                 <h3>가방</h3>
                 <hr/>
                 <div className="ProductCardContainer" id="bag0" onClick={handleProductClick}>
-                    <h4>가방01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg"/>
+                    <h4>빨간색 가방</h4>
+                    <img src={BagSrc01}/>
                     <p>Point : 80p</p>
                 </div>
                 <div className="ProductCardContainer" id="bag1" onClick={handleProductClick}>
-                    <h4>가방02</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg"/>
+                    <h4>갈색 가방</h4>
+                    <img src={BagSrc02}/>
                     <p>Point : 80p</p>
                 </div>
             </div>
@@ -114,7 +119,7 @@ function ShopMain() {
                 <hr/>
                 <div className="ProductCardContainer" id="color" onClick={handleProductClick}>
                     <h4>머리 염색약</h4>
-                    <img src={RedHairSrc}/>
+                    <img src={HairColorSrc}/>
                     <p>Point : 10p</p>
                 </div>
                 <div className="ProductCardContainer" id="randomBox" onClick={handleProductClick}>

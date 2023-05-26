@@ -19,6 +19,15 @@ button {
     z-index: 10;
 }
 
+#navContainer .nav-link {
+    color: white;
+}
+
+#navContainer .navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
 #navContainer * {
     margin-left: 8px;
 }
@@ -40,6 +49,13 @@ button {
     background-color: transparent;
     color: white;
     padding: 7px;
+    transition-duration: 0.2s;
+}
+
+.signBtn:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
 }
 /* navbar sign button css */
 

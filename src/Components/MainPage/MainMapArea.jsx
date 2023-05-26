@@ -1,9 +1,14 @@
 //import Image src
 import CafeSrc from "../../Images/MainCafeImage.png";
 import MainOfficeSrc from "../../Images/MainOfficeImage.png";
-import MainSquareSrc from "../../Images/MainSquareImage.png";
+import MainSpringSquareSrc from "../../Images/MainSquareImage_Spring.png";
+import MainSummerSquareSrc from "../../Images/MainSquareImage_Summer.png";
+import MainAutumnSquareSrc from "../../Images/MainSquareImage_Autumn.png";
+import MainWinterSquareSrc from "../../Images/MainSquareImage_Winter.png";
 import MainLibrarySrc from "../../Images/MainLibraryImage.png";
 import MainRoomSrc from "../../Images/MainRoomImage.png";
+//import Carousel
+import { Carousel } from "react-bootstrap";
 
 //맵 소개 영역 컴포넌트
 function MainMapArea() {
@@ -19,8 +24,21 @@ function MainMapArea() {
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">
                 <h2>1. 광장</h2>
-                <p>모두가 모여 소통할 수 있는 광장입니다</p>
-                <img src={MainSquareSrc} />
+                <p>모두가 모여 소통할 수 있는 사계절 배경의 광장입니다</p>
+                <Carousel fade>
+                    <Carousel.Item>
+                        <img src={MainSpringSquareSrc} />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={MainSummerSquareSrc} />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={MainAutumnSquareSrc} />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={MainWinterSquareSrc} />
+                    </Carousel.Item>
+                </Carousel>
             </div>
 
             <div className="mainContentsContainer" data-aos="fade-up" data-aos-duration="1200">

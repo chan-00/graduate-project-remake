@@ -127,7 +127,7 @@ function Header() {
 
     return (
         <div>
-            <Navbar bg="dark" expand="lg" variant="dark" id="navContainer">
+            <Navbar bg="dark" expand="lg" id="navContainer">
                 <Navbar.Brand href="/" id="navTitle">Withrium</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="mr-auto">

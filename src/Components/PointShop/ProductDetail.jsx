@@ -22,6 +22,11 @@ import BlueHairSrc from "../../Images/BlueHair.png";
 import YellowHairSrc from "../../Images/YellowHair.png";
 import GrayHairSrc from "../../Images/GrayHair.png";
 import PurpleHairSrc from "../../Images/PurpleHair.png";
+import HatSrc01 from "../../Images/Hat01.png";
+import HatSrc02 from "../../Images/Hat02.png";
+import HatSrc03 from "../../Images/Hat03.png";
+import BagSrc01 from "../../Images/Bag01.png";
+import BagSrc02 from "../../Images/Bag02.png";
 
 
 function ProductDetail() {
@@ -105,32 +110,32 @@ function ProductDetail() {
                 setProductCategory("outfit");
             }
             else if(window.sessionStorage.clickItem === "hat0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setProductTitle("모자01");
+                setImageSrc(HatSrc01);
+                setProductTitle("토끼 모자");
                 setProductPrice(80);
                 setProductCategory("hat");
             }
             else if(window.sessionStorage.clickItem === "hat1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setProductTitle("모자02");
+                setImageSrc(HatSrc02);
+                setProductTitle("호랑이 모자");
                 setProductPrice(80);
                 setProductCategory("hat");
             }
             else if(window.sessionStorage.clickItem === "hat2") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setProductTitle("모자03");
+                setImageSrc(HatSrc03);
+                setProductTitle("버킷 햇");
                 setProductPrice(80);
                 setProductCategory("hat");
             }
             else if(window.sessionStorage.clickItem === "bag0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
-                setProductTitle("가방01");
+                setImageSrc(BagSrc01);
+                setProductTitle("빨간색 가방");
                 setProductPrice(80);
                 setProductCategory("bag");
             }
             else if(window.sessionStorage.clickItem === "bag1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
-                setProductTitle("가방02");
+                setImageSrc(BagSrc02);
+                setProductTitle("갈색 가방");
                 setProductPrice(80);
                 setProductCategory("bag");
             }
@@ -189,10 +194,6 @@ function ProductDetail() {
             }
             else if(randomResult === "top1") {
                 setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
-                setRandomResultTitle("상의02");
-            }
-            else if(randomResult === "top2") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
                 setRandomResultTitle("랜덤박스 한정 상의");
             }
             else if(randomResult === "pants0") {
@@ -200,10 +201,6 @@ function ProductDetail() {
                 setRandomResultTitle("하의01");
             }
             else if(randomResult === "pants1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
-                setRandomResultTitle("하의02");
-            }
-            else if(randomResult === "pants2") {
                 setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
                 setRandomResultTitle("랜덤박스 한정 하의");
             }
@@ -217,10 +214,6 @@ function ProductDetail() {
             }
             else if(randomResult === "hat2") {
                 setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setRandomResultTitle("모자03");
-            }
-            else if(randomResult === "hat3") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
                 setRandomResultTitle("랜덤박스 한정 모자");
             }
             else if(randomResult === "bag0") {
@@ -230,22 +223,6 @@ function ProductDetail() {
             else if(randomResult === "bag1") {
                 setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
                 setRandomResultTitle("가방02");
-            }
-            else if(randomResult === "bag2") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
-                setRandomResultTitle("랜덤박스 한정 가방");
-            }
-            else if(randomResult === "shoes0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
-                setRandomResultTitle("신발01");
-            }
-            else if(randomResult === "shoes1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
-                setRandomResultTitle("신발02");
-            }
-            else if(randomResult === "shoes2") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg");
-                setRandomResultTitle("랜덤박스 한정 신발");
             }
             else if(randomResult === "100" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
                 setRandomResultImageSrc(PointSrc);
@@ -289,7 +266,6 @@ function ProductDetail() {
         }
     }
     
-
     if(loadingStatus) {
         return (
             <div id="productDetailAllContainer">
