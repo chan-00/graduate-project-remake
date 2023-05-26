@@ -205,32 +205,36 @@ function ProductDetail() {
                 setRandomResultTitle("랜덤박스 한정 하의");
             }
             else if(randomResult === "hat0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setRandomResultTitle("모자01");
+                setRandomResultImageSrc(HatSrc01);
+                setRandomResultTitle("토끼 모자");
             }
             else if(randomResult === "hat1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
-                setRandomResultTitle("모자02");
+                setRandomResultImageSrc(HatSrc02);
+                setRandomResultTitle("호랑이 모자");
             }
             else if(randomResult === "hat2") {
+                setRandomResultImageSrc(HatSrc03);
+                setRandomResultTitle("버킷 햇");
+            }
+            else if(randomResult === "hat3") {
                 setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
                 setRandomResultTitle("랜덤박스 한정 모자");
             }
             else if(randomResult === "bag0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
-                setRandomResultTitle("가방01");
+                setRandomResultImageSrc(BagSrc01);
+                setRandomResultTitle("빨간색 가방");
             }
             else if(randomResult === "bag1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg");
-                setRandomResultTitle("가방02");
+                setRandomResultImageSrc(BagSrc02);
+                setRandomResultTitle("갈색 가방");
             }
-            else if(randomResult === "100" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
+            else if(randomResult === "150" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
                 setRandomResultImageSrc(PointSrc);
                 setRandomResultTitle(randomResult + "p");
             }
 
             //랜덤박스 결과 포인트가 나왔다면 카테고리를 Point로 해서 백엔드로 전송
-            if(randomResult === "100" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
+            if(randomResult === "150" || randomResult === "50" || randomResult === "30" || randomResult === "10") {
                 functionRandomPurchase(window.sessionStorage.id, randomResult, "Point", setResultMessage, handleRandomResultModalShow, setUserPoint);
             }
             else if(randomResult === "ch0" || randomResult === "ch1" || randomResult === "ch2" || randomResult === "ch3") {
@@ -318,10 +322,10 @@ function ProductDetail() {
                     </Modal.Header>
                     <Modal.Body>
                         <p>랜덤박스 한정 캐릭터(2%)</p>
-                        <p>랜덤박스 한정 아이템(모자, 상의, 하의, 가방, 신발)(4%)</p>
-                        <p>일반 캐릭터(4%)</p>
-                        <p>일반 아이템(모자, 상의, 하의, 가방, 신발)(20%)</p>
-                        <p>100p(5%), 50p(15%), 30p(30%), 10p(20%)</p>
+                        <p>랜덤박스 한정 아이템(모자, 상의, 하의)(6%)</p>
+                        <p>일반 캐릭터(3%)</p>
+                        <p>일반 아이템(모자, 상의, 하의, 가방)(21%)</p>
+                        <p>150p(2%), 50p(10%), 30p(30%), 10p(20%)</p>
                     </Modal.Body>
                 </Modal>
             </div>

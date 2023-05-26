@@ -9,6 +9,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import functions
 import functionGetAccountItemList from "../../Functions/FunctionMyPage/functionGetAccountItemList";
+//import image src
+import RedHairSrc from "../../Images/RedHair.png";
+import BlueHairSrc from "../../Images/BlueHair.png";
+import YellowHairSrc from "../../Images/YellowHair.png";
+import GrayHairSrc from "../../Images/GrayHair.png";
+import PurpleHairSrc from "../../Images/PurpleHair.png";
+import HatSrc01 from "../../Images/Hat01.png";
+import HatSrc02 from "../../Images/Hat02.png";
+import HatSrc03 from "../../Images/Hat03.png";
+import BagSrc01 from "../../Images/Bag01.png";
+import BagSrc02 from "../../Images/Bag02.png";
 
 function LockerPage() {
     //페이지 이동을 위한 useNavigate 사용
@@ -55,64 +66,46 @@ function LockerPage() {
                         divList[3].push(["https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png", "상의01"]);
                     }
                     else if(userItemList[i] === "top1") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png", "상의02"]);
-                    }
-                    else if(userItemList[i] === "top2") {
                         divList[1].push(["https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png", "한정 상의"]);
                     }
                     else if(userItemList[i] === "pants0") {
                         divList[3].push(["https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg", "하의01"]);
                     }
                     else if(userItemList[i] === "pants1") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg", "하의02"]);
-                    }
-                    else if(userItemList[i] === "pants2") {
                         divList[1].push(["https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg", "한정 하의"]);
                     }
                     else if(userItemList[i] === "hat0") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg", "모자01"]);
+                        divList[3].push([HatSrc01, "토끼 모자"]);
                     }
                     else if(userItemList[i] === "hat1") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg", "모자02"]);
+                        divList[3].push([HatSrc02, "호랑이 모자"]);
                     }
                     else if(userItemList[i] === "hat2") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg", "모자03"]);
+                        divList[3].push([HatSrc03, "버킷 햇"]);
                     }
                     else if(userItemList[i] === "hat3") {
                         divList[1].push(["https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg", "한정 모자"]);
                     }
                     else if(userItemList[i] === "bag0") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg", "가방01"]);
+                        divList[3].push([BagSrc01, "빨간색 가방"]);
                     }
                     else if(userItemList[i] === "bag1") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg", "가방02"]);
-                    }
-                    else if(userItemList[i] === "bag2") {
-                        divList[1].push(["https://cdn.pixabay.com/photo/2016/06/25/12/48/go-pro-1478810_960_720.jpg", "한정 가방"]);
-                    }
-                    else if(userItemList[i] === "shoes0") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg", "신발01"]);
-                    }
-                    else if(userItemList[i] === "shoes1") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg", "신발02"]);
-                    }
-                    else if(userItemList[i] === "shoes2") {
-                        divList[1].push(["https://cdn.pixabay.com/photo/2017/04/09/18/54/shoes-2216498_960_720.jpg", "한정 신발"]);
+                        divList[3].push([BagSrc02, "갈색 가방"]);
                     }
                     else if(userItemList[i] === "color0") {
-                        divList[4].push(["https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg", "빨간 염색약"]);
+                        divList[4].push([RedHairSrc, "빨간 염색약"]);
                     }
                     else if(userItemList[i] === "color1") {
-                        divList[4].push(["https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg", "초록 염색약"]);
+                        divList[4].push([BlueHairSrc, "파란 염색약"]);
                     }
                     else if(userItemList[i] === "color2") {
-                        divList[4].push(["https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg", "파란 염색약"]);
+                        divList[4].push([YellowHairSrc, "노란 염색약"]);
                     }
                     else if(userItemList[i] === "color3") {
-                        divList[4].push(["https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg", "검정 염색약"]);
+                        divList[4].push([GrayHairSrc, "회색 염색약"]);
                     }
                     else if(userItemList[i] === "color4") {
-                        divList[4].push(["https://cdn.pixabay.com/photo/2016/06/11/12/13/pink-hair-1450045_960_720.jpg", "하얀 염색약"]);
+                        divList[4].push([PurpleHairSrc, "보라 염색약"]);
                     }
                 }
                 setUserDivItemList(divList);

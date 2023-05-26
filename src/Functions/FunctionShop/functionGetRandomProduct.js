@@ -4,9 +4,9 @@ function functionGetRandomProduct() {
     const ranNum = Math.floor((Math.random() * 999) +1);
 
     //경품 생성
-    const gift = ['ch3', 'hat3', 'top2', 'pants2', 'bag2', 'shoes2', 'ch0', 'ch1', 'ch2', 'top0', 'top1', 'pants0', 'pants1', 'hat0', 'hat1', 'hat2', 'bag0', 'bag1', 'shoes0', 'shoes1', '100', '50', '30', '10'];
+    const gift = ['ch3', 'hat3', 'top1', 'pants1', 'ch0', 'ch1', 'ch2', 'top0', 'pants0', 'hat0', 'hat1', 'hat2', 'bag0', 'bag1', '150', '50', '30', '10'];
     //확률 생성
-    const pbt = [20, 28, 36, 44, 52, 60, 74, 87, 100, 120, 140, 160, 180, 194, 207, 220, 240, 260, 280, 300, 350, 500, 800, 1000];
+    const pbt = [20, 40, 60, 80, 110, 140, 170, 200, 230, 260, 290, 320, 350, 380, 400, 500, 800, 1000];
 
     for (let i = 0; i < gift.length; i++) {
         if(i !== 0) {
