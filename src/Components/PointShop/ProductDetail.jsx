@@ -27,6 +27,9 @@ import HatSrc02 from "../../Images/Hat02.png";
 import HatSrc03 from "../../Images/Hat03.png";
 import BagSrc01 from "../../Images/Bag01.png";
 import BagSrc02 from "../../Images/Bag02.png";
+import SnowTopSrc from "../../Images/SnowTop.png";
+import SnowBottomSrc from "../../Images/SnowBottom.png";
+import SnowHatSrc from "../../Images/SnowHat.png";
 
 
 function ProductDetail() {
@@ -193,7 +196,7 @@ function ProductDetail() {
                 setRandomResultTitle("상의01");
             }
             else if(randomResult === "top1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setRandomResultImageSrc(SnowTopSrc);
                 setRandomResultTitle("랜덤박스 한정 상의");
             }
             else if(randomResult === "pants0") {
@@ -201,7 +204,7 @@ function ProductDetail() {
                 setRandomResultTitle("하의01");
             }
             else if(randomResult === "pants1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setRandomResultImageSrc(SnowBottomSrc);
                 setRandomResultTitle("랜덤박스 한정 하의");
             }
             else if(randomResult === "hat0") {
@@ -217,7 +220,7 @@ function ProductDetail() {
                 setRandomResultTitle("버킷 햇");
             }
             else if(randomResult === "hat3") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg");
+                setRandomResultImageSrc(SnowHatSrc);
                 setRandomResultTitle("랜덤박스 한정 모자");
             }
             else if(randomResult === "bag0") {
