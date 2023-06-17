@@ -4,12 +4,15 @@ import "../../css/MainPageCss/Main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 //import react hooks
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 //import user component
 import MainMapArea from "./MainMapArea";
 import MainCharacterArea from "./MainCharacterArea";
 //import react router
 import { useNavigate } from "react-router-dom";
+//import src
+import WebmVideoSrc from "../../Images/MainPageVideo.webm";
+import Mp4VideoSrc from "../../Images/MainPageVideoMp4.mp4";
 
 
 //메인 페이지 영역 제작
@@ -33,6 +36,11 @@ function Main() {
     return (
         <>
             <div className="contentCenter" id="mainContentContainer">
+                <video autoPlay muted loop>
+                    <source src={WebmVideoSrc} type="video/webm" />
+                    <source src={Mp4VideoSrc} type="video/mp4" />
+                    현재 브라우저에서는 비디오가 적용되지 않습니다.
+                </video>
                 <div data-aos="fade-up" data-aos-duration="1200">
                     상상하는 모든 것.<br/>
                     위드리움에서.<br />

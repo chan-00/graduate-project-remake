@@ -1,11 +1,16 @@
 /* gif 포함 메인 영역 Container css */
 #mainContentContainer {
     width: 100vw;
-    height: 810px;
-    
-    background-image: url('../../Images/MainLibraryImage.png');
-    background-size: 100vw 810px;
-    background-repeat: no-repeat;
+    height: 870px;
+}
+
+#mainContentContainer > video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 870px;
+    width: 100vw;
 }
 
 #mainContentContainer div {
