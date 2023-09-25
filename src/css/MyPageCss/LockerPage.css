@@ -22,3 +22,9 @@
 .lockerCardContainer .card-title {
     margin-top: 30px;
 }
+
+.lockerContainer .Character {
+    width: 30%;
+    height: 60%;
+    object-fit: cover;
+}

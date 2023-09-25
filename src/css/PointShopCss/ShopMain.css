@@ -28,7 +28,13 @@
     margin-right: 0;
 }
 
-.ProductCardContainer > img {
+.ProductContainer .CharacterImage > img {
+    width: 30%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.ProductCardContainer img {
     width: 248px;
     height: 200px;
 }

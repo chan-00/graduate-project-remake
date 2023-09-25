@@ -9,9 +9,16 @@
     grid-template-columns: 40% 60%;
 }
 
-#productDetailAllContainer img {
+#productDetailAllContainer .notCh {
     width: 600px;
     height: 600px;
+}
+
+#productDetailAllContainer .ch {
+    width: 30%;
+    height: 80%;
+    object-fit: cover;
+    margin: 0 auto;
 }
 
 #productDetailContainer > div > div {

@@ -16,7 +16,11 @@ import HatSrc02 from "../../Images/Hat02.png";
 import HatSrc03 from "../../Images/Hat03.png";
 import BagSrc01 from "../../Images/Bag01.png";
 import BagSrc02 from "../../Images/Bag02.png";
-
+import SnowTopSrc from "../../Images/SnowTop.png";
+import SnowBottomSrc from "../../Images/SnowBottom.png";
+import CharacterSrc01 from "../../Images/Character01.png";
+import CharacterSrc02 from "../../Images/Character02.png";
+import CharacterSrc03 from "../../Images/Character03.png";
 
 function ShopMain() {
     //화면 전환을 위한 useNavigate 변수
@@ -51,19 +55,19 @@ function ShopMain() {
                 
                 <h3>캐릭터</h3>
                 <hr/>
-                <div className="ProductCardContainer" id="ch0" onClick={handleProductClick}>
+                <div className="ProductCardContainer CharacterImage" id="ch0" onClick={handleProductClick}>
                     <h4>캐릭터01</h4>
-                    <img src="https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg"/>
+                    <img src={CharacterSrc01} />
                     <p>Point : 300p</p>
                 </div>
-                <div className="ProductCardContainer" id="ch1" onClick={handleProductClick}>
+                <div className="ProductCardContainer CharacterImage" id="ch1" onClick={handleProductClick}>
                     <h4>캐릭터02</h4>
-                    <img src="https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg"/>
+                    <img src={CharacterSrc02} />
                     <p>Point : 300p</p>
                 </div>
-                <div className="ProductCardContainer" id="ch2" onClick={handleProductClick}>
+                <div className="ProductCardContainer CharacterImage" id="ch2" onClick={handleProductClick}>
                     <h4>캐릭터03</h4>
-                    <img src="https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg"/>
+                    <img src={CharacterSrc03} />
                     <p>Point : 300p</p>
                 </div>
             </div>
@@ -72,12 +76,12 @@ function ShopMain() {
                 <hr/>
                 <div className="ProductCardContainer" id="top0" onClick={handleProductClick}>
                     <h4>상의</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png"/>
+                    <img src={SnowTopSrc}/>
                     <p>Point : 100p</p>
                 </div>
                 <div className="ProductCardContainer" id="pants0" onClick={handleProductClick}>
                     <h4>하의</h4>
-                    <img src="https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg"/>
+                    <img src={SnowBottomSrc}/>
                     <p>Point : 100p</p>
                 </div>
             </div>

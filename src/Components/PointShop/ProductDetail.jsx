@@ -6,7 +6,7 @@ import { Modal } from "react-bootstrap";
 //import react bootstrap icon
 import { QuestionCircle } from "react-bootstrap-icons";
 //import react hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 //import react bootstrap
 import { useNavigate } from "react-router-dom";
 //import functions
@@ -30,7 +30,12 @@ import BagSrc02 from "../../Images/Bag02.png";
 import SnowTopSrc from "../../Images/SnowTop.png";
 import SnowBottomSrc from "../../Images/SnowBottom.png";
 import SnowHatSrc from "../../Images/SnowHat.png";
-
+import RandomBoxCharacterSrc from "../../Images/RandomBoxCharacter.png";
+import CharacterSrc01 from "../../Images/Character01.png";
+import CharacterSrc02 from "../../Images/Character02.png";
+import CharacterSrc03 from "../../Images/Character03.png";
+import RandomBoxTopSrc from "../../Images/RandomBoxTop.png";
+import RandomBoxBottomSrc from "../../Images/RandomBoxBottom.png";
 
 function ProductDetail() {
     //화면 전환을 위한 useNavigate 변수
@@ -53,6 +58,8 @@ function ProductDetail() {
     const [ productCategory, setProductCategory ] = useState();
     //염색약일 경우 어떤 색을 선택했는지에 대한 값
     const [ selectHairColor, setSelectHairColor ] = useState("color0");
+    //클릭 상품이 캐릭터일 때와 아닐 때를 비교하여 클래스 이름을 다르게 주어 스타일을 관리하기 위한 값
+    const [ clickItemImgClassName, setClickImteImgClassName ] = useState("notCh");
 
     //랜덤박스 뽑기 시 결과 화면을 띄워 줄 Modal 창의 Boolean useState 변수
     const [ randomResultModalShow, setRandomResultModalShow ] = useState(false);
@@ -82,32 +89,36 @@ function ProductDetail() {
         else if(window.sessionStorage.clickItem && window.sessionStorage.id) {
             functionUserPoint(window.sessionStorage.id, setUserPoint, setLoadingStatus);
 
+            if(window.sessionStorage.clickItem.includes("ch")) {
+                setClickImteImgClassName("ch");
+            }
+
             if(window.sessionStorage.clickItem === "ch0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setImageSrc(CharacterSrc01);
                 setProductTitle("캐릭터01");
                 setProductPrice(300);
                 setProductCategory("character");
             }
             else if(window.sessionStorage.clickItem === "ch1") {
-                setImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setImageSrc(CharacterSrc02);
                 setProductTitle("캐릭터02");
                 setProductPrice(300);
                 setProductCategory("character");
             }
             else if(window.sessionStorage.clickItem === "ch2") {
-                setImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setImageSrc(CharacterSrc03);
                 setProductTitle("캐릭터03");
                 setProductPrice(300);
                 setProductCategory("character");
             }
             else if(window.sessionStorage.clickItem === "top0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setImageSrc(SnowTopSrc);
                 setProductTitle("상의");
                 setProductPrice(100);
                 setProductCategory("outfit");
             }
             else if(window.sessionStorage.clickItem === "pants0") {
-                setImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setImageSrc(SnowBottomSrc);
                 setProductTitle("하의");
                 setProductPrice(100);
                 setProductCategory("outfit");
@@ -176,35 +187,35 @@ function ProductDetail() {
             const randomResult = functionGetRandomProduct();
 
             if(randomResult === "ch0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultImageSrc(CharacterSrc01);
                 setRandomResultTitle("캐릭터01");
             }
             else if(randomResult === "ch1") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultImageSrc(CharacterSrc02);
                 setRandomResultTitle("캐릭터02");
             }
             else if(randomResult === "ch2") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultImageSrc(CharacterSrc03);
                 setRandomResultTitle("캐릭터03");
             }
             else if(randomResult === "ch3") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg");
+                setRandomResultImageSrc(RandomBoxCharacterSrc);
                 setRandomResultTitle("랜덤박스 한정 캐릭터");
             }
             else if(randomResult === "top0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png");
+                setRandomResultImageSrc(SnowTopSrc);
                 setRandomResultTitle("상의01");
             }
             else if(randomResult === "top1") {
-                setRandomResultImageSrc(SnowTopSrc);
+                setRandomResultImageSrc(RandomBoxTopSrc);
                 setRandomResultTitle("랜덤박스 한정 상의");
             }
             else if(randomResult === "pants0") {
-                setRandomResultImageSrc("https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg");
+                setRandomResultImageSrc(SnowBottomSrc);
                 setRandomResultTitle("하의01");
             }
             else if(randomResult === "pants1") {
-                setRandomResultImageSrc(SnowBottomSrc);
+                setRandomResultImageSrc(RandomBoxBottomSrc);
                 setRandomResultTitle("랜덤박스 한정 하의");
             }
             else if(randomResult === "hat0") {
@@ -277,7 +288,7 @@ function ProductDetail() {
         return (
             <div id="productDetailAllContainer">
                 <div id="productDetailContainer">
-                    <img src={imageSrc}/>
+                    <img src={imageSrc} className={clickItemImgClassName}/>
                     <div>
                         <h3 style={{display:"inline-block"}}>{productTitle}</h3>
                         {window.sessionStorage.clickItem === "randomBox"
@@ -288,13 +299,14 @@ function ProductDetail() {
                         </div>
                         : null}
                         {window.sessionStorage.clickItem === "color" ? 
-                        <select onChange={handleChangeHairColor}>
-                            <option value="color0">빨간색</option>
-                            <option value="color1">회색</option>
-                            <option value="color2">파란색</option>
-                            <option value="color3">노란색</option>
-                            <option value="color4">보라색</option>
-                        </select> : null}
+                            <select onChange={handleChangeHairColor}>
+                                <option value="color0">빨간색</option>
+                                <option value="color1">회색</option>
+                                <option value="color2">파란색</option>
+                                <option value="color3">노란색</option>
+                                <option value="color4">보라색</option>
+                            </select>
+                        : null}
                         <hr/>
                         <p>가격</p>
                         <span>{productPrice}p</span>

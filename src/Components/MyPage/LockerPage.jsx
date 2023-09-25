@@ -20,6 +20,15 @@ import HatSrc02 from "../../Images/Hat02.png";
 import HatSrc03 from "../../Images/Hat03.png";
 import BagSrc01 from "../../Images/Bag01.png";
 import BagSrc02 from "../../Images/Bag02.png";
+import SnowTopSrc from "../../Images/SnowTop.png";
+import SnowBottomSrc from "../../Images/SnowBottom.png";
+import SnowHatSrc from "../../Images/SnowHat.png";
+import RandomBoxCharacterSrc from "../../Images/RandomBoxCharacter.png";
+import CharacterSrc01 from "../../Images/Character01.png";
+import CharacterSrc02 from "../../Images/Character02.png";
+import CharacterSrc03 from "../../Images/Character03.png";
+import RandomBoxTopSrc from "../../Images/RandomBoxTop.png";
+import RandomBoxBottomSrc from "../../Images/RandomBoxBottom.png";
 
 function LockerPage() {
     //페이지 이동을 위한 useNavigate 사용
@@ -51,28 +60,28 @@ function LockerPage() {
 
                 for(let i = 0; i < userItemList.length; i++) {
                     if(userItemList[i] === "ch0") {
-                        divList[2].push(["https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg", "캐릭터01"]);
+                        divList[2].push([CharacterSrc01, "캐릭터01"]);
                     }
                     else if(userItemList[i] === "ch1") {
-                        divList[2].push(["https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg", "캐릭터02"]);
+                        divList[2].push([CharacterSrc02, "캐릭터02"]);
                     }
                     else if(userItemList[i] === "ch2") {
-                        divList[2].push(["https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg", "캐릭터03"]);
+                        divList[2].push([CharacterSrc03, "캐릭터03"]);
                     }
                     else if(userItemList[i] === "ch3") {
-                        divList[0].push(["https://cdn.pixabay.com/photo/2013/11/01/11/13/dolphin-203875_960_720.jpg", "한정 캐릭터"]);
+                        divList[0].push([RandomBoxCharacterSrc, "한정 캐릭터"]);
                     }
                     else if(userItemList[i] === "top0") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png", "상의01"]);
+                        divList[3].push([SnowTopSrc, "상의01"]);
                     }
                     else if(userItemList[i] === "top1") {
-                        divList[1].push(["https://cdn.pixabay.com/photo/2016/12/06/09/31/blank-1886008_960_720.png", "한정 상의"]);
+                        divList[1].push([RandomBoxTopSrc, "한정 상의"]);
                     }
                     else if(userItemList[i] === "pants0") {
-                        divList[3].push(["https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg", "하의01"]);
+                        divList[3].push([SnowBottomSrc, "하의01"]);
                     }
                     else if(userItemList[i] === "pants1") {
-                        divList[1].push(["https://cdn.pixabay.com/photo/2016/11/21/16/01/clothes-1846128_960_720.jpg", "한정 하의"]);
+                        divList[1].push([RandomBoxBottomSrc, "한정 하의"]);
                     }
                     else if(userItemList[i] === "hat0") {
                         divList[3].push([HatSrc01, "토끼 모자"]);
@@ -84,7 +93,7 @@ function LockerPage() {
                         divList[3].push([HatSrc03, "버킷 햇"]);
                     }
                     else if(userItemList[i] === "hat3") {
-                        divList[1].push(["https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332_960_720.jpg", "한정 모자"]);
+                        divList[1].push([SnowHatSrc, "한정 모자"]);
                     }
                     else if(userItemList[i] === "bag0") {
                         divList[3].push([BagSrc01, "빨간색 가방"]);
@@ -124,7 +133,7 @@ function LockerPage() {
                     {userDivItemList[0].map((item, index) => (
                         <div className="lockerCardContainer cardContainer" key={index}>
                             <Card>
-                                <img className="itemImage" src={item[0]}/>
+                                <img className="itemImage Character" src={item[0]}/>
                                 <Card.Body>
                                     <Card.Title>{item[1]}</Card.Title>
                                 </Card.Body>
@@ -156,7 +165,7 @@ function LockerPage() {
                     {userDivItemList[2].map((item, index) => (
                         <div className="lockerCardContainer cardContainer" key={index}>
                             <Card>
-                                <img className="itemImage" src={item[0]}/>
+                                <img className="itemImage Character" src={item[0]}/>
                                 <Card.Body>
                                     <Card.Title>{item[1]}</Card.Title>
                                 </Card.Body>
