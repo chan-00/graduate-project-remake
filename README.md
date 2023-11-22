@@ -8,12 +8,12 @@
 
 ## 사용 기술
 
-- React
-- Recoil (상태관리)
-- React-Router-Dom (페이지 라우팅)
-- React Bootstrap (디자인 작업)
-- AOS (스크롤 애니메이션 디자인)
-- axios (백엔드와의 통신)
+- React.js
+- Recoil
+- React-Bootstrap
+- Axios
+- ES6+
+- Vercel
 
 ## 구현 기능
 
