@@ -5,6 +5,7 @@
 - 2023 서일대학교 소프트웨어공학과 졸업작품 Withrium 팀 프로젝트의 웹 프론트엔드 담당
 - 개발 기간 (2023.01 ~ 2023.09)
 - 다목적 커뮤니케이션 서비스를 목적으로 개발 시작
+- Vercel 링크: https://graduate-project-remake.vercel.app/
 
 ## 사용 기술
 
