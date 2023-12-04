@@ -38,7 +38,6 @@ function TeamBoardWrite() {
         uploadFiles = e.target.files[0];
 
         if(uploadFiles) {
-            console.log(uploadFiles);
             if(uploadFiles.size <= FILE_UPLOAD_SIZE) {
                 formData = new FormData();
                 formData.append('files', uploadFiles);

@@ -315,7 +315,7 @@ function ProductDetail() {
                         <p>잔액</p>
                         <span>{userPoint - productPrice}p</span>
 
-                        <button onClick={handlePurchase}>바로 구매 &gt;</button>
+                        <button onClick={handlePurchase}>구매 &gt;</button>
                         <div>
                             <p>상품 카테고리 : {productCategory}</p>
                         </div>

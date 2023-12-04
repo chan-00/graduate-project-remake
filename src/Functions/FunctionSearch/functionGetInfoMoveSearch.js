@@ -1,8 +1,6 @@
-import searchApi from "../../searchApiKey.js";
-
 function functionGetInfoMoveSearch(setSearchResultArray, searchText, setStartIndex, setPreviousIndex, index) {
 
-    const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${searchApi.apiKey}&cx=${searchApi.cxValue}&q=${searchText}&start=${index}`;
+    const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${process.env.REACT_APP_SEARCH_API_KEY}&cx=${process.env.REACT_APP_CX_VALUE}&q=${searchText}&start=${index}`;
 
     fetch(apiUrl).then((response) => response.json()).then((data) => {
         if(data.queries.nextPage) {
